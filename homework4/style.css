@@ -1,0 +1,178 @@
+body{
+  color: white;
+  height:100%;
+  width:100%;
+  margin:0;
+  padding:0;
+  margin-top: 80px;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+header img{
+  height: 80px;
+  margin-left:-503px;
+}
+
+header{
+  font-family: 'Merriweather', serif;
+  background-color:white;;
+  position:fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  display:flex;
+  align-items: center;
+  box-shadow: 0 0 25px 0 black;
+}
+
+header *{
+  display:inline;
+  margin-left: auto;
+}
+
+.nav-wrapper a{
+  text-decoration: none;
+  color:black;
+  padding: 14px 16px;
+  font-size:17px;
+}
+
+.nav-wrapper a:hover {
+  color: red;
+}
+
+li{
+  text-decoration:none;
+  list-style-type: none;
+}
+
+ul{
+  text-decoration: none;
+  color:black;
+}
+
+.title{
+  font-family: 'Merriweather', serif;
+  font-size: 48px;
+  margin-top:7%;
+}
+
+#titleOne{
+  text-shadow: 2px 2px 4px #000000;
+}
+
+#titleThree{
+  text-shadow: 2px 2px 4px #000000;
+}
+
+#bodyOne{
+  text-align: center;
+  font-size:15px;
+  margin: auto;
+  max-width:52%;
+  margin-top:13px;
+  text-shadow: 2px 2px 4px #000000;
+
+}
+
+#bodyThree{
+  text-align: center;
+  font-size:30px;
+  margin: auto;
+  max-width:52%;
+  margin-top:13px;
+  color:white;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.mainContainer{
+  height: 800px;
+  padding-top: 50px;
+  width:100%;
+  text-align:center;
+}
+
+#homeContent{
+  margin-top:14%;
+}
+
+#home{
+  background-color: #C7402D;
+  background-image: url("foto3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+#discography{
+  background-color: #800000;
+}
+
+#members{
+  background-image: url("foto1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.container{
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin:1%;
+}
+
+.image{
+  display: block;
+  width: 200px;
+  height: 200px;
+  border: none;
+}
+
+#contact{
+  background-color: #800000;
+}
+
+input[type=text], select, textarea {
+  font-family: 'Merriweather', serif;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  font-family: 'Merriweather', serif;
+  background-color: #ffffff;
+  color: black;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #400000;
+  color:white;
+}
+
+.formContainer {
+  border-radius: 5px;
+  padding: 20px;
+  max-width:50%;
+  margin:auto;
+  text-align:center;
+}
