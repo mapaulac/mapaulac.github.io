@@ -1,0 +1,39 @@
+body{
+  /* background-color: black; */
+}
+
+.container{
+  /* background-color:tomato; */
+}
+
+.col-sm{
+  /* text-align:center; */
+  color:white;
+}
+
+#col1{
+  color:white;
+}
+
+.card{
+  display: inline-block;
+  margin: 5%;
+}
+
+#card-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:800px;
+}
+
+#form-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:800px;
+}
+
+.form-group{
+  width: 100%;
+}
