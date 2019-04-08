@@ -23,7 +23,6 @@
 
 	  <nav class = "nav-wrapper">
 	    <ul>
-				<li id = "hiddenNav"> MARIA PAULA CALDERON </li>
 	      <li> <a href = "#homeContainer"> HOME </a> </li>
 	      <li> <a href = "#aboutContainer"> ABOUT </a> </li>
 	      <li> <a href = "#worksContainer"> WORKS </a> </li>
@@ -64,40 +63,101 @@
 	</div>
 
 <!-- WORKS SECTION -->
-  <div id = "worksContainer">
+	<!-- <div class = "mainContainer" id = "worksContainer"> -->
+  <div class = "mainContainer" id = "worksContainer">
 		<h1 class = "title" id = "titleThree"> SELECTED WORKS </h1>
-		<div id = "gallery">
-			<a href="page1.html"><img class = "image" src="pokemon.png" height="265" width="400"></a></figure>
-			<a href="page2.html">
+    <div id = "gallery">
+      <!-- ROW 1 -->
+      <div>
+        <!-- IMAGE 1 -->
+        <div class = "container">
+          <a href="page1.html"><img class = "image" src="pokemon.png" height="265" width="400">
+          <div class = "overlay overlayFade">
+            <div class = "galleryText">VR Experience: Ecruteak City</div>
+          </div>
+          </a>
+        </div>
+        <!-- IMAGE 2 -->
+        <div class = "container">
+          <a href="page2.html"><img class = "image" src="totoro.png" height="265" width="400">
+          <div class = "overlay overlayFade">
+            <div class = "galleryText">Interactive Installation: Totoro</div>
+          </div>
+          </a>
+        </div>
+        <!-- IMAGE 3 -->
+        <div class = "container">
+          <a href="page3.html"><img class = "image" src="extinction2.png" height="265" width="400">
+          <div class = "overlay overlayFade">
+            <div class = "galleryText">Interactive Installation: Extinction</div>
+          </div>
+          </a>
+        </div>
+      </div>
+      <!-- ROW 2 -->
+      <div>
+        <!-- IMAGE 1 -->
+        <div class = "container">
+          <a href="page4.html"><img class = "image" src="poster1.jpg" height="265" width="400">
+          <div class = "overlay overlayFade">
+            <div class = "galleryText">Poster Series: "Take Care of Yourself"</div>
+          </div>
+          </a>
+        </div>
+        <!-- IMAGE 2 -->
+        <div class = "container">
+          <a href="page5.html"><img class = "image" src="capstone.png" height="265" width="400">
+          <div class = "overlay overlayFade">
+            <div class = "galleryText">Visual Identity: Capstone Festival 2019</div>
+          </div>
+          </a>
+        </div>
+        <!-- IMAGE 3 -->
+        <div class = "container">
+          <a href="page6.html"><img class = "image" src="genart.png" height="265" width="400">
+          <div class = "overlay overlayFade">
+            <div class = "galleryText">Generative Art: Decoding Nature</div>
+          </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+
+
+		<!-- <div id = "gallery">
+			<figure><a href="page1.html"><img class = "image" src="pokemon.png" height="265" width="400"></a></figure>
+			<figure><a href="page2.html">
 				<img class = "image" src="totoro.png" height="265" width="400">
-			</a>
-			<a href="page3.html">
+			</a></figure>
+			<figure><a href="page3.html">
+				<img class = "image" src="webde.png" height="265" width="400">
+			</a></figure>
+			<figure><a href="page4.html">
 				<img class = "image" src="extinction2.png" height="265" width="400">
-			</a>
-			<a href="page4.html">
-				<img class = "image" src="poster2.jpg" height="265" width="400">
-			</a>
-			<a href="page5.html">
-				<img class = "image" src="capstone.png" height="265" width="400">
-			</a>
-			<a href="page6.html">
-				<img class = "image" src="genart.png" height="265" width="400">
-			</a>
-		</div>
+			</a></figure>
+			<figure><a href="page5.html">
+				<img class = "image" src="extinction2.png" height="265" width="400">
+			</a></figure>
+			<figure><a href="page6.html">
+				<img class = "image" src="extinction2.png" height="265" width="400">
+			</a></figure>
+		</div> -->
 
 		<a href="https://www.behance.net/maricalderon" class="button">See all projects</a>
 
 	</div>
 
 <!-- CV SECTION -->
-	<div  id = "cvContainer">
+	<div class = "mainContainer" id = "cvContainer">
 	  <h1 class = "title" id = "titleFour"> RESUME </h1>
-		    <img id = "cvImage" src="resume.png" alt="Image of resume" height="653" width="500">
+		<img id = "cvImage" src="resume.png" alt="Image of resume" height="653" width="500">
 	</div>
 
 <!-- CONTACT SECTION -->
 	<div class = "mainContainer" id = "contactContainer">
-		<h1 class = "title" id = "titleFive"> LET'S TALK! </h1>
+		<h1 class = "title" id = "titleFive"> LETS TALK! </h1>
 		<div class="formContainer">
 		  <form action="/action_page.php">
 		    <label class = "formText" for="fname">Name</label>
