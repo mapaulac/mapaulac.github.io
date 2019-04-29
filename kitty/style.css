@@ -1,0 +1,30 @@
+h1{
+  text-align: center;
+}
+
+img{
+  position:absolute;
+  left:100px;
+}
+
+#hat{
+  position: absolute;
+  height:500px;
+  width:500px;
+}
+
+#bow{
+  position:absolute;
+  height:150px;
+  top:500px;
+  left:650px;
+}
+
+#text{
+  position:absolute;
+  color:white;
+  left: 1000px;
+  top:400px;
+  font-size:3em;
+  z-index: 3;
+}
