@@ -1,0 +1,346 @@
+body{
+  color: white;
+  height:100%;
+  width:100%;
+  margin:0;
+  padding:0;
+  margin-top: 80px;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#navBar{
+  background-color:yellow;
+  display:flex;
+  justify-content: space-between;
+}
+
+#navLeft{
+  background-color: black;
+}
+
+#navRight{
+  background-color: cyan;
+}
+
+.indexContainer{
+  height: 100%;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: center;
+}
+
+#indexHeader{
+  background-image: url("landing.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+#videoContainer{
+  /* margin-top:10%; */
+  background-color: black;
+}
+
+.subHeader{
+  height:70%;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: center;
+}
+
+#storyHeader{
+  background-image: url("header222.jpg");
+  background-color:black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+#teamHeader{
+  background-image: url("header.jpg");
+  background-color:black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+#contributeHeader{
+  background-image: url("baby.jpg");
+  background-color:black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.headerTitle{
+  text-shadow: 2px 2px 4px #000000;
+  color:white;
+}
+
+.storyPara{
+  font-size:20px;
+  font-family: 'Cormorant', serif;
+}
+
+
+.storyInfo{
+  height:80%;
+  width:100%;
+}
+
+.storyTitle{
+  font-family: 'Cormorant', serif;
+  position:relative;
+  top:20%;
+  left:27%;
+}
+
+#storyTitleThree{
+  left:53%;
+  top:36%;
+}
+
+.paraContainer{
+  padding:15%;
+}
+
+.contentLeft{
+  height:100%;
+  width:35%;
+  margin:0;
+  display:inline-block;
+  float:left;
+}
+
+.contentRight{
+  height:100%;
+  width: 65%;
+  margin: 0;
+  display: inline-block;
+  float: left;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.headerTitle{
+  font-family: 'Cormorant', serif;
+  font-size:5em;
+}
+
+#storyTwo{
+  /* height:100%; */
+  width:100%;
+  background-image: url("caravan.jpg");
+  background-color:black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-color:black;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: center;
+  padding:15%;
+}
+
+#storyTwoTitle{
+  font-family: 'Cormorant', serif;
+  text-align:center;
+  color:white;
+  font-size:2.5rem;
+}
+
+#storyTwoPara{
+  font-family: 'Cormorant', serif;
+  color:white;
+}
+
+#storyTwoContentSec{
+  width:70%;
+}
+
+/* TEAM SECTION */
+.profile{
+  width:100%;
+  height:50%;
+  text-align: center;
+
+}
+.profileImg{
+  height:200px;
+}
+
+.profileTitle{
+  font-family: 'Cormorant', serif;
+  font-size:1.5rem;
+  margin-left:-40%;
+}
+
+.profilePar{
+  font-family: 'Cormorant', serif;
+  font-size:1.2rem;
+}
+
+#profileLeft{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#profileRight{
+  text-align:left;
+  max-width:50%;
+}
+
+.contributeTitle{
+  font-family: 'Cormorant', serif;
+  position:relative;
+  top:20%;
+  left:27%;
+  margin-top:20%;
+}
+
+#contentImg{
+  padding:10%;
+}
+#contributeOne{
+  height:100%;
+  width:100%;
+}
+
+#contributeTwo{
+  height:100%;
+  width:100%;
+  display: flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content: center;
+  align-items: center;
+  padding:5%;
+}
+
+#contributeTwoTitle{
+  height:60%;
+  background-color: black;
+}
+
+#contributeHeader2{
+  height:400px;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: center;
+  background-image: url("subtitle.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.card{
+  padding:2%;
+  margin:1%;
+  font-family: 'Cormorant', serif;
+  font-size:15px;
+  width:21rem;
+  /* height:30rem; */
+}
+
+.card-title{
+  font-weight: bold;
+}
+
+.card-text{
+  padding:1%;
+}
+
+ul{
+  list-style-type: none;
+  padding: 0;
+  list-style-type: square;
+  list-style-position: inside;
+}
+
+#large{
+  height:35rem;
+}
+
+#medium{
+  height:30rem;
+}
+
+#small{
+  height:20rem;
+}
+
+#linklink{
+  color:white;
+  font-size:1.5em;
+  font-family: 'Cormorant', serif;
+}
+
+#indexUl li{
+  text-decoration:none;
+  list-style-type: none;
+  display:inline;
+  margin:5%;
+  margin-top:-10%;
+  color:black;
+}
+
+#indexUl{
+  text-decoration: none;
+}
+
+a{
+  font-family: 'Cormorant', serif;
+  color:white !important;
+  text-decoration: none;
+  text-decoration-style: none;
+  transition: 0.3s;
+  z-index:2;
+}
+
+a:hover{
+  color: #f2635b;
+}
+
+.content{
+  text-align: center;
+  position: fixed;
+  top:50%;
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
+#topHeader{
+  z-index:4;
+  padding:1%;
+  position:fixed;
+  width:100%;
+  height:15%;
+  background-color:black;
+  text-align: center;
+}
