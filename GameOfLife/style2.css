@@ -1,0 +1,108 @@
+html, body{
+  font-family: 'Open Sans', sans-serif;
+    margin: 0;
+height: 100%;		
+background-image: linear-gradient(to right, mediumturquoise , mediumaquamarine);
+}
+
+/*BUTTONS*/
+button{
+	color:white;
+	-webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+	padding: 1.5%;
+	border: white;
+	border-style: solid;
+	background: none;
+	cursor:pointer;
+	margin-top:2%;
+}
+
+#beginButton{
+		margin-left:40%;
+	margin-top:2%;
+}
+
+button:hover {
+  background-color: white; /* Green */
+  color: mediumturquoise;
+  cursor:pointer;
+}
+
+/* TEXT */
+.title{
+  font-family:'Ubuntu', sans-serif;
+  font-size: 4em;
+  color:white;
+  margin:0;
+}
+
+.subTitle{
+  font-family: 'Open Sans', sans-serif;
+  color:white;
+  margin:0;
+  font-size:1.5em;
+  font-style:italic;
+}
+
+#instruTitle{
+	text-align:center;
+	font-size:2em;
+}
+
+#gameSubTitle{
+  text-align:center;
+  margin:1%;
+  font-style:normal;
+}
+
+#myScore{	
+	margin-top:5%;
+	text-align:center;
+	font-size:5em;
+	margin-bottom:7%;
+}
+
+#instruSub{
+	text-align:center;
+	font-style:normal;
+}
+
+#instruSub2{
+	margin-top:5%;
+	text-align:center;
+	cursor:pointer;
+	/*font-size:1em;*/
+}
+
+.question{
+  font-family: 'Open Sans', sans-serif;
+  color:white;
+  margin:0;
+  font-size:1.5em;
+}
+
+.questionContainer{
+  display:none;
+}
+
+#mainContainer{
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contentContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-align:center;
+}
+
+#theEndContainer{
+	display:none;
+}

@@ -1,0 +1,115 @@
+<!-- CHANGES: CREATE END SEQUENCE WITH FINAL SCORE + WITTY LAST REMARK, CHANGE APPEARANCE AND VISUALIZATION OF GAME -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Game of Life</title>
+    <link rel="stylesheet" href="style2.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lalezar|Open+Sans:400,400i|Staatliches|Ubuntu&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>
+  </head>
+  <body>
+
+  <div id = "mainContainer">
+    <div class = "contentContainer" id = "gameContainer">
+      <div id = "contentLeft">
+        <!-- HIDDEN CONTAINER, FOR END SEQUENCE -->
+        <div id = "theEndContainer">
+          <h1 class = "title" id = "instruTitle"> This number is you.</h1>
+          <h1 class = "title" id = "myScore"></h1>
+          <!-- <p class = "subTitle" id = "instruSub"> Achievements obtained:</p> -->
+        </div>
+
+        <h1 class = "title" id = "thing"></h1>
+
+        <!-- QUESTION 1 -->
+        <div class = "questionContainer" id = "question1Container">
+          <p class = "question" id = "question1"> How many social media profiles do you have? (Including LinkedIn, personal blogs, etc. )</p>
+          <div class = "answers" id = "answers1">
+             <button id = "answers1One"> 0 </button>
+             <button id = "answers1Two"> 1-2 </button>
+             <button id = "answers1Three"> 3+ </button>
+          </div>
+        </div>
+
+        <!-- QUESTION 2 -->
+        <div class = "questionContainer" id = "question2Container">
+          <p class = "question" id = "question2"> How often do you post/share stories online, in any platform? </p>
+          <div class = "answers" id = "answers2">
+             <button id = "answers2One"> I never post </button>
+             <button id = "answers2Two"> Once every few months </button>
+             <button id = "answers2Three"> Every month </button>
+             <button id = "answers2Four"> Every day </button>
+          </div>
+        </div>
+
+        <!-- QUESTION 3 -->
+        <div class = "questionContainer" id = "question3Container">
+          <p class = "question" id = "question3"> How many Instagram followers do you have? </p>
+          <div class = "answers" id = "answers3">
+             <button id = "answers3One"> I don't have an Instagram. </button>
+             <button id = "answers3Two"> Less than 100 </button>
+             <button id = "answers3Three"> Between 100 - 500 </button>
+             <button id = "answers3Four"> Between 500 - 1k </button>
+             <button id = "answers3Five"> 1k+ </button>
+          </div>
+        </div>
+
+        <!-- QUESTION 4 -->
+        <div class = "questionContainer" id = "question4Container">
+          <p class = "question" id = "question4">Did you share your fall break travels online? </p>
+          <div class = "answers" id = "answers4">
+             <button id = "answers4One"> Nope </button>
+             <button id = "answers4Two"> Of Course </button>
+          </div>
+        </div>
+
+        <!-- QUESTION 5 -->
+        <div class = "questionContainer" id = "question5Container">
+          <p class = "question" id = "question5"> How many LinkedIn connections do you have? </p>
+          <div class = "answers" id = "answers5">
+             <button id = "answers5One"> I don't have a LinkedIn </button>
+             <button id = "answers5Two"> I don't know, nor care </button>
+             <button id = "answers5Three"> Less than 100 </button>
+             <button id = "answers5Four"> Between 100 - 500 </button>
+             <button id = "answers5Five"> 500+ </button>
+          </div>
+        </div>
+
+        <!-- QUESTION 6 -->
+        <div class = "questionContainer" id = "question6Container">
+          <p class = "question" id = "question6"> Does your Facebook Profile Picture have more than 100 likes? </p>
+          <div class = "answers" id = "answers6">
+             <button id = "answers6One"> I don't have a Facebook </button>
+             <button id = "answers6Two"> No </button>
+             <button id = "answers6Three"> Yes </button>
+          </div>
+        </div>
+
+        <!-- QUESTION 7 -->
+        <div class = "questionContainer" id = "question7Container">
+          <p class = "question" id = "question7"> What type of content do you usually share? </p>
+          <div class = "answers" id = "answers7">
+             <input type = "checkbox" id = "answers7One"> Personal life
+             <input type = "checkbox" id = "answers7Two"> Travels
+             <input type = "checkbox" id = "answers7Three"> News & Politics
+             <input type = "checkbox" id = "answers7Four"> Food
+             <input type = "checkbox" id = "answers7Five"> Memes
+             <button id = "submit7" onclick="finalSequence()"> Ready </button>
+          </div>
+        </div>
+
+      </div>
+      <!-- <div id="sketch-holder">
+      </div> -->
+      <!-- <p id = "subTitle"> Look at </p> -->
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+  </body>
+</html>
