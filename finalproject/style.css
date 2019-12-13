@@ -108,11 +108,21 @@ button:hover {
 	background-color: #240090;
 	background-color:#f5be29;
 }*/
-
+.layer{
+	height:100%;
+	background-color: rgba(100, 61, 191, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 #statsDiv{
 	height:100%;
-	background-image: url("ads3.jpg");
-	/*background-color:#3a2e89;*/
+
+	background-image: url("https://images.unsplash.com/photo-1526860474862-d2c1d76aed1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80");
+	
+	
 	height: 100%;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -372,7 +382,7 @@ button:hover {
 
 /*SPOTS PAGE*/
 #bannerSpots{
-	background-image: url("spotCoffee2.jpg");
+	background-image: url("https://images.unsplash.com/photo-1460794418188-1bb7dba2720d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
 	height:100%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
