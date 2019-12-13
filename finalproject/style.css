@@ -1,0 +1,590 @@
+body, html{
+	margin:0;
+	height:100%;
+	/*background-color:black;*/
+	font-family: 'Oswald', sans-serif;
+	/*font-family: 'Montserrat', sans-serif;*/
+	scroll-behavior: smooth
+}
+
+/*MISCELLANEOUS*/
+a{
+	text-decoration:none;
+		text-align:right;
+	color:black;
+	margin-top: 0;
+	/*width:80%;*/
+	/*margin-left:4%;*/
+	font-size: 1.2em;
+	margin:3%;
+	color:white;
+}
+
+#backgroundText{
+	color:black;
+	background-color: white;
+}
+
+.navContainer{
+	display:flex;
+	flex-align:center;
+	justify-content: center;
+	flex-direction: row;
+	margin-bottom:16%;
+}
+
+#indexNav{
+	margin-bottom:0;
+}
+
+#logo{
+	margin-left:0;
+}
+
+#image{
+	margin-top:2%;
+}
+button{
+	font-family: 'Oswald', sans-serif;
+	color:white;
+	-webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+	padding-left:5%;
+	padding-right:5%;
+	padding-top:2%;
+	padding-bottom:2%;
+	border: white;
+	border-style: solid;
+	background: none;
+	cursor:pointer;
+	margin-top:2%;
+	font-size:1em;
+}
+
+button:hover {
+  background-color: white; /* Green */
+  color: black;
+  cursor:pointer;
+}
+
+/*CONTAINERS*/
+#homeDiv{
+	background-image: url("cover3.png");
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	position: relative;
+}
+
+.flexContainer{
+	height:75%;
+	display:flex;
+	flex-direction:row;
+	align-items:center;
+	justify-content:center;
+}
+
+#flexContainerHome{
+	margin-left:10%;
+	justify-content: flex-start;
+}
+
+#flexContainerPackages{
+
+}
+
+/*STATISTIC DIV*/
+#flexContainerStats{
+	flex-direction:row;
+	align-items:center;
+	justify-content:center;
+	height:50%;
+}
+
+/*#statsDiv{
+	height:100%;
+	background-color: #240090;
+	background-color:#f5be29;
+}*/
+
+#statsDiv{
+	height:100%;
+	background-image: url("ads3.png");
+	/*background-color:#3a2e89;*/
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	position: relative;
+}
+
+.statClass{
+	margin-top:14%;
+	width:20%;
+}
+
+#stat1{
+
+	margin-left:8%;
+}
+
+/*PRODUCT OVERVIEW*/
+#productDiv1{
+	height:50%;
+	background-color: #1c1c1c;
+		/*background-image: linear-gradient(to right, #F7C318 , #E97924);*/
+}
+
+#productDiv2{
+	/*background-color: #1c1c1c;*/
+	background-image: url("retreat2.jpg");
+	height: 70%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	position: relative;	
+}
+#productDiv3{
+	/*background-color: #1c1c1c;*/
+	background-image: url("spot3.jpg");
+	height: 70%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	position: relative;	
+}
+#productDiv4{
+	/*background-color: #1c1c1c;*/
+	background-image: url("glasses2.jpg");
+	height: 70%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	position: relative;	
+}
+
+#rowContent{
+	display:flex;
+	flex-direction:row;
+	align-items: center;
+	justify-content: center;
+}
+
+.contentLeft{
+	width:35%;
+	margin:2%;
+}
+
+.contentRight{
+	width:35%;
+	margin:2%;
+}
+
+.bodyText{
+	/*padding:5%;*/
+}
+
+/*PACKAGES DIV*/
+#packagesDiv{
+	/*background-color:#271d50;*/
+	background-color:white;
+	/*background-image: linear-gradient(to right, mediumturquoise , mediumaquamarine);*/
+}
+
+.cardContainer{
+	width:22%;
+	height:60%;
+	background-color:white;
+	margin:2%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction:column;
+	box-shadow:0px 0px 11px -5px #C4C2C0;
+}
+
+#packagesTitle{
+	text-align:center;
+	color:black;
+	margin-top:0%;
+	margin-bottom:1%;
+}
+
+#packagesTitle2{
+	text-align:center;
+	color:black;
+	margin-top:0;
+	font-size:2em;
+}
+
+#packagesText{
+	color:black;
+}
+	
+
+/*MAIN PACKAGES PAGE*/
+#bodyProductPageImg{
+	height:100%;
+	background-image: url("possibleBanner.jpeg");
+	/*background-position: center;*/
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	position: relative;
+	display:flex;
+	/*align-items: center;*/
+	/*justify-content:	 center;*/
+	flex-direction:column;
+}
+
+#bodyProductPage{
+	background-color:white;
+}
+#productDivMain{
+	margin-top:5%;
+}
+
+#productText5{
+	color:black;
+	margin-bottom: 0;
+	margin-top:0;
+
+}
+
+#productTextDescription{
+	text-align: center;
+	margin-top: 0;
+	color:white;
+	/*text-shadow: 4px 2px 4px #343434;*/
+}
+
+#productTextDescription2{
+	margin:0;
+	text-align:left;
+	color:black;
+	margin-top: 0;
+	/*margin-left:4%;*/
+	font-size: 2.3em;
+}
+
+#productTextDescription22{
+	margin:0;
+	text-align:right;
+	color:black;
+	margin-top: 0;
+	/*margin-left:4%;*/
+	font-size: 2.3em;
+}
+
+#productTextDescription3{
+	text-align:left;
+	color:black;
+	margin-top: 0;
+	/*margin-left:4%;*/
+	font-size: 1.4em;
+	padding-right:2%;
+}
+
+#productTextDescription33{
+	text-align:right;
+	color:black;
+	margin-top: 0;
+	/*margin-left:4%;*/
+	font-size: 1.4em;
+}
+
+#productTextDescription4{
+	text-align:left;
+	color:black;
+	margin-top: 0;
+	/*margin-left:4%;*/
+	font-size: 1.2em;
+	/*padding-right:26%;*/
+}
+
+#productTextDescription44{
+	text-align:right;
+	color:black;
+	margin-top: 0;
+	/*margin-left:4%;*/
+	font-size: 1.2em;
+}
+
+#productTextDescription45{
+	text-align:right;
+	color:black;
+	margin-top: 0;
+	/*width:80%;*/
+	/*margin-left:4%;*/
+	font-size: 1.2em;
+	margin:3%;
+	color:white;
+}
+
+#rowContent2{
+	display:flex;
+	flex-direction:row;
+	align-items: center;
+	justify-content: center;
+}
+
+#productMainLeft{
+	width:50%;
+	margin-left:15%;
+}
+
+#productMainRight{
+	width:60%;
+	display:flex;
+	flex-direction:row;
+	margin-left:0;
+}
+
+#productMainLeft2{
+	width:45%;
+	margin-left:15%;
+}
+
+#productMainLeft2{
+	width:45%;
+	/*margin-left:15%;*/
+}
+
+#productMainRight2{
+	width:55%;
+	display:flex;
+	flex-direction:row;
+	margin-left:0;
+}
+
+#containerProductText{
+	display:flex;
+	flex-direction: column;
+	width:100%;
+	margin-right:0;
+}
+
+/*SPOTS PAGE*/
+#bannerSpots{
+	background-image: url("spotCoffee2.png");
+	height:100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	position: relative;
+	display:flex;
+	/*align-items: center;*/
+	/*justify-content: center;*/
+	flex-direction:column;
+}
+
+#mapDiv{
+	/*height:100%;*/
+	/*background-color:#0A152B;*/
+	text-align:center;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction:column;
+}
+
+#mapDiv2{
+	/*text-align:center;*/
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction:row;
+}
+
+#mapTitle{
+	margin-top:6%;
+	font-size:1.4em;
+	/*margin-bottom:2%;*/
+}
+
+#mapTitle2{
+	margin-top:0;
+	margin-bottom:2%;
+	font-size:1.2em;
+}
+
+/* RETREAT PAGE */
+#bannerRetreat{
+	background-image: url("retreatBanner.jpg");
+	height:100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	position: relative;
+	display:flex;
+	/*align-items: center;*/
+	/*justify-content: center;*/
+	flex-direction:column;
+}
+
+
+.mainContainer{
+  height: 80%;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  /* text-align:center; */
+}
+
+#contentLeft{
+  height:100%;
+  width:70%;
+  margin:0;
+  display:inline-block;
+  float:left;
+  background-color: #6ACCC3;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  background-image: url("retreatPhoto1.jpg");
+  	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#contentRight{
+  height:100%;
+  width:30%;
+	margin:0;
+	display:inline-block;
+	float:left;
+  background-color: white;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  flex-direction:column;
+}
+
+/*SUBMIT*/
+form{
+	text-align:center;
+}
+#contactContainer{
+  height:900px;
+  display:flex;
+   align-items:center;
+  justify-content: center;
+  background-color: #6ACCC3;
+  flex-direction:column;
+  position:relative;
+  padding-bottom: 2rem;
+  z-index: -2;
+  /* margin-top:-%; */
+}
+
+#contact{
+  background-color: #800000;
+}
+
+#titleFive{
+  margin-bottom:4%;
+}
+
+/*TEXT*/
+.titleText{
+	font-size:4.5em;
+	color:white;
+	/*color:#ffe921;*/
+	/*text-shadow: 4px 2px 12px #000000;*/
+}
+
+#titleTextOne{
+	margin-top:-13%;
+	animation: fadein 2s;
+}
+
+#titleTextTwo{
+	animation: fadein 2s;
+	animation-delay: 2s;
+}
+
+.titleTextStat{
+	font-size:4.5em;
+	/*color:#180563;*/
+	color:white;
+	/*text-shadow: 4px 2px 12px #000000;*/
+}
+
+#statPhrase{
+	text-align:center;
+}
+
+#arrowContainer{
+	display:flex;
+	align-items:center;
+	justify-content: center;
+	width:100%;
+	height:1%;
+}
+
+#arrow{
+	font-family: 'Solway', serif;
+	/*text-shadow: 4px 2px 12px #000000;*/
+	font-size:5em;
+	color:white;
+	/*margin-left:92%;*/
+	/*margin-bottom:1%;*/
+	cursor:pointer;
+	/*margin-top:2%;*/
+}
+
+#statText{
+	margin:4%;
+}
+
+#statText2{
+	font-size:1.5em;
+	margin:4%;
+}
+
+.titleTextProduct{
+	text-align:center;
+	font-family: 'Oswald', sans-serif;
+	font-size:3em;
+	color:white;
+}
+
+.titleTextProductTitle{
+	text-align:center;
+	font-family: 'Oswald', sans-serif;
+	font-size:3em;
+	color:white;
+}
+
+.titleTextProductPar{
+	font-size:1em;
+	/*text-align:justify;*/
+}
+
+#productText2{
+	/*font-family: 'Montserrat', sans-serif;*/
+	font-size:2em;
+}
+
+#productText3{
+	text-align: left;
+}
+
+p{
+	color:white;
+}
+/*@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}*/
