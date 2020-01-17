@@ -77,6 +77,14 @@ button:hover {
     margin-bottom:2%;
 }
 
+#part7BTitle{
+    margin-bottom:10%;
+}
+
+#part7BTitle2{
+    margin-bottom:5%;
+}
+
 #subPart1{
     margin-bottom:6%;
 }
@@ -94,6 +102,11 @@ button:hover {
     margin-top:14%;
 }
 
+#subPart4{
+    margin-bottom:3%;
+    margin-top:3%;
+}
+
 #titlePart3{
     margin-top:-2%;
     margin-bottom:10%;
@@ -103,8 +116,9 @@ button:hover {
     margin-top:14%;
 }
 
-#titlePart4{
-    margin-bottom:3%;
+#button-5{
+    display:none;
+    margin-top:5%
 }
 
 /* GENERIC POSITIONING */
@@ -134,6 +148,15 @@ button:hover {
     align-items: center;
 }
 
+#part7Flex{
+    flex-direction:row;
+}
+
+#dareFlexContainer{
+    height:35%;
+    width:90%;
+}
+
 /* SEPARATE PARTS */
 #part2{
     display:none;
@@ -160,6 +183,10 @@ button:hover {
     display:none;
 }
 
+#part7B{
+    display:none;
+}
+
 /* TIMER */
 #timerContainer{
     /* display:none;
@@ -176,6 +203,12 @@ button:hover {
 
 #timerSub{
     color:black;
+}
+
+#timeDisclaimer{
+    font-style: italic;
+    margin-top:-2%;
+    font-size:1.5em;
 }
 
 /* DARE OPTIONS */
@@ -302,3 +335,5 @@ button:hover {
     background-color:white;
     color:rgb(59, 55, 55);
 }
+
+

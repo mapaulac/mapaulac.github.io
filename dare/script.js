@@ -59,7 +59,7 @@ $( "#button-2" ).click(function() {
     "Special dare! Go to the Handle Box. Take a piece of paper out and contact that person. If you don't have the platform they specify, return that paper and take out a new one. (Don't worry, the people in the Handle Box have consented to be contacted)"], 
     ["Take a selfie and post it on Instagram with no context.", 
     "Share the 3 most recent photos of yourelf from your camera roll in your Instagram public story.", 
-    "Reply to the first 3 accounts' stories on your Instagram."]];
+    "Reply to the first 3 stories on your Instagram."]];
 
     snapArray = [["Send a Bitmoji to your top 3 Best Friends on Snapchat",
     "Share a Snapchat story with 3 people not on your Best Friends list.", 
@@ -80,7 +80,6 @@ $( "#button-2" ).click(function() {
     ["Retweet something you disagree with (politically, ethically, etc.)", 
     "Find a Twitter account of a person you know in real life and like and retweet 3 of their most recent Tweets.", 
     "Tweet a verified Twitter account (can't be Twitter official page) a selfie of yourself."]];
-
 });
 
 //submit risk level
@@ -90,7 +89,7 @@ $( "#button-3" ).click(function() {
     updateChosenRisk();
 });
 
-//submit social media checkboxes
+//submit social media checkboxes, selectDare();
 $( "#button-4" ).click(function() {
     seeWhichChecked();
     if (userChoseSocial){
@@ -103,7 +102,18 @@ $( "#button-4" ).click(function() {
     } else{
         alert("You must select one of the options before proceeding");
     }
-    
+});
+
+$( "#button-5" ).click(function(){
+    document.getElementById("part5").style.display = "none";
+    document.getElementById("part6").style.display = "flex";
+    setTimer();
+    document.getElementById("timerContainer").style.display = "block";
+});
+
+$( "#button-6" ).click(function() {
+    document.getElementById("part6").style.display = "none";
+    document.getElementById("part7B").style.display = "flex";
 });
 
 //GET NAME 
@@ -113,13 +123,17 @@ function getName(){
     var output = document.getElementById("nameHTML");
     var output2 = document.getElementById("nameHTML2");
     var output3 = document.getElementById("nameHTML3");
+    var output4 = document.getElementById("nameHTML4");
+    var output5 = document.getElementById("nameHTML5");
     output.innerHTML = userName;
     output2.innerHTML = userName;
     output3.innerHTML = userName;
+    output4.innerHTML = userName;
+    output5.innerHTML = userName;
 }
 
 //ARRAY OF DARES, DIFFERENT ACCORDING TO RISK & PLATFORMS
-//changing chosenRisk value according to user's choice
+//change chosenRisk value according to user's choice
 function updateChosenRisk(){
     if (slider.value == 1){
         chosenRisk = 1;
@@ -171,7 +185,7 @@ function createFirstDareArray(){
     console.log(dareArray);
 };
 
-//PART 5: SELECTING DARE AND DISPLAYING 
+//PART 5: SELECTING DARE AND CHANGING INNER HTML WHILE HIDDEN 
 function selectDare(){
     //1. select 3 random dares out of the dareArray
     var randDare = Math.floor(Math.random() * dareArray.length);
@@ -197,37 +211,13 @@ function selectDare(){
     }
 };
 
+//SHOWING HIDDEN CHOSEN DARE 
 function selectDare1(){
     console.log("SELECT DARE1");
     choseDare1 = true;
     showDare();
     document.getElementById("dareOptionDiv2").style.display = "none";
     document.getElementById("dareOptionDiv3").style.display = "none";
-}
-
-//OPTIONAL:FADE
-// function selectDare1(){
-//     console.log("SELECT DARE1");
-//     choseDare1 = true;
-//     showDare();
-//     var element = document.getElementById("dareOptionDiv2");
-//     var element2 = document.getElementById("dareOptionDiv3");
-//     fade(element);
-//     fade(element2);
-// }
-
-//OPTIONAL: FADE
-function fade(element) {
-    var op = 1;  // initial opacity
-    var timer = setInterval(function () {
-        if (op <= 0.1){
-            clearInterval(timer);
-            element.style.display = 'none';
-        }
-        element.style.opacity = op;
-        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op -= op * 0.1;
-    }, 50);
 }
 
 function selectDare2(){
@@ -246,7 +236,34 @@ function selectDare3(){
     document.getElementById("dareOptionDiv1").style.display = "none";
 }
 
+//OPTIONAL:FADE
+// function selectDare1(){
+//     console.log("SELECT DARE1");
+//     choseDare1 = true;
+//     showDare();
+//     var element = document.getElementById("dareOptionDiv2");
+//     var element2 = document.getElementById("dareOptionDiv3");
+//     fade(element);
+//     fade(element2);
+// }
+
+//OPTIONAL: FADE
+// function fade(element) {
+//     var op = 1;  // initial opacity
+//     var timer = setInterval(function () {
+//         if (op <= 0.1){
+//             clearInterval(timer);
+//             element.style.display = 'none';
+//         }
+//         element.style.opacity = op;
+//         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+//         op -= op * 0.1;
+//     }, 50);
+// }
+
+//RENDERING THE DARE, SHOWING NEW TEXT
 function showDare(){
+    //"Dare X to:"
     var newTitle = document.getElementById("part5NewText");
     newTitle.innerHTML = "Dare " + userName +" to:";
     if (choseDare1){
@@ -265,8 +282,14 @@ function showDare(){
         document.getElementById("dareOptionDiv3").style.width = "100%";
         document.getElementById("dareOptionDiv3").style.border = "none";
     }
-    setTimer();
-    document.getElementById("timerContainer").style.display = "block";
+    if (riskTime == 60){
+        timeDisclaimer.innerHTML = "They have 1 minute";
+    } else if (riskTime == 120){
+        timeDisclaimer.innerHTML = "They have 2 minutes";
+    } else{
+        timeDisclaimer.innerHTML = "They have 3 minutes";
+    }
+    document.getElementById("button-5").style.display = "block";
 }
 
 //TIMER 
@@ -283,10 +306,11 @@ function startTimer(duration, display) {
         // display.textContent = seconds;
         display.textContent = minutes + ":" + seconds; //show minutes
 
+        //ONCE TIMER IS DONE, GO TO PART 6
         if (--timer < 0) {
             document.getElementById("timerContainer").style.display = "none";
-            document.getElementById("part5").style.display = "none";
-            document.getElementById("part6").style.display = "flex";
+            document.getElementById("part6").style.display = "none";
+            document.getElementById("part7").style.display = "flex";
         }
     }, 1000);
 }
@@ -296,7 +320,7 @@ function setTimer() {
     console.log("SETTIMER");
     var timeLeft = riskTime;
     display = document.querySelector('#time');
-    startTimer(timeLeft, display);
+    startTimer(timeLeft, display);//timer length varies according to chosen risk
     alreadySetTimer = true;
     } else {
         console.log("already set timer!");

@@ -51,6 +51,7 @@
         <!-- Lucky you! You're safe from doing any of these dares. However, you can still watch others -struggle- participate, or you can go to the Handle Box and participate in ________ -->
         <div class = "second-container" id = "part4">
             <h1 class = "main-title" id = "titlePart4">Ask <span id = "nameHTML"></span> which of these they use:</h1>
+            <h2 class = "subsubtitle" id = "subPart4"><i>Select all that apply</i></h2>
 
             <div class="ck-button">
                 <label>
@@ -78,10 +79,10 @@
             <button id = "button-4">Now let's start</button>
         </div>
 
-        <!-- 5. USER RANDOMLY SELECTS DARE -->
+        <!-- 5. USER RANDOMLY SELECTS DARE. DARE OTHER PERSON. -->
         <div class = "second-container" id = "part5">
             <h1 class = "main-title" id = "part5NewText">Choose one of the options to uncover <span id = "nameHTML2"></span>'s dare</h1>
-            <div class = "flex-container">
+            <div class = "flex-container" id = "dareFlexContainer">
                 <div class = "dareOption" id = "dareOptionDiv1" onclick="selectDare1();">
                     <h1 class = "main-title" id = "choiceNumber1"> 1 </h1>
                     <span class="hiddenDare" id="dareOption1" ></span>
@@ -95,20 +96,41 @@
                     <span class="hiddenDare" id="dareOption3"></span>
                 </div>
             </div>
-            <div id = "timerContainer">
-                <!-- <h2 class = "subtitle" id = "timerSub">Time left:</h2> -->
-                <!-- <br>  -->
-                <span id="time"></span> 
-            </div>
+            <span class = "subsubtitle" id = "timeDisclaimer"><i></i></span>
+            <button id = "button-5">BEGIN DARE</button>
             <!-- <button id = "button-5">BEGIN</button> -->
         </div>
-        
 
-        <!-- 6. DID THEY COMPLETE THE DARE? -->
+        <!-- 6. SHOW USER THEIR OWN DARE. SHOW TIMER -->
         <div class = "second-container" id = "part6">
+            <h1 class = "main-title" id = "part5NewText">Your dare:</h1>
+            <div class = "flex-container" id = "dareFlexContainer">
+                <h1 class = "main-title" id = "part5NewText">SAMPLE DARE - Make a new Instagram post right now and advertise it in your story</h1>
+            </div>
+            <div id = "timerContainer">
+                <span id="time"></span> 
+            </div>
+            <button id = "button-6">I DID IT!</button>
+        </div>
+        
+        <!-- 7A DID THEY COMPLETE THE DARE? -->
+        <div class = "second-container" id = "part7">
             <h1 class = "main-title">Did <span id = "nameHTML3"></span> successfully do the dare?</h1>
-            <button id = "button-yes">YES</button>
-            <button id = "button-no">NO</button>
+            <div class = "flex-container" id = "part7Flex">
+                <button id = "button-yes">YES</button>
+                <button id = "button-no">NO</button>
+            </div>
+        </div>
+
+        <!-- 7B DID THEY COMPLETE THE DARE? -->
+        <div class = "second-container" id = "part7B">
+            <h1 class = "main-title" id = "part7BTitle">Amazing! Prove it to <span id = "nameHTML4"></span>.</h1>
+
+            <h1 class = "main-title" id = "part7BTitle2">Did <span id = "nameHTML5"></span> successfully do the dare?</h1>
+            <div class = "flex-container" id = "part7Flex">
+                <button id = "button-yes">YES</button>
+                <button id = "button-no">NO</button>
+            </div>
         </div>
 
     </div>
