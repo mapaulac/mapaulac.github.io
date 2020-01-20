@@ -134,6 +134,8 @@ button:hover {
 	background-attachment: fixed;
 	background-size: cover;
 	position: relative;
+	overflow: hidden;
+    white-space: nowrap;
 }
 
 .statClass{
