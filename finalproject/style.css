@@ -137,7 +137,7 @@ button:hover {
 }
 
 .statClass{
-	margin-top:14%;
+	/* margin-top:14%; */
 	width:20%;
 }
 
@@ -876,7 +876,7 @@ input[type="submit"]:hover {
 		font-size:4em;
 	}
 	.titleTextStat{
-		font-size:4em;
+		font-size:3em;
 	}
 	/* .disclaimer{
 		width:100%;
