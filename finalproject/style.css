@@ -894,6 +894,7 @@ input[type="submit"]:hover {
 		height:70%;
 	} */
 }
+/* testing */
 @media only screen and (min-width: 800px /*1240px*/ ) and (max-width: 1200px) {
     .ft-main {
 		justify-content: space-evenly;
