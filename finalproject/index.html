@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Live Ad-Free</title>
    
   <link href="https://fonts.googleapis.com/css?family=Montserrat:500|Oswald|Solway&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" type="text/css">
-
-  </head>
+  <script src="https://kit.fontawesome.com/9c73261ce5.js"></script>
+  </head> 
   <body>
-
+	
   	<!-- COVER DIV -->
   	<div class = "titleDiv" id = "homeDiv"> 
       <!-- NAVBAR -->
       <div class = "navContainer" id = "indexNav">
-
         <a href = "index.html"><h1 id = "productTextDescription45"> HOME </h1> </a>
         <a href = "retreat2.html"><h1 id = "productTextDescription45"> RETREATS </h1></a>
         <a href = "spots.html"><h1 id = "productTextDescription45"> SPOTS </h1></a>
         <a href = "products.html"><h1 id = "productTextDescription45"> PRODUCTS </h1></a>
-        <img id = "image" src = "logosmall.png" width = "150px" height = "86px" margin-top = "2%">
+        <!-- <img id = "image" src = "logosmall.png" width = "150px" height = "86px" margin-top = "2%"> -->
       </div>
   		<div class = "flexContainer" id = "flexContainerHome">
   			<div class = "flexContent">
@@ -28,9 +28,9 @@
   				<h1 class = "titleText" id = "titleTextThree"> LIVE UNINTERRUPTEDLY. </h1>
   			</div>
   		</div>
-       <div id = "arrowContainer">
+       <!-- <div id = "arrowContainer">
           <a href="#statsDiv"><p id = "arrow">&darr;</p></a>
-        </div>
+        </div> -->
   	</div>
 
   	<!-- STATISTICS DIV -->
@@ -51,7 +51,6 @@
   				<h1 class = "titleTextStat" id = "statText2"> of homes </h1>
   			</div>
   			<div class = "statClass" id = "stat2">
-  				
   				<h1 class = "titleTextStat" id = "statText"> 100% </h1>
   				<h1 class = "titleTextStat" id = "statText2"> of public spaces </h1>
   			</div>	
@@ -67,7 +66,7 @@
   	<!-- AD FREE INTRODUCTION -->
   	<div class = "titleDiv" id = "productDiv1"> 
   		<div class = "flexContainer">
-  			<div class = "flexContent">
+  			<div class = "flexContent" id = "introFlexContent">
   				<h1 class = "titleTextProduct" id = "productText1"> HERE AT BLANK SLATE, WE CARE ABOUT YOUR PRODUCTIVITY. </h1>
   				<h1 class = "titleTextProduct" id = "productText2"> We create experiences and technology to help you live life to the fullest. </h1> 
   			</div>
@@ -94,6 +93,7 @@
 
   	<!-- CONTENT 2 -->
   	<div class = "titleDiv" id = "productDiv3"> 
+		<div class = "layerDarker">
   		<div class = "flexContainer" id = "flexContainerProduct">
   			<div class = "flexContent" id = "rowContent">
   				<!-- LEFT -->
@@ -107,11 +107,13 @@
 	  				<h1 class = "titleTextProductTitle" id = "productText3"> Reach peak productivity in our <span id = "backgroundText"> ad-free spots</span> in selected cities around the globe.   </h1>
 	  			</div>
   			</div>
-  		</div>
+		  </div>
+		</div>
   	</div>
 
   	<!-- CONTENT 3 -->
   	<div class = "titleDiv" id = "productDiv4"> 
+		<div class = "layerDarker2">
   		<div class = "flexContainer" id = "flexContainerProduct">
   			<div class = "flexContent" id = "rowContent">
   				<!-- LEFT -->
@@ -124,38 +126,63 @@
 	  				<a href = "products.html"><button class = "itemButton">READ MORE</button></a>
 	  			</div>
   			</div>
-  		</div>
+		  </div>
+		</div>
   	</div>
+	  
+	  <!-- FOOTER -->
+	  <div id = "footer-flex">
+	  <div class="footerContainer"></div>
+	  <footer>
+		  <!-- FOOTER MAIN -->
+		  <section class="ft-main">
+			  <!-- ITEM 1 -->
+			  <div class="ft-main-item">
+				<h2 class="ft-title"> Our Services </h2>
+				<ul>
+					<li><a href="retreat2.html">Retreats </a></li>
+					<li><a href="spots.html">Spots </a></li>
+					<li><a href="products.html">Products </a></li>
+				</ul>
+			  </div>
+			<!-- ITEM 2 -->
+			<div class="ft-main-item" id = "credits-item">
+				<h2 class="ft-title"> Disclaimer & Credits </h2>
+				<p class = "disclaimer">This website is entirely a work of speculative art, presenting the fictional company Blank Slate, which specializes in creating experiences and technology to help people escape the chaos of their ad-saturated world.</p>
+				<p class = "disclaimer">As a piece of speculative art, this project invites site visitors to question whether we are approaching a society where ad-free services will be the only means to experience life uninterruptedly.</p>
+				<p class = "disclaimer"> Logo credits: <a href = "https://www.blankslatenyc.com/">Blank Slate NYC</a> </p>
+			</div>
+			<!-- ITEM 3:STAY UPDATED -->
+			<div class="ft-main-item">
+				<h2 class="ft-title">Stay Updated</h2>
+				<p>Subscribe to our newsletter to get our latest news.</p>
+				<form>
+				  <input type="email" name="email" placeholder="Enter email address">
+				  <input type="submit" value="Subscribe">
+				</form>
+			</div>
+		  </section>
 
-  	<!-- REVIEWS -->
+		  <!-- FOOTER SOCIAL -->
+		  <section class="ft-social">
+			  <ul class="ft-social-list">
+				<li><a id="ft-a" href="#"><i class="fab fa-facebook"></i></a></li>
+				<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+				<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+				<li><a href="#"><i class="fab fa-github"></i></a></li>
+				<li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+			  </ul>
+		  </section>
 
-  	<!-- PACKAGES -->
-<!--   	<div id = "packagesDiv"> 
-      <br>
-      <br>
-      <h1 class = "titleText" id = "packagesTitle"> FINALLY EXPERIENCE AN AD-FREE HOLIDAY! </h1> -->
-      <!-- Finally experience an ad-free holiday! -->
-<!--       <h1 class = "titleText" id = "packagesTitle2"> Check out our holiday packages </h1>
-  		<div class = "flexContainer" id = "flexContainerPackages">
-
-  			<div class = "cardContainer">
-  				<h1 class = "titleText" id = "packagesText"> ONE </h1>
-          <h1 class = "titleText" id = "packagesText"> THREE </h1>
-          <h1 class = "titleText" id = "packagesText"> TWO </h1>
-  			</div>
-        <div class = "cardContainer">
-          <h1 class = "titleText" id = "packagesText"> ONE </h1>
-          <h1 class = "titleText" id = "packagesText"> THREE </h1>
-          <h1 class = "titleText" id = "packagesText"> TWO </h1>
-        </div>
-        <div class = "cardContainer">
-          <h1 class = "titleText" id = "packagesText"> ONE </h1>
-          <h1 class = "titleText" id = "packagesText"> THREE </h1>
-          <h1 class = "titleText" id = "packagesText"> TWO </h1>
-        </div>
-  		</div>
-  	</div> -->
-
-  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script> -->
+		  <!-- FOOTER LEGAL -->
+		  <section class="ft-legal">
+			  <ul class="ft-legal-list">
+				<li><a href="#">Terms &amp; Conditions</a></li>
+				<li><a href="#">Privacy Policy</a></li>
+				<li>&copy; 2019 Copyright Blank Slate Inc.</li>
+			  </ul>
+		  </section>
+	  </footer>
+	</div>
   </body>
 </html>
