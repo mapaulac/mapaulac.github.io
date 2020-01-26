@@ -747,7 +747,7 @@ input[type="submit"]:hover {
 /* RESPONSIVENESS */
 @media only screen and (min-width: 200px) and (max-width:500px){
     .ft-main {
-		/* background-color:red; */
+		background-color:red;
 		justify-content: center;
 	}
 	.ft-main-item{
@@ -828,7 +828,7 @@ input[type="submit"]:hover {
 }
 @media only screen and (min-width: 500px) and (max-width: 800px/*477px*/)  {
     .ft-main {
-		/* background-color:blue; */
+		background-color:blue;
 		padding:0;
         justify-content: center;
 	}
@@ -902,7 +902,7 @@ input[type="submit"]:hover {
 @media only screen and (min-width: 800px /*1240px*/ ) and (max-width: 1200px) {
     .ft-main {
 		justify-content: space-evenly;
-		/* background-color:yellow; */
+		background-color:yellow;
 	}
 
 	/* .disclaimer{
