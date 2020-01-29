@@ -31,7 +31,7 @@ a{
 	align-items:center;
 	justify-content: center;
 	flex-direction: row;
-	margin-bottom:16%;
+	/* margin-bottom:16%; */
 }
 
 .navContainer a{
@@ -89,6 +89,15 @@ button:hover {
 	flex-direction:row;
 	align-items:center;
 	justify-content:center;
+}
+
+.flexBanner{
+	/* background-color:black; */
+	display:flex; 
+	flex-direction:column; 
+	align-items:center;
+	justify-content:center;
+	height:100%;
 }
 
 
@@ -767,7 +776,10 @@ input[type="submit"]:hover {
 
 /* RESPONSIVENESS */
 @media only screen and (min-width: 200px) and (max-width:500px){
-	
+	.flexBanner{
+		height:50%;
+		background-color:black;
+	}
 	#rowContent2{
 		/* display:flex; */
 		flex-direction: column;
@@ -849,9 +861,33 @@ input[type="submit"]:hover {
 	#productDiv4{
 		height:100%;
 	} */
+	#bodyProductPageImg{
+		height:30%;
+	}
+	#bannerSpots{
+		height:30%;
+	}
+	#bannerRetreat{
+		height:30%;
+	}
+	.disclaimer{
+		font-size:0.5em;
+	}
 }
 @media only screen and (min-width: 500px) and (max-width: 800px/*477px*/)  {
-
+	#bodyProductPageImg{
+		height:50%;
+	}
+	#bannerSpots{
+		height:50%;
+	}
+	#bannerRetreat{
+		height:50%;
+	}
+	.flexBanner{
+		height:50%;
+		background-color:black;
+	}
 	#rowContent2{
 		flex-direction: column;
 	}
@@ -927,9 +963,21 @@ input[type="submit"]:hover {
 	#productDiv4{
 		height:70%;
 	} */
+	
 }
 /* testing */
 @media only screen and (min-width: 800px /*1240px*/ ) and (max-width: 1200px) {
+	#bodyProductPageImg{
+		height:70%;
+	}
+	#bannerSpots{
+		height:70%;
+	}
+	#bannerRetreat{
+		height:70%;
+	}
+
+
     .ft-main {
 		justify-content: space-evenly;
 		background-color:yellow;

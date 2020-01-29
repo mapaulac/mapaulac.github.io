@@ -17,6 +17,7 @@ let choseDare3 = false;
 let alreadySetTimer = false;
 let userChoseSocial = false;
 let riskTime; 
+let mynewdare; 
 
 let facebookArray = [];
 let instaArray = [];
@@ -115,6 +116,31 @@ $( "#button-6" ).click(function() {
     document.getElementById("part6").style.display = "none";
     document.getElementById("part7B").style.display = "flex";
 });
+
+$( "#button-test" ).click(function() {
+    fetch("http://localhost:5000/test", 
+    {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        //mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+          'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'no-referrer', // no-referrer, *client
+        body: JSON.stringify({msg: "randomized dare"}) // body data type must match "Content-Type" header
+      })
+        .then(res => {
+            res.text()
+                .then(txt => {
+                    mynewdare = txt;
+                    console.log(mynewdare) //dare sent from JSON
+                });
+        });
+});
+
 
 //GET NAME 
 function getName(){
@@ -441,7 +467,6 @@ function submitCheckbox(){
     }
     console.log(dareArray);
 };
-
 
 
 
