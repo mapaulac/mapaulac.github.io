@@ -781,23 +781,30 @@ input[type="submit"]:hover {
 }
 
 #flexContainerProduct{
-	margin-top:5%;
+	/* margin-top:5%; */
 	margin-bottom:5%;
 }
 
 /* RESPONSIVENESS */
 @media only screen and (min-width: 200px) and (max-width:500px){
+	#productTextDescription33{
+		text-align:center;
+		font-size:1em;
+	}
 	#productTextDescription22{
 		text-align:center;
 	}
 	#productTextDescription44{
 		text-align:center;
+		font-size:0.75em;
 	}
 	#productTextDescription2{
 		text-align:center;
+		font-size:1.75em;
 	}
 	#productTextDescription4{
 		text-align:center;
+		font-size:0.75em;
 	}
 	.responsiveImg{
 		width:80%;
@@ -816,6 +823,10 @@ input[type="submit"]:hover {
 	#productTextDescription{
 		font-size:0.75em;
 	}
+	#productTextDescription3{
+		text-align:center;
+		font-size:1em;
+	}
 	#mapTitle{
 		font-size:1.3em;
 	}
@@ -833,7 +844,7 @@ input[type="submit"]:hover {
 		justify-content: center; */
 	}
     .ft-main {
-		background-color:red;
+		/* background-color:red; */
 		/* justify-content: center; */
 	}
 	.disclaimer{
@@ -908,14 +919,15 @@ input[type="submit"]:hover {
 		height:100%;
 	} */
 	#bodyProductPageImg{
-		height:30%;
+		height:50%;
+		background-attachment:initial;
 	}
 	#bannerSpots{
-		height:30%;
+		height:50%;
 		background-attachment:initial;
 	}
 	#bannerRetreat{
-		height:30%;
+		height:50%;
 		background-attachment:initial;
 	}
 	.disclaimer{
@@ -923,8 +935,15 @@ input[type="submit"]:hover {
 	}
 }
 @media only screen and (min-width: 500px) and (max-width: 800px/*477px*/)  {
+	#productTextDescription3{
+		text-align:center;
+	}
+	#productTextDescription33{
+		text-align:center;
+	}
 	#productTextDescription22{
 		text-align:center;
+		margin-bottom:3%;
 	}
 	#productTextDescription44{
 		text-align:center;
@@ -939,27 +958,27 @@ input[type="submit"]:hover {
 		width:80%;
 	}
 	#flexContainerProduct{
-		margin-top:5%;
+		/* margin-top:5%; */
 		padding:3%;
 
 	}
 	#bodyProductPageImg{
-		height:50%;
+		height:70%;
 		background-attachment:initial;
 	}
 	#bannerSpots{
-		height:50%;
+		height:70%;
 		background-attachment:initial;
 	}
 	#bannerRetreat{
-		height:50%;
+		height:70%;
 		background-attachment:initial;
 	}
 	#rowContent2{
 		flex-direction: column;
 	}
     .ft-main {
-		background-color:blue;
+		/* background-color:blue; */
 		padding:0;
         justify-content: center;
 	}
@@ -1035,7 +1054,7 @@ input[type="submit"]:hover {
 /* testing */
 @media only screen and (min-width: 800px /*1240px*/ ) and (max-width: 1200px) {
 	#flexContainerProduct{
-		margin-top:5%;
+		/* margin-top:5%; */
 	}
 	#bodyProductPageImg{
 		height:50%;
@@ -1056,7 +1075,7 @@ input[type="submit"]:hover {
 
     .ft-main {
 		justify-content: space-evenly;
-		background-color:yellow;
+		/* background-color:yellow; */
 	}
 
 	/* .disclaimer{
