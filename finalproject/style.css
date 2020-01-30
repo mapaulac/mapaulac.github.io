@@ -454,18 +454,24 @@ button:hover {
 	align-items: center;
 	justify-content: center;
 	flex-direction:row;
+	width:100%;
+}
+
+#mapList{
+	margin:1%;
 }
 
 #mapTitle{
 	margin-top:6%;
 	font-size:1.4em;
-	/*margin-bottom:2%;*/
+	width:80%;
 }
 
 #mapTitle2{
 	margin-top:0;
 	margin-bottom:2%;
 	font-size:1.2em;
+	width:80%;
 }
 
 /* RETREAT PAGE */
@@ -774,12 +780,52 @@ input[type="submit"]:hover {
 	flex:1;
 }
 
+#flexContainerProduct{
+	margin-top:5%;
+	margin-bottom:5%;
+}
+
 /* RESPONSIVENESS */
 @media only screen and (min-width: 200px) and (max-width:500px){
-	.flexBanner{
-		height:50%;
-		background-color:black;
+	#productTextDescription22{
+		text-align:center;
 	}
+	#productTextDescription44{
+		text-align:center;
+	}
+	#productTextDescription2{
+		text-align:center;
+	}
+	#productTextDescription4{
+		text-align:center;
+	}
+	.responsiveImg{
+		width:80%;
+	}
+
+	#flexContainerProduct{
+		margin-top:5%;
+		padding:3%;
+	}
+	.navContainer a{
+		font-size:0.75em;
+	}
+	.titleTextProductTitle{
+		font-size:1.75em;
+	}
+	#productTextDescription{
+		font-size:0.75em;
+	}
+	#mapTitle{
+		font-size:1.3em;
+	}
+	#mapTitle2{
+		font-size:0.75em;
+	}
+	li{
+		font-size:0.75em;
+	}
+
 	#rowContent2{
 		/* display:flex; */
 		flex-direction: column;
@@ -866,27 +912,48 @@ input[type="submit"]:hover {
 	}
 	#bannerSpots{
 		height:30%;
+		background-attachment:initial;
 	}
 	#bannerRetreat{
 		height:30%;
+		background-attachment:initial;
 	}
 	.disclaimer{
 		font-size:0.5em;
 	}
 }
 @media only screen and (min-width: 500px) and (max-width: 800px/*477px*/)  {
+	#productTextDescription22{
+		text-align:center;
+	}
+	#productTextDescription44{
+		text-align:center;
+	}
+	#productTextDescription2{
+		text-align:center;
+	}
+	#productTextDescription4{
+		text-align:center;
+	}
+	.responsiveImg{
+		width:80%;
+	}
+	#flexContainerProduct{
+		margin-top:5%;
+		padding:3%;
+
+	}
 	#bodyProductPageImg{
 		height:50%;
+		background-attachment:initial;
 	}
 	#bannerSpots{
 		height:50%;
+		background-attachment:initial;
 	}
 	#bannerRetreat{
 		height:50%;
-	}
-	.flexBanner{
-		height:50%;
-		background-color:black;
+		background-attachment:initial;
 	}
 	#rowContent2{
 		flex-direction: column;
@@ -967,14 +1034,23 @@ input[type="submit"]:hover {
 }
 /* testing */
 @media only screen and (min-width: 800px /*1240px*/ ) and (max-width: 1200px) {
-	#bodyProductPageImg{
-		height:70%;
+	#flexContainerProduct{
+		margin-top:5%;
 	}
-	#bannerSpots{
-		height:70%;
+	#bodyProductPageImg{
+		height:50%;
+
+	}
+	/* #bannerSpots{
+		height:50%;
+		background-attachment:initial;
 	}
 	#bannerRetreat{
-		height:70%;
+		height:50%;
+	} */
+	.contentBanner{
+		height:50%;
+		background-attachment:initial;
 	}
 
 
