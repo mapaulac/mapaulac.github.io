@@ -134,7 +134,7 @@ function callFetch() {
     } else if (choseDare3){
         fetchDare = finalDare3;
     }
-    fetch("http://localhost:5000/asend", 
+    fetch("http://localhost:5000/bsend", 
     {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         //mode: 'cors', // no-cors, *cors, same-origin
@@ -160,7 +160,7 @@ function callFetch() {
 
 //OBTAIN FROM JSON
 function receiveFetch() {
-    fetch("http://localhost:5000/asend", 
+    fetch("http://localhost:5000/bsend", 
     {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         //mode: 'cors', // no-cors, *cors, same-origin
@@ -392,6 +392,7 @@ function startTimer(duration, display) {
             }
         }
     }, 1000);
+    
 }
 
 function setTimer() {
