@@ -1,3 +1,5 @@
+//TESTING IF THIS UPDATES
+
 let opponent; 
 let phase = 1; 
 console.log("reading js");
