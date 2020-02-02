@@ -134,7 +134,7 @@ function callFetch() {
     } else if (choseDare3){
         fetchDare = finalDare3;
     }
-    fetch("http://gameofdare.herokuapp.com/asend", 
+    fetch("https://gameofdare.herokuapp.com/asend", 
     {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         //mode: 'cors', // no-cors, *cors, same-origin
@@ -160,7 +160,7 @@ function callFetch() {
 
 //OBTAIN FROM JSON
 function receiveFetch() {
-    fetch("http://gameofdare.herokuapp.com/asend", 
+    fetch("https://gameofdare.herokuapp.com/asend", 
     {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         //mode: 'cors', // no-cors, *cors, same-origin
