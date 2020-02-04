@@ -179,6 +179,14 @@ button:hover {
     display:none;
 }
 
+#part8yes{
+    display:none;
+}
+
+#part8no{
+    display:none;
+}
+
 #part45{
     display:none;
     padding:6%;
