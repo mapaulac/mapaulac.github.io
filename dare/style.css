@@ -86,7 +86,7 @@ button:hover {
 }
 
 #subPart1{
-    margin-bottom:6%;
+    margin:1%;
 }
 
 #titlePart2{
@@ -105,6 +105,15 @@ button:hover {
 #subPart4{
     margin-bottom:3%;
     margin-top:3%;
+}
+
+#titlePart45{
+    margin-bottom:1%;
+}
+#subPart45{
+    font-size:1.4em;
+    /* margin-bottom:3%; */
+    /* margin-top:3%; */
 }
 
 #titlePart3{
@@ -168,6 +177,11 @@ button:hover {
 
 #part4{
     display:none;
+}
+
+#part45{
+    display:none;
+    padding:6%;
 }
 
 #part5{
@@ -312,7 +326,11 @@ button:hover {
     /* border-radius:4px; */
 }
 
-#twitterCk{
+#noSocial label span{
+    padding: 0.5rem 2.5rem;
+}
+
+#noSocial{
     margin-bottom:10%;
 }
 

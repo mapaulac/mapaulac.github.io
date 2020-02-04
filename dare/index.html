@@ -11,11 +11,11 @@
   
   <body>
     <div class = "main-container"> 
-
         <!-- 1. USER CONSENT -->
         <div class = "second-container" id = "part1">
             <h1 class = "main-title" id = "titlePart1">Are you ready for a game of dare?</h1>
             <h2 class = "subtitle" id = "subPart1">(don't worry, there will be rewards)</h2>
+            <h2 class = "subtitle" id = "subPart1">You'll need access to a phone or personal computer to play. </h2>
             <button id = "button-1">BEGIN</button>
         </div>
 
@@ -76,7 +76,25 @@
                    <input id = "checkTwit" type="checkbox" value=""><span>Twitter</span>
                 </label>
              </div>
+
+             <div class="ck-button" id="noSocial">
+                <label>
+                   <input id = "checkSocial" type="checkbox" value=""><span>None</span>
+                </label>
+             </div>
+
             <button id = "button-4">Now let's start</button>
+        </div>
+
+        <!-- 4.5 USER DOESN'T HAVE SOCIAL MEDIA -->
+        <div class = "second-container" id = "part45">
+            <h1 class = "main-title" id = "titlePart45">Well, this is awkward..</h1>
+            <h2 class = "subtitle" id = "subPart45">This game of dare can only be played if you have any of the listed social media platforms.</h2>
+            <h2 class = "subtitle" id = "subPart45">You can still be part of the game, though. </h2>
+            <h2 class = "subtitle" id = "subPart45">Just go over to the Handle Box and follow the instructions there.</h2>
+            <br>
+            <h2 class = "subtitle" id = "subPart45"> Feel free to still grab a reward. It's on us!</h2>
+            <button id = "button-45">BACK TO HOME</button>
         </div>
 
         <!-- 5. USER RANDOMLY SELECTS DARE. DARE OTHER PERSON. -->
@@ -132,6 +150,17 @@
                 <button id = "button-yes">YES</button>
                 <button id = "button-no">NO</button>
             </div>
+        </div>
+
+    <!-- GIVE REWARD -->
+        <div class = "second-container" id = "part8Yes">
+             <h1 class = "main-title" id = "part7BTitle">Congratulations! You can now get a reward!</h1>
+        </div>
+
+    <!-- NO REWARD -->
+        <div class = "second-container" id = "part8No">
+                <h1 class = "main-title" id = "part7BTitle">Amazing! Prove it to <span id = "nameHTML4"></span>.</h1>
+            <h1 class = "main-title" id = "part7BTitle2">Did <span id = "nameHTML5"></span> successfully do the dare?</h1>
         </div>
 
     </div>

@@ -25,6 +25,7 @@ let finalDare2;
 let finalDare3;
 let fetchDare;
 let stopTimer = false;
+let userNoSocial = false;
 
 let facebookArray = [];
 let instaArray = [];
@@ -107,9 +108,17 @@ $( "#button-4" ).click(function() {
         selectDare();
         selectDare();
         selectDare();
+    } else if (userNoSocial){
+        document.getElementById("part4").style.display = "none";
+        document.getElementById("part45").style.display = "flex";
     } else{
         alert("You must select one of the options before proceeding");
     }
+});
+
+$( "#button-45" ).click(function(){
+    document.getElementById("part45").style.display = "none";
+    location.reload();
 });
 
 $( "#button-5" ).click(function(){
@@ -412,7 +421,9 @@ function setTimer() {
 function seeWhichChecked(){
     if (checkFace.checked || checkInsta.checked || checkSnap.checked || checkTwit.checked){
         userChoseSocial = true; 
-    } 
+    } else if (checkSocial.checked){
+        userNoSocial = true;
+    }
 }
 
 //CHECKING CHECKBOX STATUS 

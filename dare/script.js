@@ -26,6 +26,7 @@ let finalDare2;
 let finalDare3;
 let fetchDare;
 let stopTimer = false;
+let userNoSocial = false;
 
 let facebookArray = [];
 let instaArray = [];
@@ -108,9 +109,18 @@ $( "#button-4" ).click(function() {
         selectDare();
         selectDare();
         selectDare();
-    } else{
+    } else if (userNoSocial){
+        document.getElementById("part4").style.display = "none";
+        document.getElementById("part45").style.display = "flex";
+    } 
+    else {
         alert("You must select one of the options before proceeding");
     }
+});
+
+$( "#button-45" ).click(function(){
+    document.getElementById("part45").style.display = "none";
+    location.reload();
 });
 
 $( "#button-5" ).click(function(){
@@ -125,6 +135,17 @@ $( "#button-6" ).click(function() {
     document.getElementById("part6").style.display = "none";
     document.getElementById("part7B").style.display = "flex";
     stopTimer = true;
+});
+
+//DID USER COMPLETE THE DARE?
+$( "#button-yes" ).click(function() {
+    document.getElementById("part7").style.display = "none";
+    document.getElementById("part7B").style.display = "none";
+    document.getElementById("part8Yes").style.display = "flex";
+});
+
+$( "#button-no" ).click(function() {
+
 });
 
 //FETCH FROM JSON HERE
@@ -413,11 +434,17 @@ function seeWhichChecked(){
     if (checkFace.checked || checkInsta.checked || checkSnap.checked || checkTwit.checked){
         userChoseSocial = true; 
     } 
+    else if (checkSocial.checked){
+        userNoSocial = true;
+    }
 }
 
 //CHECKING CHECKBOX STATUS 
 function submitCheckbox(){
     console.log(dareArray.length);
+    if (checkSocial == true){
+
+    }
     if (checkFace.checked == false){ //[I,S,T]
         console.log("face not checked");
         dareArray.splice(0,numOfIndividualDares); //taking out [0]
