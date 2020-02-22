@@ -88,8 +88,8 @@ $( "#button-2" ).click(function() {
     "Copy a popular Tweet on your feed and Tweet it yourself. ", 
     "Send a DM to the first 4 accounts on your Twitter feed."], 
     ["Retweet something you disagree with (politically, ethically, etc.)", 
-    "Find a Twitter account of a person you know in real life and like and retweet 3 of their most recent Tweets.", 
-    "Tweet a verified Twitter account (can't be Twitter official page) a selfie of yourself."]];
+    "Find a Twitter account of a person you know in real life (but you are not close to) and like and retweet 3 of their most recent Tweets.", 
+    "Take a selfie. Now Tweet it to the first 3 people that appear on your feed with no context."]];
 });
 
 //submit risk level

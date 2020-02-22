@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Socket.IO whiteboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<script src="/socket.io/socket.io.js"></script>
+<!-- <script src="/main.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<body>
+  <img src = "scrolltwitter2.png">
+</body>
+
+<script>
+    var socket = io();
+
+    //identifying scroll
+    $(window).scroll(function() {
+        var height = $(window).scrollTop();
+        //sending scroll value
+        socket.emit('scrolling', height);
+    });
+
+    //receiving scroll value
+    socket.on('scrolling', function(height){
+        console.log("receiving");
+        console.log(height);
+        window.scrollTo(0, height);
+    });
+</script>
+</html>
