@@ -1,14 +1,14 @@
 //TESTING IF THIS UPDATES
 
-let opponent; 
-let phase = 1; 
+let opponent;
+let phase = 1;
 console.log("reading js");
-let chosenRisk; 
+let chosenRisk;
 let dareArray;
 let numOfIndividualDares = 3;
-let facePos = 0; 
-let instaPos = 1; 
-let snapPos = 2; 
+let facePos = 0;
+let instaPos = 1;
+let snapPos = 2;
 let twitPos = 3;
 let userName;
 let slider = document.getElementById("myRange");
@@ -18,9 +18,9 @@ let choseDare2 = false;
 let choseDare3 = false;
 let alreadySetTimer = false;
 let userChoseSocial = false;
-let riskTime; 
+let riskTime;
 let newdare;
-let newFinalDare; 
+let newFinalDare;
 let finalDare1;
 let finalDare2;
 let finalDare3;
@@ -33,7 +33,7 @@ let instaArray = [];
 let snapArray = [];
 let twitterArray = [];
 
-//CHECKBOX VARIABLES 
+//CHECKBOX VARIABLES
 var checkboxFace = document.getElementById("checkFace");
 var checkboxInsta = document.getElementById("checkInsta");
 var checkboxSnap = document.getElementById("checkSnap");
@@ -54,41 +54,41 @@ $( "#button-2" ).click(function() {
     //ARRAY OF RISKS, ACCORDING TO SOCIAL MEDIA PLATFORM
     facebookArray = [["Angry react to the first 5 posts on your Facebook feed",
     "Love react to the first 5 posts on your Facebook feed",
-    "Share the first 3 posts on your Facebook feed"], 
-    ["Take a selfie and post it on Facebook with no context.", 
-    "Special dare! Go to the Handle Box. Take a piece of paper out and contact that person. If you don't have the platform they specify, return that paper and take out a new one. (Don't worry, the people in the Handle Box have consented to be contacted)","Change your Facebook Cover Picture right now."], 
-    ["Change your Facebook profile picture to the first photo in your Camera Roll.", 
-    "Change your Facebook profile picture to your most recent photograph.", 
+    "Share the first 3 posts on your Facebook feed"],
+    ["Take a selfie and post it on Facebook with no context.",
+    "Special dare! Go to the Handle Box. Take a piece of paper out and contact that person. If you don't have the platform they specify, return that paper and take out a new one. (Don't worry, the people in the Handle Box have consented to be contacted)","Change your Facebook Cover Picture right now."],
+    ["Change your Facebook profile picture to the first photo in your Camera Roll.",
+    "Change your Facebook profile picture to your most recent photograph.",
     "Share the 3 most recent photos of yourself from your camera roll in your Facebook public story."]];
 
     instaArray = [["Unfollow 3 Instagram accounts and follow 3 new ones",
     "Like your 5 most recent posts on Instagram. ",
-    "Compliment yourself in the comments of your newest Instagram post."], 
-    ["Like the 3 most recent posts of the first person that appears on your Instagram feed.", 
-    "Make a new Instagram post right now and advertise it in your story.", 
-    "Special dare! Go to the Handle Box. Take a piece of paper out and contact that person. If you don't have the platform they specify, return that paper and take out a new one. (Don't worry, the people in the Handle Box have consented to be contacted)"], 
-    ["Take a selfie and post it on Instagram with no context.", 
-    "Share the 3 most recent photos of yourelf from your camera roll in your Instagram public story.", 
+    "Compliment yourself in the comments of your newest Instagram post."],
+    ["Like the 3 most recent posts of the first person that appears on your Instagram feed.",
+    "Make a new Instagram post right now and advertise it in your story.",
+    "Special dare! Go to the Handle Box. Take a piece of paper out and contact that person. If you don't have the platform they specify, return that paper and take out a new one. (Don't worry, the people in the Handle Box have consented to be contacted)"],
+    ["Take a selfie and post it on Instagram with no context.",
+    "Share the 3 most recent photos of yourelf from your camera roll in your Instagram public story.",
     "Reply to the first 3 stories on your Instagram."]];
 
     snapArray = [["Send a Bitmoji to your top 3 Best Friends on Snapchat",
-    "Share a Snapchat story with 3 people not on your Best Friends list.", 
-    "Share your Snapchat Bitmoji story with whoever is in it."], 
-    ["Screenshot the story of the first person on your Snapchat stories feed.", 
-    "Special dare! Go to the Handle Box. Take a piece of paper out and contact that person. If you don't have the platform they specify, return that paper and take out a new one. (Don't worry, the people in the Handle Box have consented to be contacted)", 
-    "Reply to the first 3 people's stories on your Snapchat."], 
-    ["Take a selfie and share it in your Snapchat story with no context.", 
-    "Take a selfie and send it to the last name in your 'Recent' friends list on Snapchat.", 
+    "Share a Snapchat story with 3 people not on your Best Friends list.",
+    "Share your Snapchat Bitmoji story with whoever is in it."],
+    ["Screenshot the story of the first person on your Snapchat stories feed.",
+    "Special dare! Go to the Handle Box. Take a piece of paper out and contact that person. If you don't have the platform they specify, return that paper and take out a new one. (Don't worry, the people in the Handle Box have consented to be contacted)",
+    "Reply to the first 3 people's stories on your Snapchat."],
+    ["Take a selfie and share it in your Snapchat story with no context.",
+    "Take a selfie and send it to the last name in your 'Recent' friends list on Snapchat.",
     "Take a selfie with a random person in the exhibition and send it to 5 Snapchat friends."]];
 
     twitterArray = [["Retweet the first 5 tweets on your Twitter timeline.",
-    "Unfollow 3 Twitter accounts and follow 3 new ones", 
-    "Tweet the last meal you had."], 
-    ["Special dare! Go to the Handle Box. Take a piece of paper out and contact that person. If you don't have the platform they specify, return that paper and take out a new one. (Don't worry, the people in the Handle Box have consented to be contacted)", 
-    "Copy a popular Tweet on your feed and Tweet it yourself. ", 
-    "Send a DM to the first 4 accounts on your Twitter feed."], 
-    ["Retweet something you disagree with (politically, ethically, etc.)", 
-    "Find a Twitter account of a person you know in real life (but you are not close to) and like and retweet 3 of their most recent Tweets.", 
+    "Unfollow 3 Twitter accounts and follow 3 new ones",
+    "Tweet the last meal you had."],
+    ["Special dare! Go to the Handle Box. Take a piece of paper out and contact that person. If you don't have the platform they specify, return that paper and take out a new one. (Don't worry, the people in the Handle Box have consented to be contacted)",
+    "Copy a popular Tweet on your feed and Tweet it yourself. ",
+    "Send a DM to the first 4 accounts on your Twitter feed."],
+    ["Retweet something you disagree with (politically, ethically, etc.)",
+    "Find a Twitter account of a person you know in real life (but you are not close to) and like and retweet 3 of their most recent Tweets.",
     "Take a selfie. Now Tweet it to the first 3 people that appear on your feed with no context."]];
 });
 
@@ -112,7 +112,7 @@ $( "#button-4" ).click(function() {
     } else if (userNoSocial){
         document.getElementById("part4").style.display = "none";
         document.getElementById("part45").style.display = "flex";
-    } 
+    }
     else {
         alert("You must select one of the options before proceeding");
     }
@@ -157,7 +157,7 @@ function callFetch() {
     } else if (choseDare3){
         fetchDare = finalDare3;
     }
-    fetch("https://gameofdare.herokuapp.com/asend", 
+    fetch("https://gameofdare.herokuapp.com/asend",
     {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         //mode: 'cors', // no-cors, *cors, same-origin
@@ -183,7 +183,7 @@ function callFetch() {
 
 //OBTAIN FROM JSON
 function receiveFetch() {
-    fetch("https://gameofdare.herokuapp.com/asend", 
+    fetch("https://gameofdare.herokuapp.com/asend",
     {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         //mode: 'cors', // no-cors, *cors, same-origin
@@ -210,7 +210,7 @@ function receiveFetch() {
 };
 
 
-//GET NAME 
+//GET NAME
 function getName(){
     userName = document.getElementById("myInput").value;
     console.log("person's name: " + userName);
@@ -252,8 +252,8 @@ function createFirstDareArray(){
     if (chosenRisk ==1){
         let tempArrayFace = facebookArray[0];
         let tempArrayInsta = instaArray[0];
-        let tempArraySnap = snapArray[0]; 
-        let tempArrayTwit = twitterArray[0];       
+        let tempArraySnap = snapArray[0];
+        let tempArrayTwit = twitterArray[0];
         //THEN CONCATENATE THEM TOGETHER IN THE FINAL LIST OF DARES
         let tempFullDare = tempArrayFace.concat(tempArrayInsta);
         let tempFullDare2  = tempFullDare.concat(tempArraySnap);
@@ -261,16 +261,16 @@ function createFirstDareArray(){
     } else if (chosenRisk == 2){
         let tempArrayFace = facebookArray[1];
         let tempArrayInsta = instaArray[1];
-        let tempArraySnap = snapArray[1]; 
-        let tempArrayTwit = twitterArray[1];       
+        let tempArraySnap = snapArray[1];
+        let tempArrayTwit = twitterArray[1];
         let tempFullDare = tempArrayFace.concat(tempArrayInsta);
         let tempFullDare2  = tempFullDare.concat(tempArraySnap);
         dareArray = tempFullDare2.concat(tempArrayTwit);
     } else if (chosenRisk == 3){
         let tempArrayFace = facebookArray[2];
         let tempArrayInsta = instaArray[2];
-        let tempArraySnap = snapArray[2]; 
-        let tempArrayTwit = twitterArray[2];       
+        let tempArraySnap = snapArray[2];
+        let tempArrayTwit = twitterArray[2];
         let tempFullDare = tempArrayFace.concat(tempArrayInsta);
         let tempFullDare2  = tempFullDare.concat(tempArraySnap);
         dareArray = tempFullDare2.concat(tempArrayTwit);
@@ -279,7 +279,7 @@ function createFirstDareArray(){
     console.log(dareArray);
 };
 
-//PART 5: SELECTING DARE AND CHANGING INNER HTML WHILE HIDDEN 
+//PART 5: SELECTING DARE AND CHANGING INNER HTML WHILE HIDDEN
 function selectDare(){
     //1. select 3 random dares out of the dareArray
     var randDare = Math.floor(Math.random() * dareArray.length);
@@ -308,7 +308,7 @@ function selectDare(){
     }
 };
 
-//SHOWING HIDDEN CHOSEN DARE 
+//SHOWING HIDDEN CHOSEN DARE
 function selectDare1(){
     console.log("SELECT DARE1");
     choseDare1 = true;
@@ -392,7 +392,7 @@ function showDare(){
     document.getElementById("button-5").style.display = "block";
 }
 
-//TIMER 
+//TIMER
 function startTimer(duration, display) {
     console.log("STARTTIMER");
     var timer = duration, minutes, seconds;
@@ -432,14 +432,14 @@ function setTimer() {
 //MAKING SURE USER CHOOSES SOCIAL BEFORE PROCEEDING
 function seeWhichChecked(){
     if (checkFace.checked || checkInsta.checked || checkSnap.checked || checkTwit.checked){
-        userChoseSocial = true; 
-    } 
+        userChoseSocial = true;
+    }
     else if (checkSocial.checked){
         userNoSocial = true;
     }
 }
 
-//CHECKING CHECKBOX STATUS 
+//CHECKING CHECKBOX STATUS
 function submitCheckbox(){
     console.log(dareArray.length);
     if (checkSocial == true){
@@ -449,7 +449,7 @@ function submitCheckbox(){
         console.log("face not checked");
         dareArray.splice(0,numOfIndividualDares); //taking out [0]
         console.log(dareArray);
-        
+
         if (checkInsta.checked == false){ //[S,T]
             console.log("insta not checked");
             dareArray.splice(0,numOfIndividualDares); //taking out [0]
@@ -462,7 +462,7 @@ function submitCheckbox(){
                     console.log("twit not checked");
                     dareArray.splice(0,numOfIndividualDares);
                     console.log(dareArray);
-                } 
+                }
 
             } else if (checkSnap.checked == true){ //[S,T]
                 console.log("snap checked");
@@ -472,7 +472,7 @@ function submitCheckbox(){
                     console.log("twit not checked");
                     dareArray.splice(dareArray.length-numOfIndividualDares,numOfIndividualDares);
                     console.log(dareArray);
-                } 
+                }
 
             }
 
@@ -483,11 +483,11 @@ function submitCheckbox(){
                 console.log("snap not checked");
                 dareArray.splice(numOfIndividualDares,numOfIndividualDares); //taking out [1]
                 console.log(dareArray);
-                if (checkTwit.checked == false){ 
+                if (checkTwit.checked == false){
                     console.log("twit not checked");
                     dareArray.splice(dareArray.length-numOfIndividualDares,numOfIndividualDares);
                     console.log(dareArray);
-                } 
+                }
 
             } else if (checkSnap.checked == true){ //[I,I,S,S,T,T]
                 console.log("snap checked");
@@ -495,7 +495,7 @@ function submitCheckbox(){
                 if (checkTwit.checked == false){
                     console.log("twit not checked");
                     dareArray.splice(dareArray.length-numOfIndividualDares,numOfIndividualDares);
-                } 
+                }
             }
         }
 
@@ -515,14 +515,14 @@ function submitCheckbox(){
                 if (checkTwit.checked == false){
                     console.log("twit not checked");
                     dareArray.splice(dareArray.length-numOfIndividualDares,numOfIndividualDares);//taking out last item
-                } 
+                }
 
             } else if (checkSnap.checked == true){//[F,F,S,S,T,T]
 
                 if (checkTwit.checked == false){
                     console.log("twit not checked");
                     dareArray.splice(dareArray.length-numOfIndividualDares,numOfIndividualDares);//taking out last item
-                } 
+                }
             }
 
         } else if (checkInsta.checked == true){//[F,F,I,I,S,S,T,T]
@@ -532,25 +532,20 @@ function submitCheckbox(){
                 console.log("snap not checked");
                 dareArray.splice(dareArray.length - (numOfIndividualDares*2),numOfIndividualDares); //taking out [2]
 
-                if (checkTwit.checked == false){ 
+                if (checkTwit.checked == false){
                     console.log("twit not checked");
                     dareArray.splice(dareArray.length-numOfIndividualDares,numOfIndividualDares);
-                } 
+                }
 
-            } else if (checkSnap.checked == true){ 
+            } else if (checkSnap.checked == true){
                 console.log("snap checked");
 
                 if (checkTwit.checked == false){
                     console.log("twit not checked");
                     dareArray.splice(dareArray.length-numOfIndividualDares,numOfIndividualDares);
-                } 
+                }
             }
         }
     }
     console.log(dareArray);
 };
-
-
-
-
-
