@@ -1,4 +1,4 @@
-//TESTING IF THIS UPDATES
+//TESTING IF THIS UPDATES V2
 let opponent;
 let phase = 1;
 console.log("reading js");
