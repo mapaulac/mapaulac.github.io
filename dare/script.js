@@ -27,6 +27,7 @@ let finalDare3;
 let fetchDare;
 let stopTimer = false;
 let userNoSocial = false;
+let displayPart7 = false;
 
 let facebookArray = [];
 let instaArray = [];
@@ -68,7 +69,7 @@ $( "#button-2" ).click(function() {
     "Make a new Instagram post right now and advertise it in your story.",
     "Special dare! Go to the Handle Box. Take a piece of paper out and contact that person. If you don't have the platform they specify, return that paper and take out a new one. (Don't worry, the people in the Handle Box have consented to be contacted)"],
     ["Take a selfie and post it on Instagram with no context.",
-    "Share the 3 most recent photos of yourelf from your camera roll in your Instagram public story.",
+    "Share the 3 most recent photos of yourself from your camera roll in your Instagram public story.",
     "Reply to the first 3 stories on your Instagram."]];
 
     snapArray = [["Send a Bitmoji to your top 3 Best Friends on Snapchat",
@@ -139,14 +140,45 @@ $( "#button-6" ).click(function() {
 
 //DID USER COMPLETE THE DARE?
 $( "#button-yes" ).click(function() {
+    console.log("YES CLICKED 1");
     document.getElementById("part7").style.display = "none";
     document.getElementById("part7B").style.display = "none";
     document.getElementById("part8Yes").style.display = "flex";
 });
 
 $( "#button-no" ).click(function() {
-
+    console.log("NO CLICKED 1");
+    document.getElementById("part7").style.display = "none";
+    document.getElementById("part7B").style.display = "none";
+    document.getElementById("part8No").style.display = "flex";
 });
+
+$( "#button-yes2" ).click(function() {
+    console.log("YES CLICKED 2");
+    document.getElementById("part7").style.display = "none";
+    document.getElementById("part7B").style.display = "none";
+    document.getElementById("part8Yes").style.display = "flex";
+});
+
+$( "#button-no2" ).click(function() {
+    console.log("NO CLICKED 2");
+    document.getElementById("part7").style.display = "none";
+    document.getElementById("part7B").style.display = "none";
+    document.getElementById("part8No").style.display = "flex";
+});
+
+
+// $( "#tryAgain" ).click(function() {
+//     // console.log("NO CLICKED 2");
+//     document.getElementById("part8No").style.display = "none";
+//     document.getElementById("part6").style.display = "flex";
+// });
+
+// $( "#lose" ).click(function() {
+//     // console.log("NO CLICKED 2");
+//     document.getElementById("part8No").style.display = "none";
+//     document.getElementById("partlose").style.display = "flex";
+// });
 
 //FETCH FROM JSON HERE
 function callFetch() {
@@ -218,7 +250,7 @@ function getName(){
     var output2 = document.getElementById("nameHTML2");
     var output3 = document.getElementById("nameHTML3");
     var output4 = document.getElementById("nameHTML4");
-    var output5 = document.getElementById("nameHTML5");
+    // var output5 = document.getElementById("nameHTML5");
     output.innerHTML = userName;
     output2.innerHTML = userName;
     output3.innerHTML = userName;
@@ -229,17 +261,21 @@ function getName(){
 //ARRAY OF DARES, DIFFERENT ACCORDING TO RISK & PLATFORMS
 //change chosenRisk value according to user's choice
 function updateChosenRisk(){
+    var riskName = document.getElementById("riskLevel");
     if (slider.value == 1){
         chosenRisk = 1;
         riskTime = 60;
+        riskName.innerHTML = "LOW";
         console.log(chosenRisk);
     } else if (slider.value == 2){
         chosenRisk = 2;
         riskTime = 120;
+        riskName.innerHTML = "MEDIUM";
         console.log(chosenRisk);
     } else if (slider.value == 3){
         chosenRisk = 3;
         riskTime = 180;
+        riskName.innerHTML = "HIGH";
         console.log(chosenRisk);
     }
     console.log("create array called");
@@ -405,14 +441,18 @@ function startTimer(duration, display) {
 
         // display.textContent = seconds;
         display.textContent = minutes + ":" + seconds; //show minutes
+        console.log(timer);
 
         //ONCE TIMER IS DONE, GO TO PART 6
         if (stopTimer == false){
             if (--timer < 0) {
                 document.getElementById("timerContainer").style.display = "none";
                 document.getElementById("part6").style.display = "none";
-                document.getElementById("part7").style.display = "flex";
-            }
+                if (displayPart7 == false){
+                    document.getElementById("part7").style.display = "flex";
+                    displayPart7 = true;
+                }
+            } 
         }
     }, 1000);
 }
