@@ -8,16 +8,12 @@ body, html{
 	width:100%;
 }
 
-/*MISCELLANEOUS*/
 a{
 	text-decoration:none;
-		text-align:right;
+	text-align:right;
 	color:black;
 	margin-top: 0;
-	/*width:80%;*/
-	/*margin-left:4%;*/
 	font-size: 1.2em;
-	/* margin:3%; */
 	color:white;
 }
 
@@ -31,7 +27,6 @@ a{
 	align-items:center;
 	justify-content: center;
 	flex-direction: row;
-	/* margin-bottom:16%; */
 }
 
 .navContainer a{
@@ -74,7 +69,7 @@ button:hover {
 
 /*CONTAINERS*/
 #homeDiv{
-	background-image: url("cover3.png");
+	background-image: url("data/cover3.png");
 	height: 100%;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -152,11 +147,6 @@ button:hover {
 	width:20%;
 }
 
-#stat1{
-
-	/* margin-left:8%; */
-}
-
 .layerDarker{
 	height:100%;
 	background:linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2));
@@ -176,7 +166,7 @@ button:hover {
 
 #productDiv2{
 	/*background-color: #1c1c1c;*/
-	background-image: url("retreat2.jpg");
+	background-image: url("data/retreat2.jpg");
 	height: 70%;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -196,7 +186,7 @@ button:hover {
 }
 #productDiv4{
 	/*background-color: #1c1c1c;*/
-	background-image: url("glasses2.jpg");
+	background-image: url("data/glasses2.jpg");
 	height: 70%;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -284,7 +274,7 @@ button:hover {
 /*MAIN PACKAGES PAGE*/
 #bodyProductPageImg{
 	height:100%;
-	background-image: url("possibleBanner.jpeg");
+	background-image: url("data/possibleBanner.jpeg");
 	/*background-position: center;*/
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -476,7 +466,7 @@ button:hover {
 
 /* RETREAT PAGE */
 #bannerRetreat{
-	background-image: url("retreatBanner.jpg");
+	background-image: url("data/retreatBanner.jpg");
 	height:100%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -503,30 +493,27 @@ button:hover {
   width:70%;
   margin:0;
   display:inline-block;
-  float:left;
   background-color: #6ACCC3;
   display:flex;
   align-items:center;
   justify-content: center;
-  background-image: url("retreatPhoto1.jpg");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+  background-image: url("data/retreatPhoto1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #contentRight{
   height:100%;
   width:30%;
-	margin:0;
-	display:inline-block;
-	float:left;
+  margin:0;
+  display:inline-block;
   background-color: white;
   display:flex;
   align-items:center;
   justify-content: center;
   flex-direction:column;
 }
-
 
 /*SUBMIT*/
 form{
@@ -542,7 +529,6 @@ form{
   position:relative;
   padding-bottom: 2rem;
   z-index: -2;
-  /* margin-top:-%; */
 }
 
 #contact{
@@ -557,8 +543,6 @@ form{
 .titleText{
 	font-size:4.5em;
 	color:white;
-	/*color:#ffe921;*/
-	/*text-shadow: 4px 2px 12px #000000;*/
 }
 
 #titleTextOne{
@@ -573,9 +557,7 @@ form{
 
 .titleTextStat{
 	font-size:4.5em;
-	/*color:#180563;*/
 	color:white;
-	/*text-shadow: 4px 2px 12px #000000;*/
 }
 
 #statPhrase{
@@ -592,13 +574,9 @@ form{
 
 #arrow{
 	font-family: 'Solway', serif;
-	/*text-shadow: 4px 2px 12px #000000;*/
 	font-size:5em;
 	color:white;
-	/*margin-left:92%;*/
-	/*margin-bottom:1%;*/
 	cursor:pointer;
-	/*margin-top:2%;*/
 }
 
 #statText{
@@ -626,11 +604,9 @@ form{
 
 .titleTextProductPar{
 	font-size:1em;
-	/*text-align:justify;*/
 }
 
 #productText2{
-	/*font-family: 'Montserrat', sans-serif;*/
 	font-size:2em;
 }
 
@@ -641,14 +617,6 @@ form{
 p{
 	color:white;
 }
-/*@keyframes fadein {
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}*/
 
 /* FOOTER */
 ul{
@@ -811,7 +779,7 @@ input[type="submit"]:hover {
 	}
 
 	#flexContainerProduct{
-		margin-top:5%;
+		/* margin-top:5%; */
 		padding:3%;
 	}
 	.navContainer a{
@@ -838,14 +806,7 @@ input[type="submit"]:hover {
 	}
 
 	#rowContent2{
-		/* display:flex; */
-		flex-direction: column;
-		/* align-items: center;
-		justify-content: center; */
-	}
-    .ft-main {
-		/* background-color:red; */
-		/* justify-content: center; */
+		flex-direction: column;	
 	}
 	.disclaimer{
 		width:100%;
@@ -862,7 +823,6 @@ input[type="submit"]:hover {
 		height:auto;
 	}
 	.statClass{
-		/* margin-top: 14%; */
 		width: 45%;
 		margin-left: 6%;
 	}
@@ -906,18 +866,6 @@ input[type="submit"]:hover {
 	.titleTextStat{
 		font-size:2em;
 	}
-	/* #productDiv1{
-		height:auto;
-	}
-	#productDiv2{
-		height:100%;
-	}
-	#productDiv3{
-		height:100%;
-	}
-	#productDiv4{
-		height:100%;
-	} */
 	#bodyProductPageImg{
 		height:50%;
 		background-attachment:initial;
@@ -958,7 +906,6 @@ input[type="submit"]:hover {
 		width:80%;
 	}
 	#flexContainerProduct{
-		/* margin-top:5%; */
 		padding:3%;
 
 	}
@@ -984,7 +931,6 @@ input[type="submit"]:hover {
 	}
 	#credits-item{
 		margin-left:0;
-		/* width:50%; */
 	}
 	/* STATS */
 	#flexContainerStats{
@@ -1034,21 +980,6 @@ input[type="submit"]:hover {
 	.titleTextStat{
 		font-size:3em;
 	}
-	/* .disclaimer{
-		width:100%;
-	}
-	#productDiv1{
-		height:50%;
-	}
-	#productDiv2{
-		height:70%;
-	}
-	#productDiv3{
-		height:70%;
-	}
-	#productDiv4{
-		height:70%;
-	} */
 	
 }
 /* testing */
@@ -1060,13 +991,6 @@ input[type="submit"]:hover {
 		height:50%;
 
 	}
-	/* #bannerSpots{
-		height:50%;
-		background-attachment:initial;
-	}
-	#bannerRetreat{
-		height:50%;
-	} */
 	.contentBanner{
 		height:50%;
 		background-attachment:initial;
@@ -1077,20 +1001,4 @@ input[type="submit"]:hover {
 		justify-content: space-evenly;
 		/* background-color:yellow; */
 	}
-
-	/* .disclaimer{
-		width:50%;
-	}
-	#productDiv1{
-		height:50%;
-	}
-	#productDiv2{
-		height:70%;
-	}
-	#productDiv3{
-		height:70%;
-	}
-	#productDiv4{
-		height:70%;
-	} */
 }
