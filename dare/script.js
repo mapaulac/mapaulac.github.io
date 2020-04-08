@@ -432,6 +432,7 @@ function showDare(){
 function startTimer(duration, display) {
     console.log("STARTTIMER");
     var timer = duration, minutes, seconds;
+    var timeOutput = document.getElementById("time");
     setInterval(function () {
         minutes = parseInt(timer / 60, 10)
         seconds = parseInt(timer % 60, 10);
@@ -440,7 +441,8 @@ function startTimer(duration, display) {
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         // display.textContent = seconds;
-        display.textContent = minutes + ":" + seconds; //show minutes
+        timeOutput.innerHTML = minutes + ":" + seconds;
+        // display.textContent = minutes + ":" + seconds; //show minutes
         console.log(timer);
 
         //ONCE TIMER IS DONE, GO TO PART 6
