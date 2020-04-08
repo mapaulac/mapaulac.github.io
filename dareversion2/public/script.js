@@ -167,18 +167,6 @@ function nextRound(){
     }
 }
 
-// $( "#button6" ).click(function() {
-//     console.log("button 6 clicked, reseting timer and going to round 2");
-//     socket.emit('round two checkpoint', true);
-//     setTimer(120);
-// });
-
-// $( "#button7" ).click(function() {
-//     console.log("button 7 clicked, reseting timer and going to round 2");
-//     socket.emit('round two checkpoint', true);
-//     setTimer(120);
-// });
-
 //COMPLETED DARE PART
 //both users finish the dare function
 function dareCompletedFunction(){
@@ -212,7 +200,7 @@ function dareNotCompletedFunction(){
     roundCompletionCount++;
     console.log("number of users finished with round:" + roundCompletionCount);
     document.getElementById("dareNotCompletedPart").style.display = "flex";
-    document.getElementById("menu").style.display = "none";
+    document.getElementById("menu2").style.display = "none";
 }
 
 //CHANGING CURRENT ROUND TEXT
@@ -302,17 +290,18 @@ $(function () {
         if (currentRound == 1){
             document.getElementById("part5").style.display = "none"; 
             currentRound = 2;  
-            prevRound = 1;          
+            prevRound = 1; 
+            roundCompletionCount = 0;         
             console.log("logging change to current round: " + currentRound);
             console.log("logging change to previous round: " + prevRound);
         } else if (currentRound == 2){
             document.getElementById("part6").style.display = "none";
             currentRound = 3;
             prevRound = 2;
+            roundCompletionCount = 0;
             console.log("logging change to current round: " + currentRound);
             console.log("logging change to previous round: " + prevRound);
         } 
-        
     });
 
     socket.on('timer done', function(isTimerDone){
@@ -628,8 +617,10 @@ function startTimer(duration,display) {
             console.log("current round: " + currentRound);
             if (prevRound == 1){
                 currentRound = 2;
+                roundCompletionCount = 0;
             } else if (prevRound ==2){
                 currentRound = 3;
+                roundCompletionCount = 0;
             }
         } else {
         //ONCE TIMER IS DONE, GO TO NEXT ROUND
@@ -638,7 +629,6 @@ function startTimer(duration,display) {
                 console.log("current round: " + currentRound);
                 if (prevRound == 1){
                     currentRound = 2;
-                    roundCompletionCount = 0;
                     console.log("button 6 clicked, reseting timer and going to round 2");
                     socket.emit('round two checkpoint', true); 
                 } else if (prevRound == 2){
