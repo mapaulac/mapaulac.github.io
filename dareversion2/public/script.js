@@ -183,6 +183,7 @@ function dareCompletedFunction(){
     roundCompletionCount++;
     console.log("number of users finished with round:" + roundCompletionCount);
     document.getElementById("dareCompletedPart").style.display = "flex";
+    document.getElementById("waitingDareText").style.display = "block";
     document.getElementById("menu").style.display = "none";
 }
 
@@ -200,6 +201,7 @@ function dareNotCompletedFunction(){
     roundCompletionCount++;
     console.log("number of users finished with round:" + roundCompletionCount);
     document.getElementById("dareNotCompletedPart").style.display = "flex";
+    document.getElementById("waitingDareText2").style.display = "block";
     document.getElementById("menu2").style.display = "none";
 }
 
@@ -308,7 +310,10 @@ $(function () {
         console.log("TIMER FOR BOTH PLAYERS DONE");
         if (currentRound == 1){
             document.getElementById("part5").style.display = "none";
+        } else if (currentRound == 2){
+            document.getElementById("part6").style.display = "none";
         }
+        //REPEAT: for round 3
         document.getElementById("dareNotCompletedPart").style.display = "flex";
         document.getElementById("waitingDareText").style.display = "none";
         document.getElementById("waitingDareText2").style.display = "none";
