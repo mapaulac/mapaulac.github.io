@@ -16,11 +16,12 @@ let dareNumber2;
 let dareNumber3;
 let roundCompletionCount = 0;
 let prevRound = 1; 
+let alreadyFinishedRound = false;
 
 //timer values
 var timeOutput = document.getElementById("time");
 var timeOutput2 = document.getElementById("time2");
-// var timeOutput3 = document.getElementById("time3");
+var timeOutput3 = document.getElementById("time3");
 let alreadySetTimer = false;
 let stopTimer = false;
 var socketTimer;
@@ -54,7 +55,7 @@ var checkboxSnap = document.getElementById("checkSnap");
 var checkboxTwit = document.getElementById("checkTwit");
 
 //POINT TRACKING 
-var numDaresCompleted = 0; 
+var userScore = 0; 
 
 facebookArray = [["Angry react to the first 5 posts on your Facebook feed",
     "Love react to the first 5 posts on your Facebook feed",
@@ -148,22 +149,25 @@ $( "#button5" ).click(function() {
     display = document.querySelector('#time');
     var reachedRound1 = true;
     socket.emit('round one checkpoint', reachedRound1); //REPEAT: START DARE ROUNDS
-    setTimer(20);
+    setTimer(3000);
 });
 
-//ROUND 2
+//ROUND 2   
 //CONTINUE TO NEXT ROUND (AFTER ROUND 1)
 function nextRound(){
     console.log("continue pressed. starting new round");
     console.log("current round: "+ currentRound);
+    socket.emit('restart giveup', true);
+
+    //starting new rounds
     if (currentRound == 2){
         console.log("STARTING ROUND 2.");
         socket.emit('round two checkpoint', true);
-        setTimer(120);
+        setTimer(10);
     } else if (currentRound == 3){
         console.log("STARTING ROUND 3");
-        //add more stuff here?
-        setTimer(180);
+        socket.emit('round three checkpoint', true);
+        setTimer(10);
     }
 }
 
@@ -171,38 +175,55 @@ function nextRound(){
 //both users finish the dare function
 function dareCompletedFunction(){
     socket.emit('dare complete checkpoint', true); //sending checkpoint mark
-    console.log("DARE COMPLETED. went to dare completion menu! waiting for other player");
+    console.log("DARE COMPLETED. ADDING SCORE. went to dare completion menu! waiting for other player");
+    //showing give up buttons again
+    document.getElementById("giveUp1").style.display = "block";
+    document.getElementById("giveUp2").style.display = "block";
+    alreadyFinishedRound = true; 
+    userScore++;
+    console.log("sending to server increase in round completion count");
+    socket.emit('round completion count', true);
+    console.log("USER SCORE");
+    console.log(userScore);
     changeRoundText();
-    if (currentRound == 1){
-        document.getElementById("part5").style.display = "none";
-    } else if (currentRound == 2){
-        document.getElementById("part6").style.display = "none";
-    } else if (currentRound == 3){
-        //finishing the game here
-    } 
-    roundCompletionCount++;
-    console.log("number of users finished with round:" + roundCompletionCount);
-    document.getElementById("dareCompletedPart").style.display = "flex";
-    document.getElementById("waitingDareText").style.display = "block";
-    document.getElementById("menu").style.display = "none";
+    changeSection();
+    if (currentRound != 3){
+        document.getElementById("dareCompletedPart").style.display = "flex";
+        document.getElementById("waitingDareText").style.display = "block";
+        document.getElementById("menu").style.display = "none";
+    }
 }
 
+//DARE NOT COMPLETED PART
 function dareNotCompletedFunction(){
     socket.emit('dare complete checkpoint', true); //sending checkpoint mark
     console.log("DARE NOT COMPLETED. went to dare completion menu! waiting for other player");
+    //showing give up buttons again
+    document.getElementById("giveUp1").style.display = "block";
+    document.getElementById("giveUp2").style.display = "block";
+    console.log("sending to server increase in round completion count");
+    socket.emit('round completion count', true);
+    alreadyFinishedRound = true; 
     changeRoundText();
+    changeSection();
+    if (currentRound != 3){
+        document.getElementById("dareNotCompletedPart").style.display = "flex";
+        document.getElementById("waitingDareText2").style.display = "block";
+        document.getElementById("menu2").style.display = "none";
+    }
+}
+
+//CHANGE VISIBILITY ACCORDING TO ROUNDS 
+function changeSection(){
     if (currentRound == 1){
         document.getElementById("part5").style.display = "none";
     } else if (currentRound == 2){
         document.getElementById("part6").style.display = "none";
+        document.getElementById("scorePart").style.display = "none";
     } else if (currentRound == 3){
-        //finishing the game here
+        document.getElementById("part7").style.display = "none";
+        document.getElementById("scorePart").style.display = "flex";
     }
-    roundCompletionCount++;
-    console.log("number of users finished with round:" + roundCompletionCount);
-    document.getElementById("dareNotCompletedPart").style.display = "flex";
-    document.getElementById("waitingDareText2").style.display = "block";
-    document.getElementById("menu2").style.display = "none";
 }
 
 //CHANGING CURRENT ROUND TEXT
@@ -211,15 +232,24 @@ function changeRoundText(){
     var outRound = document.getElementById("currentRoundView");
     var outRound2 = document.getElementById("currentRoundView2");
     var outRound3 = document.getElementById("currentRoundView3");
+    var outScore1 = document.getElementById("scoreText1");
+    var outScore2 = document.getElementById("scoreText2");
+    var outScore3 = document.getElementById("scoreText3");
     if (currentRound == 1){
         outRound.innerHTML = "1";
         outRound2.innerHTML = "1";
         outRound3.innerHTML = "1";
+        outScore1.innerHTML = userScore;
+        outScore2.innerHTML = userScore;
     } else if (currentRound == 2){
         outRound.innerHTML = "2";
         outRound2.innerHTML = "2";
         outRound3.innerHTML = "2";
-    } 
+        outScore1.innerHTML = userScore;
+        outScore2.innerHTML = userScore;
+    } else if (currentRound == 3){
+        outScore3.innerHTML = userScore;
+    }
 }
 
 
@@ -233,7 +263,6 @@ function getName(){
     output.innerHTML = userName;
     output2.innerHTML = userName;
     output3.innerHTML = userName;
-
 }
 
 //WEBSOCKET 
@@ -279,6 +308,11 @@ $(function () {
             document.getElementById("dareCompletedPart").style.display = "none";
             document.getElementById("dareNotCompletedPart").style.display = "none"; 
             document.getElementById("part6").style.display = "flex";
+        } else if (currentRound == 3){
+            filterDares();
+            document.getElementById("dareCompletedPart").style.display = "none";
+            document.getElementById("dareNotCompletedPart").style.display = "none";
+            document.getElementById("part7").style.display = "flex";
         }
     });
 
@@ -292,33 +326,69 @@ $(function () {
         if (currentRound == 1){
             document.getElementById("part5").style.display = "none"; 
             currentRound = 2;  
-            prevRound = 1; 
-            roundCompletionCount = 0;         
+            prevRound = 1;        
             console.log("logging change to current round: " + currentRound);
             console.log("logging change to previous round: " + prevRound);
         } else if (currentRound == 2){
             document.getElementById("part6").style.display = "none";
             currentRound = 3;
             prevRound = 2;
-            roundCompletionCount = 0;
             console.log("logging change to current round: " + currentRound);
             console.log("logging change to previous round: " + prevRound);
         } 
+        alreadyFinishedRound = false;
+        console.log("reseting already finished round "+ alreadyFinishedRound);
     });
 
-    socket.on('timer done', function(isTimerDone){
-        console.log("TIMER FOR BOTH PLAYERS DONE");
-        if (currentRound == 1){
-            document.getElementById("part5").style.display = "none";
-        } else if (currentRound == 2){
-            document.getElementById("part6").style.display = "none";
-        }
-        //REPEAT: for round 3
-        document.getElementById("dareNotCompletedPart").style.display = "flex";
-        document.getElementById("waitingDareText").style.display = "none";
-        document.getElementById("waitingDareText2").style.display = "none";
-        document.getElementById("menu").style.display = "flex";
-        document.getElementById("menu2").style.display = "flex";
+    //all changes for timer done here!!
+    socket.on('timer done', function(updatedRoundCompletionCount){
+            console.log("TIMER FOR BOTH PLAYERS DONE");
+            console.log("ROUND COMPLETION COUNT");
+            console.log(updatedRoundCompletionCount);
+
+            //IF BOTH PLAYERS LOST TO TIME
+            if (updatedRoundCompletionCount == 0){
+                console.log("BOTH USERS LOST TO TIME");
+                changeRoundText();
+                changeSection();
+            } 
+
+            //if one user lost
+             else if (updatedRoundCompletionCount == 1){
+                console.log("ONE USER LOST TO TIME");
+                changeRoundText();
+                changeSection();
+            }
+
+            //CHANGING VISIBILIY - showing menu options
+            if (alreadyFinishedRound == false){
+                if (currentRound != 3){
+                    document.getElementById("dareNotCompletedPart").style.display = "flex";
+                }
+            }
+
+            //changing waiting text 
+            if (currentRound != 3){
+                document.getElementById("waitingDareText").style.display = "none";
+                document.getElementById("waitingDareText2").style.display = "none";
+                document.getElementById("menu").style.display = "flex";
+                document.getElementById("menu2").style.display = "flex";
+            }
+
+            //changing status of round counters
+            console.log("current round: " + currentRound)
+            if (currentRound == 1){
+                currentRound = 2; 
+                prevRound = 1; 
+                console.log("next round: " + currentRound)
+            } else if (currentRound == 2){
+                currentRound = 3;
+                prevRound = 2;
+                console.log("next round: " + currentRound)
+            }
+
+            alreadyFinishedRound = false;
+            console.log("reseting already finished round "+ alreadyFinishedRound);        
     });
 
     //START TIMER
@@ -328,8 +398,46 @@ $(function () {
         } else if (currentRound == 2){
             timeOutput2.innerHTML = currentTime;
         } else if (currentRound == 3){
-            // timeOutput3.innerHTML = currentTime;
+            timeOutput3.innerHTML = currentTime;
         }
+    });
+
+    //SWAP HERE
+    socket.on('swap dares', function(swappedDare){
+        console.log("swapped dares. received dare:");
+        console.log(swappedDare);
+        let dareOutput1 = document.getElementById("dareRound1");
+        let dareOutput2 = document.getElementById("dareRound2");
+        let dareOutput3 = document.getElementById("dareRound3");
+        if (currentRound == 1){
+            dareOutput1.innerHTML = swappedDare;
+        } else if (currentRound == 2){
+            dareOutput2.innerHTML = swappedDare;
+        } else if (currentRound == 3){
+            dareOutput3.innerHTML = swappedDare;
+        }
+    });
+
+    //BOTH USERS AGREE TO GIVE UP
+    socket.on('give up', function(gaveUp){
+        //hiding current page
+        document.getElementById("dareCompletedPart").style.display = "none";
+        document.getElementById("dareNotCompletedPart").style.display = "none";
+
+        //showing give up part
+        document.getElementById("giveUpPart").style.display = "flex";  
+    });
+
+    socket.on('hide giveup one', function(hide){
+        document.getElementById("giveUp1").style.display = "none";
+    });
+
+    socket.on('hide giveup two', function(hide){
+        document.getElementById("giveUp2").style.display = "none";
+    });
+
+    socket.on('giveup alert', function(receivedAlert){
+        alert('The other player has requested to give up. If you accept this request, select "Give Up" as well. If you have both changed your minds simply press "Continue" to go on to the next round.');
     });
 });
 
@@ -582,15 +690,20 @@ function pickDare(arrayOfDares){
     //saving values according to each round & display on the site
     let dareOutput1 = document.getElementById("dareRound1");
     let dareOutput2 = document.getElementById("dareRound2");
+    let dareOutput3 = document.getElementById("dareRound3");
 
     if (currentRound == 1){
         dareNumber1 = dareToSend;
         dareOutput1.innerHTML = dareNumber1;
+        socket.emit('save dare', dareNumber1); 
     } else if (currentRound == 2){
         dareNumber2 = dareToSend;
         dareOutput2.innerHTML = dareNumber2;
+        socket.emit('save dare', dareNumber2); 
     } else if (currentRound == 3){
         dareNumber3 = dareToSend;
+        dareOutput3.innerHTML = dareNumber3;
+        socket.emit('save dare', dareNumber3); 
     }
 
 }
@@ -602,16 +715,14 @@ function startTimer(duration,display) {
     var myVar = setInterval(function () {
         minutes = parseInt(timer / 60, 10)
         seconds = parseInt(timer % 60, 10);
-
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        // timeOutput.innerHTML = minutes + ":" + seconds;
         socketTimer = minutes + ":" + seconds;
-        // console.log(socketTimer);
-
         socket.emit('timer', socketTimer); 
+
         console.log("inside timer, user completed status: " + userCompleted);
+
+        //STOPPING TIMER IF BOTH USERS HAVE COMPLETED THE DARE ALREADY. IF THERE ARE STILL USERS PLAYING THE CURRENT ROUND, CHECK IF THE TIME RUNS OUT
         if (userCompleted){
             console.log("both users finished!! stopped timer");
             clearInterval(myVar);
@@ -622,45 +733,41 @@ function startTimer(duration,display) {
             console.log("current round: " + currentRound);
             if (prevRound == 1){
                 currentRound = 2;
-                roundCompletionCount = 0;
             } else if (prevRound ==2){
                 currentRound = 3;
-                roundCompletionCount = 0;
             }
         } else {
-        //ONCE TIMER IS DONE, GO TO NEXT ROUND
+        //CHECKING HOW MANY PLAYERS LOST TO TIME
             if (--timer == 0) {
-                console.log("previous round: " + prevRound);
-                console.log("current round: " + currentRound);
-                if (prevRound == 1){
-                    currentRound = 2;
-                    console.log("button 6 clicked, reseting timer and going to round 2");
-                    socket.emit('round two checkpoint', true); 
-                } else if (prevRound == 2){
-                    currentRound = 3;
-                }
-                console.log("num users who completed the round before the timer ran out" + roundCompletionCount);
-                if (roundCompletionCount == 1){//if only one user's time goes out
-                    console.log("HIDING THE CONTENT");
-                    if (currentRound == 1){
-                        document.getElementById("part5").style.display = "none";
-                    }
-                    //REPEAT HERE FOR OTHER ROUNDS 
-                    document.getElementById("dareNotCompletedPart").style.display = "flex";
-                    document.getElementById("waitingDareText").style.display = "none";
-                    document.getElementById("waitingDareText2").style.display = "none";
-                    document.getElementById("menu").style.display = "flex";
-                    document.getElementById("menu2").style.display = "flex";
-                    console.log("ONLY ONE USER LOST");
+                console.log("TIMER IS DONE");
+                socket.emit('timer done', true);
+                clearInterval(myVar);
 
-                } else if (roundCompletionCount == 0){ //if both users' time goes out
-                    if (userCompleted == false){
-                        console.log("timer done");
-                        socket.emit('timer done', true);
-                    }                
-                    clearInterval(myVar);
-                }
-                userCompleted = false; 
+                // //CHECKING IF 
+                // console.log("num users who completed the round before the timer ran out" + roundCompletionCount);
+                // if (roundCompletionCount == 1){//if only one user's time goes out
+                //     console.log("HIDING THE CONTENT");
+                //     if (currentRound == 1){
+                //         document.getElementById("part5").style.display = "none";
+                //     }
+                //     //REPEAT HERE FOR OTHER ROUNDS 
+                //     document.getElementById("dareNotCompletedPart").style.display = "flex";
+                //     document.getElementById("waitingDareText").style.display = "none";
+                //     document.getElementById("waitingDareText2").style.display = "none";
+                //     document.getElementById("menu").style.display = "flex";
+                //     document.getElementById("menu2").style.display = "flex";
+                //     console.log("ONLY ONE USER LOST");
+
+                // } else if (roundCompletionCount == 0){ //if both users' time goes out
+                //     if (userCompleted == false){
+                //         console.log("timer done");
+                //         socket.emit('timer done', true);
+                //     }                
+                //     clearInterval(myVar);
+                // }
+                // userCompleted = false; 
+
+
             }
         }
     }, 1000);
@@ -673,18 +780,14 @@ function setTimer(timeIsLeft) {
     startTimer(timeLeft, display);//timer length varies according to chosen risk
 };
 
-// function startTimer(){
-    // var countdown = 1000;
-    // setInterval(function(){
-    //     countdown--;
-    //     io.sockets.emit('timer', {countdown: countdown});
-    // }, 1000);
+function swapDares(){
+    socket.emit('swap dares', currentRound); 
+}
 
-    // io.sockets.on('connection', function(socket){
-    //     socket.on('reset', function(data){
-    //         countdown = 1000;
-    //         io.sockets.emit('timer', {countdown: countdown});
-    //     });
-    // });
-// }
+function giveUp1(){
+    socket.emit('give up one', true); 
+}
+function giveUp2(){
+    socket.emit('give up two', true); 
+}
 

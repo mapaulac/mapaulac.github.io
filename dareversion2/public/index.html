@@ -21,8 +21,10 @@
             </div>
             <div class = "rightContainer">
                 <div class = "marginContentRight">
-                    <p class = "button" id = "button1">what is this?</p>
-                    <p class = "button" id = "button2">begin</p>
+                    <div id = "bottomRightContent">
+                        <p class = "button" id = "learnMore" onclick = "learnMore()">what is this?</p>
+                        <p class = "button" id = "button2">begin</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -42,9 +44,11 @@
             </div>
             <div class = "rightContainer">
                 <div class = "marginContentRight">
-                    <form id = "myForm" action="">
-                      <input type="text"id="m" placeholder="type your name" autocomplete="off" /><button id = "button3">submit</button>
-                    </form>
+                    <div id = "bottomRightContent">
+                        <form id = "myForm" action="">
+                        <input type="text"id="m" placeholder="type your name" autocomplete="off" /><button id = "button3">submit</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -81,7 +85,9 @@
             </div>
             <div class = "rightContainer">
                 <div class = "marginContentRight">
-                    <p class = "button" id = "button4">continue</p>
+                    <div id = "bottomRightContent">
+                        <p class = "button" id = "button4">continue</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -106,61 +112,128 @@
                     <h2 class = "subTitle" id = "subPart4">for each round you can:</h2>
                     <h2 class = "subTitle" id = "subInstructions">- complete the dare</h2>
                     <h2 class = "subTitle" id = "subInstructions">- not complete the dare</h2>
-                    <h2 class = "subTitle" id = "subInstructions">- swap dares with each other</h2>
+                    <h2 class = "subTitle" id = "subInstructions">- swap dares with each other (once per round)</h2>
                     <h2 class = "subTitle" id = "subInstructions">- give up completely</h2>
                     <h2 class = "subTitle" id = "subPart4">remember: the more dares you complete, the better the reward</h2>
                 </div>
             </div>
             <div class = "rightContainer">
                 <div class = "marginContentRight">
-                    <h2 class = "subTitle" id = "waiting4">waiting for other player...</h2>
-                    <p class = "button" id = "button5">start game</p>
+                    <div id = "bottomRightContent">
+                        <h2 class = "subTitle" id = "waiting4">waiting for other player...</h2>
+                        <p class = "button" id = "button5">start game</p>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- 5. Round 1: Dare  -->
-        <div class = "sectionContainer" id = "part5">
-            <div class = "leftContainer">
-                <div class = "marginContentLeft">
-                    <h1 class = "mainTitle" id = "titlePart1">ROUND 1</h1>
-                    <h2 class = "dareText" id = "dareRound1"></h2>
-                    <div id = "buttonSection">
-                        <p class = "button" id = "dareCompleted" onclick = "dareCompletedFunction()">i did it</p>
-                        <p class = "button" id = "dareNotCompleted" onclick = "dareNotCompletedFunction()">i won't do it</p>
+        <div class = "roundSectionContainer" id = "part5">
+            <div class = "topContainer">
+                <div class = "leftContainer">
+                    <div class = "marginContentLeft">
+                        <h1 class = "mainTitle" id = "titlePart1">ROUND 1</h1>
+                        <h2 class = "dareText" id = "dareRound1"></h2>
+                    </div>
+                </div>
+                <div class = "rightContainer">
+                    <div class = "marginContentRight">
+                        <div id = "timerContainer">
+                            <span id="time"></span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class = "rightContainer">
-                <div class = "marginContentRight">
-                    <div id = "timerContainer">
-                        <span id="time"></span>
-                    </div>
-                    <p class = "button" id = "swap1">swap dares</p>
-                    <p class = "button" id = "giveUp1">give up</p>
+
+            <div class = "bottomContainer">
+                <div id = "buttonSection">
+                    <p class = "button" id = "dareCompleted" onclick = "dareCompletedFunction()">i did it</p>
+                    <p class = "button" id = "dareNotCompleted" onclick = "dareNotCompletedFunction()">i won't do it</p>
+                </div>
+                <div id = "bottomContentDiv">
+                    <p class = "button" id = "swap1" onclick = "swapDares()">swap dares</p>
+                    <!-- <p class = "button" id = "giveUp1" onclick = "giveUp()">give up</p> -->
                 </div>
             </div>
         </div>
 
         <!-- 6. Round 2: Dare  -->
-        <div class = "sectionContainer" id = "part6" style = "display:none">
+        <div class = "roundSectionContainer" id = "part6" style = "display:none">
+            <div class = "topContainer">
+                <div class = "leftContainer">
+                    <div class = "marginContentLeft">
+                        <h1 class = "mainTitle" id = "titlePart1">ROUND 2</h1>
+                        <h2 class = "dareText" id = "dareRound2"></h2>
+                    </div>
+                </div>
+                <div class = "rightContainer">
+                    <div class = "marginContentRight">
+                        <div id = "timerContainer">
+                            <span id="time2"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class = "bottomContainer">
+                <div id = "buttonSection">
+                    <p class = "button" id = "dareCompleted2" onclick = "dareCompletedFunction()">i did it</p>
+                    <p class = "button" id = "dareNotCompleted2" onclick = "dareNotCompletedFunction()">i won't do it</p>
+                </div>
+                <div id = "bottomContentDiv">
+                    <p class = "button" id = "swap1" onclick = "swapDares()">swap dares</p>
+                    <!-- <p class = "button" id = "giveUp1" onclick = "giveUp()">give up</p> -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. Round 3: Dare  -->
+        <div class = "roundSectionContainer" id = "part7" style = "display:none">
+            <div class = "topContainer">
+                <div class = "leftContainer">
+                    <div class = "marginContentLeft">
+                        <h1 class = "mainTitle" id = "titlePart1">ROUND 3</h1>
+                        <h2 class = "dareText" id = "dareRound3"></h2>
+                    </div>
+                </div>
+                <div class = "rightContainer">
+                    <div class = "marginContentRight">
+                        <div id = "timerContainer">
+                            <span id="time3"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class = "bottomContainer">
+                <div id = "buttonSection">
+                    <p class = "button" id = "dareCompleted3" onclick = "dareCompletedFunction()">i did it</p>
+                    <p class = "button" id = "dareNotCompleted3" onclick = "dareNotCompletedFunction()">i won't do it</p>
+                </div>
+                <div id = "bottomContentDiv">
+                    <p class = "button" id = "swap1" onclick = "swapDares()">swap dares</p>
+                    <!-- <p class = "button" id = "giveUp1" onclick = "giveUp()">give up</p> -->
+                </div>                
+            </div>
+        </div>
+
+
+        <!-- 8. SCORE SECTION  -->
+        <div class = "sectionContainer" id = "scorePart" style = "display:none">
             <div class = "leftContainer">
                 <div class = "marginContentLeft">
-                    <h1 class = "mainTitle" id = "titlePart1">ROUND 2</h1>
-                    <h2 class = "dareText" id = "dareRound2"></h2>
-                    <div id = "buttonSection">
-                        <p class = "button" id = "dareCompleted2" onclick = "dareCompletedFunction()">i did it</p>
-                        <p class = "button" id = "dareNotCompleted2" onclick = "dareNotCompletedFunction()">i won't do it</p>
-                    </div>
+                    <h1 class = "mainTitle" id = "titlePart1">FINAL SCORE</h1>
+                    <h2 class = "scoreLargeText" id = "scoreText3"></h2>
                 </div>
             </div>
             <div class = "rightContainer">
                 <div class = "marginContentRight">
                     <div id = "timerContainer">
-                        <span id="time2"></span>
+                        <p class = "button">play again</p> 
+                        <p class = "button" id = "learnMore2" onclick = "learnMore()">what was this?</p>
                     </div>
-                    <p class = "button" id = "swap1">swap dares</p>
-                    <p class = "button" id = "giveUp1">give up</p>
+                    <h2 class = "subTitle" id = "subPart4">you get THIS reward</h2>
+                    <h2 class = "subTitle" id = "subPart4">more instructions written here</h2>
                 </div>
             </div>
         </div>
@@ -170,17 +243,20 @@
             <div class = "leftContainer">
                 <div class = "marginContentLeft">
                     <h1 class = "mainTitle" id = "titlePart1">ROUND <span id = "currentRoundView3"></span></h1>
-                    <h2 class = "mainTitle" id = "subPart4">congratulations!</h2>
-                    <h2 class = "mainTitle" id = "subPart4">round <span id = "currentRoundView"></span> completed</h2>
-                    <h2 class = "mainTitle" id = "subPart4">ready for the next round?</h2>
+                    <h2 class = "mainTitle" id = "subPart5">congratulations!</h2>
+                    <h2 class = "mainTitle" id = "subPart5">round <span id = "currentRoundView"></span> completed</h2>
+                    <h2 class = "mainTitle" id = "subPart5">ready for the next round?</h2>
                 </div>
             </div>
             <div class = "rightContainer">
                 <div class = "marginContentRight">
-                   
+                   <div id = "scoreDiv">
+                    <h2 class = "mainTitle" id = "scoreText1"></h2>
+                    <h2 class = "mainTitle" id = "scoreSubText">completed dares</h2>
+                   </div>
                     <div id = "menu">
                         <p class = "button" id = "button6" onclick = "nextRound()">continue</p>
-                        <p class = "button" id = "giveUp1">give up</p>
+                        <p class = "button" id = "giveUp1" onclick = "giveUp1()">give up</p>
                     </div>
                     <h1 class = "subTitle" id = "waitingDareText" style = "display:block">waiting for <span id = "nameHTML2"></span> to complete their dare...
                     </h1>
@@ -193,17 +269,20 @@
             <div class = "leftContainer">
                 <div class = "marginContentLeft">
                     <h1 class = "mainTitle" id = "titlePart1">ROUND <span id = "currentRoundView2"></span></h1>              
-                    <h2 class = "mainTitle" id = "subPart4">you can do this!</h2>
-                    <h2 class = "mainTitle" id = "subPart4">you can still get a reward if you complete the next dare</h2>
-                    <h2 class = "mainTitle" id = "subPart4">ready?</h2>
+                    <h2 class = "mainTitle" id = "subPart5">you can do this!</h2>
+                    <h2 class = "mainTitle" id = "subPart5">you can still get a reward if you complete the next dare</h2>
+                    <h2 class = "mainTitle" id = "subPart5">ready?</h2>
                 </div>
             </div>
             <div class = "rightContainer">
                 <div class = "marginContentRight">
-                    
+                    <div id = "scoreDiv">
+                        <h2 class = "mainTitle" id = "scoreText2"></h2>
+                        <h2 class = "mainTitle" id = "scoreSubText">completed dares</h2>
+                    </div>
                     <div id = "menu2">
                         <p class = "button" id = "button7" onclick = "nextRound()">continue</p>
-                        <p class = "button" id = "giveUp1">give up</p>
+                        <p class = "button" id = "giveUp2" onclick = "giveUp2()">give up</p>
                     </div>
                     <h1 class = "subTitle" id = "waitingDareText2" style = "display:block">waiting for <span id = "nameHTML3"></span> to complete their dare...
                     </h1>
@@ -211,7 +290,24 @@
             </div>
         </div>
 
-
+        <!-- GIVE UP PAGE -->
+        <div class = "sectionContainer" id = "giveUpPart" style = "display:none">
+            <div class = "leftContainer">
+                <div class = "marginContentLeft">
+                    <h1 class = "mainTitle" id = "titlePart1">It's unfortunate that you both weren't able to finish the game. 
+                    </h1>
+                    <h2 class = "subTitle" id = "subPart4">Even so, feel free to try again or read more about this project and its purpose. </h2>
+                </div>
+            </div>
+            <div class = "rightContainer">
+                <div class = "marginContentRight">
+                    <div id = "bottomRightContent">
+                        <p class = "button" id = "learnMore" onclick = "learnMore()">try again</p>
+                        <p class = "button" id = "learnMore" onclick = "learnMore()">learn more</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         
     </div>

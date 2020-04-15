@@ -16,10 +16,16 @@ var choseTimerUser = false;
 var timerUser; 
 var choseTimerUser2 = false;
 var timerUser2; 
+var choseTimerUser3 = false;
+var timerUser3; 
 var roundCompleted = 0;
 var continueDare = false;
 var currentRound = 1;
-
+var roundCompletionCount = 0; 
+var player1Dares = [];
+var player2Dares = [];
+var swapped = false;
+var numGiveUp = 0;
 
 io.on('connection', function(socket){
   console.log(numUsers);
@@ -39,18 +45,31 @@ io.on('connection', function(socket){
 
     //RESTARTING ALL VALUES ONCE 
     if (numUsers <= 0){
-      console.log("restarting name count"); 
-      numNames = 0; 
+      console.log("restarting every variable"); 
+      numNames = 0;
+      namesSubmitted = false;
       part4CheckNumber = 0;
-      console.log(numNames);
+      continuePart5 = false;
       var numIDs = userArray.length; 
       userArray.splice(0,numIDs);
       console.log("restarted ID array");
+      var numDares = player1Dares.length; 
+      player1Dares.splice(0,numDares);
+      player2Dares.splice(0,numDares);
+      console.log("restarted dare arrays");
       choseTimerUser = false;
-      roundCompleted = 0;
+      timerUser; 
       choseTimerUser2 = false;
-      timerUser2 = 0;
+      timerUser2; 
+      choseTimerUser3 = false;
+      timerUser3; 
+      roundCompleted = 0;
       continueDare = false;
+      currentRound = 1;
+      roundCompletionCount = 0; 
+      roundCompleted = 0;
+      swapped = false;
+      numGiveUp = 0;
     }
   });
 
@@ -80,6 +99,97 @@ io.on('connection', function(socket){
     }
   });
 
+  //SWAPPING
+  //saving dares to arrays according to IDs 
+  socket.on('save dare', function(dare){
+    if (userArray[0] == sessionID){
+      player1Dares.push(dare);
+      console.log("player 1 dares: ");
+      console.log(player1Dares);
+    } else if (userArray[1] == sessionID){
+      player2Dares.push(dare);
+      console.log("player 2 dares: ");
+      console.log(player2Dares);
+    }
+  });
+
+  socket.on('swap dares', function(round){
+    if (swapped == false){
+      //get index to obtain dare
+      var getIndex; 
+      var swapDare1;
+      var swapDare2;
+
+      if (currentRound == 1){
+        getIndex = 0;
+      } else if (currentRound == 2){
+        getIndex = 1;
+      } else if (currentRound == 3){
+        getIndex = 2;
+      }
+
+      //getting dare to swap
+      swapDare1 = player1Dares[getIndex];
+      swapDare2 = player2Dares[getIndex];
+      console.log("swapping dare 1: " + swapDare1);
+      console.log("swapping dare 2: " + swapDare2);
+
+      //swapping dares
+      player1Dares.splice(getIndex,1,swapDare2);
+      player2Dares.splice(getIndex,1,swapDare1);
+      console.log("done swapping. new arrays:");
+      console.log(player1Dares);
+      console.log(player2Dares);
+
+      //emitting according to specific IDs
+      io.to(`${userArray[0]}`).emit('swap dares', swapDare2);
+      io.to(`${userArray[1]}`).emit('swap dares', swapDare1);   
+      swapped = true;
+    } 
+  });
+
+  //GIVING UP 
+  socket.on('give up one', function(gaveUp){
+    if (gaveUp){
+      numGiveUp++;
+      console.log("gave up number: "+numGiveUp);
+      if (numGiveUp < 2){
+        socket.broadcast.emit('giveup alert', true);
+      }
+    }
+    if (numGiveUp == 1){
+      io.to(`${sessionID}`).emit('hide giveup one', true);
+    }
+    if (numGiveUp == 2){
+      console.log("both users gave up...")
+      io.emit('give up', true);
+    }
+  });
+
+    //GIVING UP 
+    socket.on('give up two', function(gaveUp){
+      if (gaveUp){
+        numGiveUp2++;
+        console.log("gave up number: "+numGiveUp2);
+        if (numGiveUp2 < 2){
+          socket.broadcast.emit('giveup alert', true);
+        }
+      }
+      if (numGiveUp2 == 1){
+        io.to(`${sessionID}`).emit('hide giveup two', true);
+      }
+      if (numGiveUp2 == 2){
+        console.log("both users gave up...")
+        io.emit('give up', true);
+      }
+    });
+
+  socket.on('restart giveup', function(restart){
+    numGiveUp = 0;
+    numGiveUp2 = 0;
+    console.log("updated numGive up: " + numGiveUp2);
+  });
+
   //timer checkpoint (filtering) - round 1
   socket.on('round one checkpoint', function(reachedTimer){
     if (reachedTimer){
@@ -95,7 +205,11 @@ io.on('connection', function(socket){
   //timer checkpoint - round 2
   socket.on('round two checkpoint', function(reachedTimer2){
     currentRound = 2;
+    swapped = false;
     console.log("current round: " + currentRound);
+    roundCompletionCount = 0;
+    console.log("restarting round completion count: "+ roundCompletionCount);
+    roundCompleted = 0;
     if (reachedTimer2){
       if (choseTimerUser2 == false){
         console.log("timer user "+ sessionID);
@@ -104,6 +218,30 @@ io.on('connection', function(socket){
         io.emit('start round', true);
       }
     }
+  });
+  
+  //timer checkpoint - round 3
+  socket.on('round three checkpoint', function(reachedTimer3){
+    currentRound = 3;
+    swapped = false;
+    console.log("current round: " + currentRound);
+    roundCompletionCount = 0;
+    console.log("restarting round completion count: "+ roundCompletionCount);
+    roundCompleted = 0;
+    if (reachedTimer3){
+      if (choseTimerUser3 == false){
+        console.log("timer user "+ sessionID);
+        timerUser3 = sessionID;
+        choseTimerUser3 = true;
+        io.emit('start round', true);
+      }
+    }
+  });
+
+  //receiving and sending round completion values 
+  socket.on('round completion count', function(increaseCounter){
+    roundCompletionCount++; 
+    console.log("updated round completion count: " + roundCompletionCount);
   });
 
   socket.on('timer', function(receiveTimer){
@@ -117,15 +255,23 @@ io.on('connection', function(socket){
         console.log('time left: '  + receiveTimer);
         io.emit('timer', receiveTimer);
       }
+    } else if (currentRound == 3){
+      if (sessionID == timerUser3){
+        console.log('time left: '  + receiveTimer);
+        io.emit('timer', receiveTimer);
+      }
     }
   });
 
   socket.on('timer done', function(isTimerDone){
     console.log("timer is done");
     if (isTimerDone){
-      io.emit('timer done', isTimerDone);
+      io.emit('timer done', roundCompletionCount);
+      // io.emit('round completion count', roundCompletionCount);
     }
 });
+
+  
 
   socket.on('chat message', function(msg){ //when form is submitted
     numNames++;

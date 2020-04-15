@@ -61,25 +61,68 @@ button:hover{
 
 #button5{
     display:none;
+    /* margin-left:37%; */
+}
+
+#button6{
+    width:200px;
+}
+
+#button7{   
+    width:200px;
+}
+
+#giveUp1{
+    width:200px;
+}
+
+#giveUp2{
+    width:200px;
 }
 
 #buttonSection{
     display:flex;
     flex-direction:column;
-    justify-content: flex-end;
-    height:50%;
+    flex-grow:1;
+    /* justify-content: flex-end; */
+    /* height:50%; */
 }
 
-#menu{
-    display:flex;
-    flex-direction:column;
-}
 
 #menu2{
     display:flex;
     flex-direction:column;
 }
 
+#learnMore{
+    width:260px;
+}
+
+
+
+#dareCompleted{
+    width:200px;
+}
+
+#dareNotCompleted{
+    width:250px;
+}
+
+#dareCompleted2{
+    width:200px;
+}
+
+#dareNotCompleted2{
+    width:250px;
+}
+
+#dareCompleted3{
+    width:200px;
+}
+
+#dareNotCompleted3{
+    width:250px;
+}
 
 /* FORMS */
 
@@ -90,7 +133,7 @@ input[type=text] {
     font-family: 'Poppins', sans-serif;
     border-bottom: 3px solid white;
     text-align:center;
-    width:500px;
+    width:390px;
     height:40px;
     font-size: 1.5em;
     font-style:italic;
@@ -113,6 +156,7 @@ input::placeholder {
     background: none;
     cursor: pointer;
     font-size: 3em;
+    width:272px;
 }
 
 .ck-button input:checked + span {
@@ -146,6 +190,15 @@ input[type="checkbox"] {
     width:100%;
 }
 
+.roundSectionContainer{
+    display:flex;
+    height:100%;
+    justify-content: center;
+    flex-direction:column;
+    /* flex-wrap:wrap; */
+    width:100%;
+}
+
 .leftContainer{
     display:flex;
     flex-direction: column;
@@ -157,23 +210,48 @@ input[type="checkbox"] {
     align-items:flex-start;
 }
 
+#scoreDiv{
+    flex-grow:1;
+}
+
+#menu{
+    display:flex;
+    flex-direction:column;
+}
+
+#timerContainer{
+    flex-grow:1;
+}
+
+#bottomContentDiv{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+}
+
 .rightContainer{
     flex-direction:column;
     display:flex;
     height:100%;
     width:40%;
-    justify-content:flex-end;
+    /* justify-content:flex-end; */
+    justify-content: space-around;
     /* background-color: black; */
     text-align:right;
-    align-items:flex-end;
+    /* align-items:flex-end; */
 }
 
 .marginContentLeft{
-    margin: 150px 0px 0px 90px;                             
+    margin: 100px 0px 0px 90px;                             
 }
 
 .marginContentRight{
-    margin:200px 90px 70px;
+    margin:123px 90px 70px;
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    align-items:flex-end;
+
 }
 
 #checkboxContainer{
@@ -181,6 +259,28 @@ input[type="checkbox"] {
     flex-direction: column;
     margin-top:21%;
 }
+
+#bottomRightContent{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    align-items:flex-end;
+    flex-grow:1;
+}
+
+.topContainer{
+    display:flex;
+    height:100%;
+    /* flex-direction:row; */
+}
+
+.bottomContainer{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    margin: 36px 65px 62px 87px;
+}
+
 
 /* SECTION VISIBILITY */
 #part1{
@@ -226,6 +326,11 @@ input[type="checkbox"] {
 
 #subPart4{
     margin:6% 0 0 0;
+    font-size:2.5em;
+}
+
+#subPart5{
+    font-size:3.5em;
 }
 
 .dareText{
@@ -236,4 +341,35 @@ input[type="checkbox"] {
 
 #waiting4{
     display:flex;
+}
+
+.scoreLargeText{
+    font-size:4em;
+}
+
+#scoreText1{
+    font-size:3.5em;
+    margin-bottom:0;
+}
+
+#scoreText2{
+    font-size:3.5em;
+    margin-bottom:0;
+}
+
+#scoreSubText{
+    font-size:2.5em;
+    margin-top:1%;
+}
+
+#time{
+    font-size:3.5em;
+}
+
+#time2{
+    font-size:3.5em;
+}
+
+#time3{
+    font-size:3.5em;
 }
