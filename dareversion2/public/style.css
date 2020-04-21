@@ -65,6 +65,14 @@ button:hover{
     /* text-decoration:underline; */
 }
 
+#waiting{
+    margin-top:3%;
+}
+
+#button3{
+    margin-left:61%;
+}
+
 #button5{
     display:none;
     /* margin-left:37%; */
@@ -342,13 +350,23 @@ input[type="checkbox"] {
     font-size:2.5em;
 }
 
-#subPart6{
-    font-size:2em;
+#rewardText{
+    font-size:1.5em;
+}
+
+#rewardText2{
+    font-size:1.5em;
+    margin-top:4%;
 }
 
 #subPart4Disclaimer{
     margin:6% 0 0 0;
     font-size:1.5em;
+}
+
+#rewardLink{
+    font-size:1.5em;
+    margin-top:4%;
 }
 
 .subPart5{
@@ -374,7 +392,8 @@ input[type="checkbox"] {
 }
 
 .scoreLargeText{
-    font-size:4em;
+    font-size:25em;
+    margin:0;
 }
 
 #scoreText1{

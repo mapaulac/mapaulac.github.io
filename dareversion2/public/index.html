@@ -67,8 +67,9 @@
                 <div class = "marginContentRight">
                     <div id = "bottomRightContent">
                         <form id = "myForm" action="">
-                        <input type="text"id="m" placeholder="type your name" autocomplete="off" /><button id = "button3">submit</button>
+                        <input type="text"id="m" placeholder="type your name" autocomplete="off" /><button id = "button3" style = "display:none">submit</button>
                         </form>
+                        <h2 class = "subTitle" id = "waiting">waiting for other player to connect...</h2>
                     </div>
                 </div>
             </div>
@@ -133,7 +134,7 @@
                     <h2 class = "subTitle" id = "subPart4">for each round you can:</h2>
                     <h2 class = "subTitle" id = "subInstructions">- complete the dare</h2>
                     <h2 class = "subTitle" id = "subInstructions">- not complete the dare</h2>
-                    <h2 class = "subTitle" id = "subInstructions">- swap dares with each other (once per round)</h2>
+                    <h2 class = "subTitle" id = "subInstructions">- swap dares with each other</h2>
                     <h2 class = "subTitle" id = "subInstructions">- give up completely</h2>
                     <h2 class = "subTitle" id = "subPart4Disclaimer">remember: the more dares you complete, the better the reward</h2>
                 </div>
@@ -250,8 +251,9 @@
                         <p class = "button" id = "again" onclick = "restart()">play again</p> 
                         <p class = "button" id = "learnMore2" onclick = "learnMore()">what was this?</p>
                     </div>
-                    <h2 class = "subTitle" id = "subPart6">you get THIS reward</h2>
-                    <h2 class = "subTitle" id = "subPart6">more instructions written here</h2>
+                    <h2 class = "subTitle" id = "rewardText">you get THIS reward</h2>
+                    <h2 class = "subTitle" id = "rewardText2">more instructions written here</h2>
+                   <a href = "#" id = "rewardLink" target="_blank"><u>get reward</u></a>
                 </div>
             </div>
         </div>

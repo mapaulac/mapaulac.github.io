@@ -4,7 +4,7 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const port = process.env.PORT || 3000;
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public')); //or: '../../build'
 
 var numUsers = 0; 
 var numNames = 0;
@@ -26,6 +26,7 @@ var player1Dares = [];
 var player2Dares = [];
 var swapped = false;
 var numGiveUp = 0;
+var nameNumber = 0;
 
 io.on('connection', function(socket){
   console.log(numUsers);
@@ -46,52 +47,72 @@ io.on('connection', function(socket){
     console.log('user disconnected');
     numUsers--;
     deleteUser();
+
     function deleteIndex(session) {
       return session == socket.id;
     }
+
     function deleteUser() {
       console.log("index to delete:");
       console.log(userArray.findIndex(deleteIndex));
       userArray.splice(userArray.findIndex(deleteIndex),1)
     }
+
     console.log('UPDATED number of users online: '+ numUsers);
     console.log(userArray);
 
+    console.log("restarting every variable"); 
+    numNames = 0;
+    namesSubmitted = false;
+    part4CheckNumber = 0;
+    continuePart5 = false;
+    choseTimerUser = false;
+    timerUser; 
+    choseTimerUser2 = false;
+    timerUser2; 
+    choseTimerUser3 = false;
+    timerUser3; 
+    roundCompleted = 0;
+    continueDare = false;
+    currentRound = 1;
+    roundCompletionCount = 0; 
+    roundCompleted = 0;
+    swapped = false;
+    numGiveUp = 0;
+    nameNumber = 0;
+    var numDares = player1Dares.length; 
+    player1Dares.splice(0,numDares);
+    player2Dares.splice(0,numDares);
 
-    //RESTARTING ALL VALUES ONCE 
-    // if (numUsers <= 0){
-      console.log("restarting every variable"); 
-      numNames = 0;
-      namesSubmitted = false;
-      part4CheckNumber = 0;
-      continuePart5 = false;
-      choseTimerUser = false;
-      timerUser; 
-      choseTimerUser2 = false;
-      timerUser2; 
-      choseTimerUser3 = false;
-      timerUser3; 
-      roundCompleted = 0;
-      continueDare = false;
-      currentRound = 1;
-      roundCompletionCount = 0; 
-      roundCompleted = 0;
-      swapped = false;
-      numGiveUp = 0;
+    //alerting other user that one user has disconnected
+    socket.broadcast.emit('lost player', true);
 
-      if (numUsers <= 0){
-        var numIDs = userArray.length; 
-        userArray.splice(0,numIDs);
-        console.log("restarted ID array");
-        var numDares = player1Dares.length; 
-        player1Dares.splice(0,numDares);
-        player2Dares.splice(0,numDares);
-        console.log("restarted dare arrays");
-      }
+    if (numUsers <= 0){
+      var numIDs = userArray.length; 
+      userArray.splice(0,numIDs);
+      console.log("restarted ID array");
+      var numDares = player1Dares.length; 
+      player1Dares.splice(0,numDares);
+      player2Dares.splice(0,numDares);
+      console.log("restarted dare arrays");
+    }
     // }
   });
 
   //CHECKPOINTS 
+  //names checkpoint
+  socket.on('player names checkpoint', function(reachedNames){
+    if (reachedNames){
+      nameNumber++;
+      console.log("reached name section. increase number");
+      console.log("current people in name phase: " + nameNumber);
+    }
+    if (nameNumber == 2){
+      console.log("both players in name section. submit possible now.")
+      io.emit('player names checkpoint', true);
+    }
+  });
+
   //instructions checkpoint
   socket.on('instructions checkpoint', function(reached){
     if (reached){
@@ -107,6 +128,7 @@ io.on('connection', function(socket){
   socket.on('dare complete checkpoint', function(reachedDare){
     if (reachedDare){
       roundCompleted++;
+      io.emit('hide swap', true);
     }
     if (roundCompleted == 2){
       continueDare = true;

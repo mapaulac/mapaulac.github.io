@@ -71,7 +71,7 @@ facebookArray = [["Angry react to the first 5 posts on your Facebook feed",
     "Write a compliment in the comments section of the first person that appears on your Instagram feed."],
     ["Like the 3 most recent posts of the first person that appears on your Instagram feed.",
     "Make a new Instagram post right now and advertise it in your story.",
-    "Take 3 photos of anything around you. Post them to your Instagram story (can't be to only Close Friends)."],
+    "Take 3 photos. Post them to your Instagram story (can't be to Close Friends)."],
     ["Take a selfie and post it on Instagram with no context.",
     "Share the 3 most recent photos of yourself from your camera roll in your Instagram public story.",
     "Reply to the first 3 stories on your Instagram."]];
@@ -101,6 +101,7 @@ facebookArray = [["Angry react to the first 5 posts on your Facebook feed",
 $( "#button2" ).click(function() {
     document.getElementById("part1").style.display = "none";
     document.getElementById("part2").style.display = "flex";
+    socket.emit('player names checkpoint', true);
 });
 
 $( "#button3" ).click(function() {
@@ -150,7 +151,7 @@ $( "#button5" ).click(function() {
     display = document.querySelector('#time');
     var reachedRound1 = true;
     socket.emit('round one checkpoint', reachedRound1); //REPEAT: START DARE ROUNDS
-    setTimer(10);
+    setTimer(60);
 });
 
 //ROUND 2   
@@ -168,11 +169,11 @@ function nextRound(){
     if (currentRound == 2){
         console.log("STARTING ROUND 2.");
         socket.emit('round two checkpoint', true);
-        setTimer(10);
+        setTimer(120);
     } else if (currentRound == 3){
         console.log("STARTING ROUND 3");
         socket.emit('round three checkpoint', true);
-        setTimer(10);
+        setTimer(180);
     }
 }
 
@@ -275,6 +276,31 @@ function changeRoundText(){
     } else if (currentRound == 3){
         outScore3.innerHTML = userScore;
     }
+
+    //changing score text
+    var rewardDescription = document.getElementById("rewardText");
+    var rewardDescription2 = document.getElementById("rewardText2");
+    var link = document.getElementById("rewardLink");
+    if (userScore == 0){
+        rewardDescription.innerHTML = "Since you didn't complete any dares, you don't get a reward.";
+        rewardDescription2.innerHTML = "Feel free to play the game again to win one!";
+        document.getElementById("rewardLink").style.display = "none";
+    } else if (userScore == 1){
+        rewardDescription.innerHTML = "Congratulations, you've won an exclusive desktop background!";
+        rewardDescription2.innerHTML = "If you want to uncover what the complete background text is, play again and complete more than 1 dare.";
+        document.getElementById("rewardLink").style.display = "flex";
+        link.setAttribute("href", "https://drive.google.com/file/d/1xhitMpiGFnirsIQGTlNRfXatHaYP8XYa/view?usp=sharing");
+    } else if (userScore == 2){
+        rewardDescription.innerHTML = "Congratulations, you've won an exclusive desktop background!";
+        rewardDescription2.innerHTML = "If you want to uncover what the complete background text is, play again and complete all the dares.";
+        document.getElementById("rewardLink").style.display = "flex";
+        link.setAttribute("href", "https://drive.google.com/file/d/1LWhnxKICLLDj5CBd_SAv2a1YH1Zanrh4/view?usp=sharing");
+    } else if (userScore == 3){
+        rewardDescription.innerHTML = "Congratulations, you've won an exclusive desktop background!";
+        rewardDescription2.innerHTML = "Since you got the best reward, you also have access to the rest of the rewards!";
+        document.getElementById("rewardLink").style.display = "flex";
+        link.setAttribute("href", "https://drive.google.com/drive/folders/1niBB8Nb0JrgTrofMTRgU3dKRdCy7y9mq?usp=sharing");
+    }
 }
 
 
@@ -292,6 +318,15 @@ function getName(){
 
 //WEBSOCKET 
 $(function () {  
+    socket.on('player names checkpoint', function(){//changing background 
+        document.getElementById("waiting").style.display = "none";
+        document.getElementById("button3").style.display = "flex";
+    });
+
+    socket.on('lost player', function(){//changing background 
+       alert("The other player has disconnected. The game cannot continue. Please refresh the game and wait for the other player to reconnect.");
+    });
+
     //RECEIVING, SAVING, SHOWING NAMES
     socket.on('change background', function(){//changing background 
         document.body.style.backgroundColor = "#4592bfff";
@@ -352,6 +387,7 @@ $(function () {
         document.getElementById("waitingDareText2").style.display = "none";
         document.getElementById("menu2").style.display = "flex";
         userCompleted = true;
+        
         if (currentRound == 1){
             document.getElementById("part5").style.display = "none"; 
             currentRound = 2;  
@@ -437,6 +473,16 @@ $(function () {
             timeOutput2.innerHTML = currentTime;
         } else if (currentRound == 3){
             timeOutput3.innerHTML = currentTime;
+        }
+    });
+
+    socket.on('hide swap', function(hide){
+        if (currentRound == 1){
+            document.getElementById("swap1").style.display = "none";
+        } else if (currentRound == 2){
+            document.getElementById("swap2").style.display = "none";
+        } else if (currentRound == 3){
+            document.getElementById("swap3").style.display = "none";
         }
     });
  
@@ -824,8 +870,9 @@ function learnMore(){
 }
 
 function back(){
-    document.getElementById("learnMorePart").style.display = "none";
-    document.getElementById("part1").style.display = "flex";
+    window.location.href = "index.html";
+    // document.getElementById("learnMorePart").style.display = "none";
+    // document.getElementById("part1").style.display = "flex";
 }
 
 function restart(){
