@@ -10,6 +10,12 @@ body, html{
 
 a{
     text-decoration:none;
+    color:white;
+    font-stye:underline;
+}
+
+a:hover{
+    color:#ffce42ff;
 }
 
 ul{
@@ -37,7 +43,7 @@ button{
 }
 
 button:hover{
-    color: #ffab40;
+    color: #ffce42ff;
     cursor:pointer;
 }
 
@@ -54,7 +60,7 @@ button:hover{
 }
 
 .button:hover {
-    color: #ffab40;
+    color: #ffce42ff;
     cursor:pointer;
     /* text-decoration:underline; */
 }
@@ -88,6 +94,10 @@ button:hover{
     /* height:50%; */
 }
 
+#partDisclaimer{
+    display:none;
+}
+
 
 #menu2{
     display:flex;
@@ -96,6 +106,7 @@ button:hover{
 
 #learnMore{
     width:260px;
+    font-weight:600;
 }
 
 
@@ -163,7 +174,7 @@ input::placeholder {
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     /* background-color:white; */
-    color:#ffab40;
+    color:#ffce42ff;
 }
 
 input[type="checkbox"] {
@@ -242,11 +253,11 @@ input[type="checkbox"] {
 }
 
 .marginContentLeft{
-    margin: 100px 0px 0px 90px;                             
+    margin: 52px 0px 0px 90px;                             
 }
 
 .marginContentRight{
-    margin:123px 90px 70px;
+    margin:80px 90px 70px;
     display:flex;
     flex-direction:column;
     height:100%;
@@ -257,7 +268,7 @@ input[type="checkbox"] {
 #checkboxContainer{
     display: flex;
     flex-direction: column;
-    margin-top:21%;
+    margin-top:9%;
 }
 
 #bottomRightContent{
@@ -309,14 +320,16 @@ input[type="checkbox"] {
 
 /* TYPE */
 .mainTitle{
-    font-size:3.5em;
+    font-size:3em;
     font-weight:700;
+    margin-bottom:1%;
 }
 
 .subTitle{
     font-size:2em;
     font-weight:600;
     font-style:italic;
+    margin:0;
 }
 
 #subInstructions{
@@ -325,18 +338,35 @@ input[type="checkbox"] {
 }
 
 #subPart4{
-    margin:6% 0 0 0;
+    /* margin:6% 0 0 0; */
     font-size:2.5em;
 }
 
-#subPart5{
+#subPart6{
+    font-size:2em;
+}
+
+#subPart4Disclaimer{
+    margin:6% 0 0 0;
+    font-size:1.5em;
+}
+
+.subPart5{
     font-size:3.5em;
 }
+
+
 
 .dareText{
     font-size:3.5em;
     font-weight:700;
     margin-top:9%;
+}
+
+.description{
+    font-size:1.5em;
+    font-style:normal;
+    font-weight:600;
 }
 
 #waiting4{

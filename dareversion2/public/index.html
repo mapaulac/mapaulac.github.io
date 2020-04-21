@@ -29,6 +29,27 @@
             </div>
         </div>
 
+        <!-- 1.5 About -->
+        <div class = "sectionContainer" id = "learnMorePart" style="display:none">
+            <div class = "leftContainer">
+                <div class = "marginContentLeft">
+                    <h1 class = "mainTitle" id = "titlePart1">ABOUT
+                    </h1>
+                    <h2 class = "description">This game is one of the two main components of my Capstone project, <a href = "https://simulacra.myportfolio.com/" target="_blank"><u><i> Simulacra</i></u></a>, which is an exploration of people's relationship with social media and their use of it.</h2>
+                    <h2 class = "description">By challenging players to complete dares of varying difficulty in their social media accounts, this game invites people to reconsider their attachment to their online personas (such as their Instagram and Facebook profiles) and have a sense of how these have the potential to unconsciously frame their own identities. </h2>
+                    <h2 class = "description"><a href = "https://maricalderon.net/" target="_blank"> - María Paula Calderón, B.A. Interactive Media</a></h2>
+                    
+                </div>
+            </div>
+            <div class = "rightContainer">
+                <div class = "marginContentRight">
+                    <div id = "bottomRightContent">
+                        <p class = "button" id = "learnMore" onclick = "back()">back</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- 2. Players -->
         <div class = "sectionContainer" id = "part2">
             <div class = "leftContainer">
@@ -78,7 +99,7 @@
                         </label>
                     
                         <label class ="ck-button" id = "noSocial">
-                            <input id = "checkSocial" type="checkbox" value=""><span>None</span>
+                            <input id = "checkSocial" type="checkbox" value=""><a href = "none.html"><span>None</span></a>
                         </label>   
                     </div>                
                 </div>
@@ -114,7 +135,7 @@
                     <h2 class = "subTitle" id = "subInstructions">- not complete the dare</h2>
                     <h2 class = "subTitle" id = "subInstructions">- swap dares with each other (once per round)</h2>
                     <h2 class = "subTitle" id = "subInstructions">- give up completely</h2>
-                    <h2 class = "subTitle" id = "subPart4">remember: the more dares you complete, the better the reward</h2>
+                    <h2 class = "subTitle" id = "subPart4Disclaimer">remember: the more dares you complete, the better the reward</h2>
                 </div>
             </div>
             <div class = "rightContainer">
@@ -152,7 +173,6 @@
                 </div>
                 <div id = "bottomContentDiv">
                     <p class = "button" id = "swap1" onclick = "swapDares()">swap dares</p>
-                    <!-- <p class = "button" id = "giveUp1" onclick = "giveUp()">give up</p> -->
                 </div>
             </div>
         </div>
@@ -181,8 +201,7 @@
                     <p class = "button" id = "dareNotCompleted2" onclick = "dareNotCompletedFunction()">i won't do it</p>
                 </div>
                 <div id = "bottomContentDiv">
-                    <p class = "button" id = "swap1" onclick = "swapDares()">swap dares</p>
-                    <!-- <p class = "button" id = "giveUp1" onclick = "giveUp()">give up</p> -->
+                    <p class = "button" id = "swap2" onclick = "swapDares()">swap dares</p>
                 </div>
             </div>
         </div>
@@ -211,8 +230,7 @@
                     <p class = "button" id = "dareNotCompleted3" onclick = "dareNotCompletedFunction()">i won't do it</p>
                 </div>
                 <div id = "bottomContentDiv">
-                    <p class = "button" id = "swap1" onclick = "swapDares()">swap dares</p>
-                    <!-- <p class = "button" id = "giveUp1" onclick = "giveUp()">give up</p> -->
+                    <p class = "button" id = "swap3" onclick = "swapDares()">swap dares</p>
                 </div>                
             </div>
         </div>
@@ -222,18 +240,18 @@
         <div class = "sectionContainer" id = "scorePart" style = "display:none">
             <div class = "leftContainer">
                 <div class = "marginContentLeft">
-                    <h1 class = "mainTitle" id = "titlePart1">FINAL SCORE</h1>
+                    <h1 class = "mainTitle" id = "titlePart1">FINAL NUMBER OF DARES COMPLETED</h1>
                     <h2 class = "scoreLargeText" id = "scoreText3"></h2>
                 </div>
             </div>
             <div class = "rightContainer">
                 <div class = "marginContentRight">
                     <div id = "timerContainer">
-                        <p class = "button">play again</p> 
+                        <p class = "button" id = "again" onclick = "restart()">play again</p> 
                         <p class = "button" id = "learnMore2" onclick = "learnMore()">what was this?</p>
                     </div>
-                    <h2 class = "subTitle" id = "subPart4">you get THIS reward</h2>
-                    <h2 class = "subTitle" id = "subPart4">more instructions written here</h2>
+                    <h2 class = "subTitle" id = "subPart6">you get THIS reward</h2>
+                    <h2 class = "subTitle" id = "subPart6">more instructions written here</h2>
                 </div>
             </div>
         </div>
@@ -243,20 +261,23 @@
             <div class = "leftContainer">
                 <div class = "marginContentLeft">
                     <h1 class = "mainTitle" id = "titlePart1">ROUND <span id = "currentRoundView3"></span></h1>
-                    <h2 class = "mainTitle" id = "subPart5">congratulations!</h2>
-                    <h2 class = "mainTitle" id = "subPart5">round <span id = "currentRoundView"></span> completed</h2>
-                    <h2 class = "mainTitle" id = "subPart5">ready for the next round?</h2>
+                    <h1 class = "subPart5"><span id = "checkpointText1"></span></h1>
+                    
+                    <h1 class = "subPart5"><span id = "checkpointText2"></span></h1>
+                    <!-- <h2 class = "mainTitle" id = "subPart5">congratulations!</h2> -->
+                    <!-- <h2 class = "mainTitle" id = "subPart5">round <span id = "currentRoundView"></span> completed</h2> -->
+                    <!-- <h2 class = "mainTitle" id = "subPart5">ready for the next round?</h2> -->
                 </div>
             </div>
             <div class = "rightContainer">
                 <div class = "marginContentRight">
                    <div id = "scoreDiv">
-                    <h2 class = "mainTitle" id = "scoreText1"></h2>
+                    <h2 class = "mainTitle" id = "scoreText1">/3</h2>
                     <h2 class = "mainTitle" id = "scoreSubText">completed dares</h2>
                    </div>
                     <div id = "menu">
                         <p class = "button" id = "button6" onclick = "nextRound()">continue</p>
-                        <p class = "button" id = "giveUp1" onclick = "giveUp1()">give up</p>
+                        <p class = "button" id = "giveUp1" onclick = "giveUp()">give up</p>
                     </div>
                     <h1 class = "subTitle" id = "waitingDareText" style = "display:block">waiting for <span id = "nameHTML2"></span> to complete their dare...
                     </h1>
@@ -268,10 +289,12 @@
         <div class = "sectionContainer" id = "dareNotCompletedPart" style = "display:none">
             <div class = "leftContainer">
                 <div class = "marginContentLeft">
-                    <h1 class = "mainTitle" id = "titlePart1">ROUND <span id = "currentRoundView2"></span></h1>              
-                    <h2 class = "mainTitle" id = "subPart5">you can do this!</h2>
-                    <h2 class = "mainTitle" id = "subPart5">you can still get a reward if you complete the next dare</h2>
-                    <h2 class = "mainTitle" id = "subPart5">ready?</h2>
+                    <h1 class = "mainTitle" id = "titlePart1">ROUND <span id = "currentRoundView2"></span></h1>    
+                    <h1 class = "subPart5"><span id = "checkpointText3"></span></h1>
+                    <h1 class = "subPart5"><span id = "checkpointText4"></span></h1>          
+                    <!-- <h2 class = "mainTitle" id = "subPart5">you can do this!</h2>
+                    <h2 class = "mainTitle" id = "subPart5">you can still get a reward if you complete the next dare</h2> -->
+                    <!-- <h2 class = "mainTitle" id = "subPart5">ready?</h2> -->
                 </div>
             </div>
             <div class = "rightContainer">
@@ -282,7 +305,7 @@
                     </div>
                     <div id = "menu2">
                         <p class = "button" id = "button7" onclick = "nextRound()">continue</p>
-                        <p class = "button" id = "giveUp2" onclick = "giveUp2()">give up</p>
+                        <p class = "button" id = "giveUp2" onclick = "giveUp()">give up</p>
                     </div>
                     <h1 class = "subTitle" id = "waitingDareText2" style = "display:block">waiting for <span id = "nameHTML3"></span> to complete their dare...
                     </h1>
@@ -302,7 +325,7 @@
             <div class = "rightContainer">
                 <div class = "marginContentRight">
                     <div id = "bottomRightContent">
-                        <p class = "button" id = "learnMore" onclick = "learnMore()">try again</p>
+                        <p class = "button" id = "again" onclick = "restart()">try again</p>
                         <p class = "button" id = "learnMore" onclick = "learnMore()">learn more</p>
                     </div>
                 </div>

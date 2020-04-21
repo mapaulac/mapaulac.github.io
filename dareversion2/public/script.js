@@ -1,8 +1,7 @@
-//CURRENT PROBLEMS: WHEN TIMER RUNS OUT FOR BOTH PEOPLE - THEN THEY ARE ABLE TO BOTH SIMULTANEOUSLY START THE TIMER AGAIN 
-//WHEN ONE USER COMPLETES/DOESNT COMPLETE AND ANOTHER ALLOWS THE TIME TO RUN OUT (EVERYTHING GETS STUCK)
-//falta: agregar un counter que keeps track del current score de cada persona, it determines the end reward sequence 
-//agregar los new rounds 
-//agregar swapping functionality (maybe not if it's too complicated)
+window.onload = function() {
+    inactivityTime(); 
+    console.log("checking for inactive time");
+}
 
 var socket = io();
 
@@ -56,22 +55,23 @@ var checkboxTwit = document.getElementById("checkTwit");
 
 //POINT TRACKING 
 var userScore = 0; 
+var winRound = false;
 
 facebookArray = [["Angry react to the first 5 posts on your Facebook feed",
     "Love react to the first 5 posts on your Facebook feed",
     "Share the first 3 posts on your Facebook feed"],
     ["Take a selfie and post it on Facebook with no context.",
-    "Special dare! Go to the Handle Box. Take a piece of paper out and contact that person. If you don't have the platform they specify, return that paper and take out a new one. (Don't worry, the people in the Handle Box have consented to be contacted)","Change your Facebook Cover Picture right now."],
+    "Take a selfie and post it to you Facebook Story","Change your Facebook Cover Picture right now."],
     ["Change your Facebook profile picture to the first photo in your Camera Roll.",
     "Change your Facebook profile picture to your most recent photograph.",
     "Share the 3 most recent photos of yourself from your camera roll in your Facebook public story."]];
 
     instaArray = [["Unfollow 3 Instagram accounts and follow 3 new ones",
     "Like your 5 most recent posts on Instagram. ",
-    "Compliment yourself in the comments of your newest Instagram post."],
+    "Write a compliment in the comments section of the first person that appears on your Instagram feed."],
     ["Like the 3 most recent posts of the first person that appears on your Instagram feed.",
     "Make a new Instagram post right now and advertise it in your story.",
-    "Special dare! Go to the Handle Box. Take a piece of paper out and contact that person. If you don't have the platform they specify, return that paper and take out a new one. (Don't worry, the people in the Handle Box have consented to be contacted)"],
+    "Take 3 photos of anything around you. Post them to your Instagram story (can't be to only Close Friends)."],
     ["Take a selfie and post it on Instagram with no context.",
     "Share the 3 most recent photos of yourself from your camera roll in your Instagram public story.",
     "Reply to the first 3 stories on your Instagram."]];
@@ -80,21 +80,22 @@ facebookArray = [["Angry react to the first 5 posts on your Facebook feed",
     "Share a Snapchat story with 3 people not on your Best Friends list.",
     "Share your Snapchat Bitmoji story with whoever is in it."],
     ["Screenshot the story of the first person on your Snapchat stories feed.",
-    "Special dare! Go to the Handle Box. Take a piece of paper out and contact that person. If you don't have the platform they specify, return that paper and take out a new one. (Don't worry, the people in the Handle Box have consented to be contacted)",
-    "Reply to the first 3 people's stories on your Snapchat."],
+    "Send a Snap to the last person in your 'Recents' friends list on Snapchat with no context.",
+    "Reply to 3 people's stories on your Snapchat."],
     ["Take a selfie and share it in your Snapchat story with no context.",
     "Take a selfie and send it to the last name in your 'Recent' friends list on Snapchat.",
-    "Take a selfie with a random person in the exhibition and send it to 5 Snapchat friends."]];
+    "Take a selfie and send it to 10 Snapchat friends with no context."]];
 
     twitterArray = [["Retweet the first 5 tweets on your Twitter timeline.",
     "Unfollow 3 Twitter accounts and follow 3 new ones",
     "Tweet the last meal you had."],
-    ["Special dare! Go to the Handle Box. Take a piece of paper out and contact that person. If you don't have the platform they specify, return that paper and take out a new one. (Don't worry, the people in the Handle Box have consented to be contacted)",
+    ["Retweet the first media tweet you shared.",
     "Copy a popular Tweet on your feed and Tweet it yourself. ",
     "Send a DM to the first 4 accounts on your Twitter feed."],
     ["Retweet something you disagree with (politically, ethically, etc.)",
     "Find a Twitter account of a person you know in real life (but you are not close to) and like and retweet 3 of their most recent Tweets.",
     "Take a selfie. Now Tweet it to the first 3 people that appear on your feed with no context."]];
+
 
 //CHANGING (VISIBILITY) BETWEEN PHASES
 $( "#button2" ).click(function() {
@@ -149,7 +150,7 @@ $( "#button5" ).click(function() {
     display = document.querySelector('#time');
     var reachedRound1 = true;
     socket.emit('round one checkpoint', reachedRound1); //REPEAT: START DARE ROUNDS
-    setTimer(3000);
+    setTimer(10);
 });
 
 //ROUND 2   
@@ -158,6 +159,10 @@ function nextRound(){
     console.log("continue pressed. starting new round");
     console.log("current round: "+ currentRound);
     socket.emit('restart giveup', true);
+
+    //restarting give up buttons
+    document.getElementById("giveUp1").style.display = "block";
+    document.getElementById("giveUp2").style.display = "block";
 
     //starting new rounds
     if (currentRound == 2){
@@ -176,6 +181,7 @@ function nextRound(){
 function dareCompletedFunction(){
     socket.emit('dare complete checkpoint', true); //sending checkpoint mark
     console.log("DARE COMPLETED. ADDING SCORE. went to dare completion menu! waiting for other player");
+    winRound = true;
     //showing give up buttons again
     document.getElementById("giveUp1").style.display = "block";
     document.getElementById("giveUp2").style.display = "block";
@@ -191,6 +197,15 @@ function dareCompletedFunction(){
         document.getElementById("dareCompletedPart").style.display = "flex";
         document.getElementById("waitingDareText").style.display = "block";
         document.getElementById("menu").style.display = "none";
+        var checkpointText = document.getElementById("checkpointText1");
+        var checkpointText2 = document.getElementById("checkpointText2");
+        if (currentRound == 1){
+            checkpointText.innerHTML = "That was easy, right?";
+            checkpointText2.innerHTML = "Keep it up for the next 2 rounds!";
+        } else if (currentRound == 2){
+            checkpointText.innerHTML = "Great, keep it up!";
+            checkpointText2.innerHTML = "Just one more dare to go.";
+        }
     }
 }
 
@@ -198,6 +213,7 @@ function dareCompletedFunction(){
 function dareNotCompletedFunction(){
     socket.emit('dare complete checkpoint', true); //sending checkpoint mark
     console.log("DARE NOT COMPLETED. went to dare completion menu! waiting for other player");
+    winRound = false;
     //showing give up buttons again
     document.getElementById("giveUp1").style.display = "block";
     document.getElementById("giveUp2").style.display = "block";
@@ -210,6 +226,15 @@ function dareNotCompletedFunction(){
         document.getElementById("dareNotCompletedPart").style.display = "flex";
         document.getElementById("waitingDareText2").style.display = "block";
         document.getElementById("menu2").style.display = "none";
+        var checkpointText2 = document.getElementById("checkpointText3");
+        var checkpointText3 = document.getElementById("checkpointText4");
+        if (currentRound == 1){
+            checkpointText2.innerHTML = "You can do this!";
+            checkpointText3.innerHTML = "You can still get a reward if you complete the next dare";
+        } else if (currentRound == 2){
+            checkpointText2.innerHTML = "Just one more to go! Try to do finish strong.";
+            checkpointText3.innerHTML = "Ready for the last round?";
+        }
     }
 }
 
@@ -229,20 +254,20 @@ function changeSection(){
 //CHANGING CURRENT ROUND TEXT
 function changeRoundText(){
     console.log("changing inner html values");
-    var outRound = document.getElementById("currentRoundView");
+    // var outRound = document.getElementById("currentRoundView");
     var outRound2 = document.getElementById("currentRoundView2");
     var outRound3 = document.getElementById("currentRoundView3");
     var outScore1 = document.getElementById("scoreText1");
     var outScore2 = document.getElementById("scoreText2");
     var outScore3 = document.getElementById("scoreText3");
     if (currentRound == 1){
-        outRound.innerHTML = "1";
+        // outRound.innerHTML = "1";
         outRound2.innerHTML = "1";
         outRound3.innerHTML = "1";
         outScore1.innerHTML = userScore;
         outScore2.innerHTML = userScore;
     } else if (currentRound == 2){
-        outRound.innerHTML = "2";
+        // outRound.innerHTML = "2";
         outRound2.innerHTML = "2";
         outRound3.innerHTML = "2";
         outScore1.innerHTML = userScore;
@@ -268,6 +293,10 @@ function getName(){
 //WEBSOCKET 
 $(function () {  
     //RECEIVING, SAVING, SHOWING NAMES
+    socket.on('change background', function(){//changing background 
+        document.body.style.backgroundColor = "#4592bfff";
+        // document.a.style.
+    });
     $('form').submit(function(e){
       e.preventDefault(); // prevents page reloading
       socket.emit('chat message', $('#m').val());//sending to server
@@ -364,6 +393,15 @@ $(function () {
             if (alreadyFinishedRound == false){
                 if (currentRound != 3){
                     document.getElementById("dareNotCompletedPart").style.display = "flex";
+                    var checkpointText = document.getElementById("checkpointText3");
+                    var checkpointText2 = document.getElementById("checkpointText4");
+                    if (currentRound == 1){
+                        checkpointText.innerHTML = "Time's up!";
+                        checkpointText2.innerHTML = "You gotta be faster next round.";
+                    } else if (currentRound == 2){
+                        checkpointText.innerHTML = "Time's up!";
+                        checkpointText2.innerHTML = "Keep up the pace, you're almost done";
+                    }
                 }
             }
 
@@ -401,7 +439,7 @@ $(function () {
             timeOutput3.innerHTML = currentTime;
         }
     });
-
+ 
     //SWAP HERE
     socket.on('swap dares', function(swappedDare){
         console.log("swapped dares. received dare:");
@@ -416,6 +454,14 @@ $(function () {
         } else if (currentRound == 3){
             dareOutput3.innerHTML = swappedDare;
         }
+
+        if (currentRound == 1){
+            document.getElementById("swap1").style.display = "none";
+        } else if (currentRound == 2){
+            document.getElementById("swap2").style.display = "none";
+        } else if (currentRound == 3){
+            document.getElementById("swap3").style.display = "none";
+        }
     });
 
     //BOTH USERS AGREE TO GIVE UP
@@ -428,12 +474,12 @@ $(function () {
         document.getElementById("giveUpPart").style.display = "flex";  
     });
 
-    socket.on('hide giveup one', function(hide){
-        document.getElementById("giveUp1").style.display = "none";
-    });
-
-    socket.on('hide giveup two', function(hide){
-        document.getElementById("giveUp2").style.display = "none";
+    socket.on('hide giveup', function(hide){
+        if (winRound){
+            document.getElementById("giveUp1").style.display = "none";
+        } else{
+            document.getElementById("giveUp2").style.display = "none";
+        }
     });
 
     socket.on('giveup alert', function(receivedAlert){
@@ -742,32 +788,8 @@ function startTimer(duration,display) {
                 console.log("TIMER IS DONE");
                 socket.emit('timer done', true);
                 clearInterval(myVar);
-
-                // //CHECKING IF 
-                // console.log("num users who completed the round before the timer ran out" + roundCompletionCount);
-                // if (roundCompletionCount == 1){//if only one user's time goes out
-                //     console.log("HIDING THE CONTENT");
-                //     if (currentRound == 1){
-                //         document.getElementById("part5").style.display = "none";
-                //     }
-                //     //REPEAT HERE FOR OTHER ROUNDS 
-                //     document.getElementById("dareNotCompletedPart").style.display = "flex";
-                //     document.getElementById("waitingDareText").style.display = "none";
-                //     document.getElementById("waitingDareText2").style.display = "none";
-                //     document.getElementById("menu").style.display = "flex";
-                //     document.getElementById("menu2").style.display = "flex";
-                //     console.log("ONLY ONE USER LOST");
-
-                // } else if (roundCompletionCount == 0){ //if both users' time goes out
-                //     if (userCompleted == false){
-                //         console.log("timer done");
-                //         socket.emit('timer done', true);
-                //     }                
-                //     clearInterval(myVar);
-                // }
-                // userCompleted = false; 
-
-
+                document.getElementById("giveUp1").style.display = "block";
+                document.getElementById("giveUp2").style.display = "block";
             }
         }
     }, 1000);
@@ -782,12 +804,49 @@ function setTimer(timeIsLeft) {
 
 function swapDares(){
     socket.emit('swap dares', currentRound); 
+    if (currentRound == 1){
+        document.getElementById("swap1").style.display = "none";
+    } else if (currentRound == 2){
+        document.getElementById("swap2").style.display = "none";
+    } else if (currentRound == 3){
+        document.getElementById("swap3").style.display = "none";
+    }
 }
 
-function giveUp1(){
-    socket.emit('give up one', true); 
-}
-function giveUp2(){
-    socket.emit('give up two', true); 
+function giveUp(){
+    socket.emit('give up', true); 
 }
 
+function learnMore(){
+    document.getElementById("part1").style.display = "none";
+    document.getElementById("scorePart").style.display = "none";
+    document.getElementById("learnMorePart").style.display = "flex";
+}
+
+function back(){
+    document.getElementById("learnMorePart").style.display = "none";
+    document.getElementById("part1").style.display = "flex";
+}
+
+function restart(){
+    window.location.href = "index.html";
+}
+
+//TRACK INACTIVE TIME
+var inactivityTime = function () {
+    var time;
+    window.onload = resetTimer;
+    // DOM Events
+    document.onmousemove = resetTimer;
+    document.onkeypress = resetTimer;
+
+    function logout() {
+        location.href = "end.html";
+    }
+
+    function resetTimer() {
+        clearTimeout(time);
+        // time = setTimeout(logout, 2000); //alert after 10 minutes
+        time = setTimeout(logout, 600000); //alert after 10 minutes
+    }
+};

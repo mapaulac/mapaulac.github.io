@@ -35,28 +35,36 @@ io.on('connection', function(socket){
   console.log(userArray);
   numUsers++;
   console.log('a user has connected');
-  console.log('number of users online: '+numUsers);
+  console.log('number of users playing: '+numUsers);
+
+  if (numUsers == 2){
+    io.to(`${sessionID}`).emit('change background', true);
+  }
 
   socket.on('disconnect', function(){
+    //deleting sessions once people reload the page 
     console.log('user disconnected');
     numUsers--;
+    deleteUser();
+    function deleteIndex(session) {
+      return session == socket.id;
+    }
+    function deleteUser() {
+      console.log("index to delete:");
+      console.log(userArray.findIndex(deleteIndex));
+      userArray.splice(userArray.findIndex(deleteIndex),1)
+    }
     console.log('UPDATED number of users online: '+ numUsers);
+    console.log(userArray);
 
 
     //RESTARTING ALL VALUES ONCE 
-    if (numUsers <= 0){
+    // if (numUsers <= 0){
       console.log("restarting every variable"); 
       numNames = 0;
       namesSubmitted = false;
       part4CheckNumber = 0;
       continuePart5 = false;
-      var numIDs = userArray.length; 
-      userArray.splice(0,numIDs);
-      console.log("restarted ID array");
-      var numDares = player1Dares.length; 
-      player1Dares.splice(0,numDares);
-      player2Dares.splice(0,numDares);
-      console.log("restarted dare arrays");
       choseTimerUser = false;
       timerUser; 
       choseTimerUser2 = false;
@@ -70,7 +78,17 @@ io.on('connection', function(socket){
       roundCompleted = 0;
       swapped = false;
       numGiveUp = 0;
-    }
+
+      if (numUsers <= 0){
+        var numIDs = userArray.length; 
+        userArray.splice(0,numIDs);
+        console.log("restarted ID array");
+        var numDares = player1Dares.length; 
+        player1Dares.splice(0,numDares);
+        player2Dares.splice(0,numDares);
+        console.log("restarted dare arrays");
+      }
+    // }
   });
 
   //CHECKPOINTS 
@@ -149,16 +167,14 @@ io.on('connection', function(socket){
   });
 
   //GIVING UP 
-  socket.on('give up one', function(gaveUp){
+  socket.on('give up', function(gaveUp){
     if (gaveUp){
       numGiveUp++;
       console.log("gave up number: "+numGiveUp);
-      if (numGiveUp < 2){
-        socket.broadcast.emit('giveup alert', true);
-      }
     }
     if (numGiveUp == 1){
-      io.to(`${sessionID}`).emit('hide giveup one', true);
+      socket.broadcast.emit('giveup alert', true);
+      io.to(`${sessionID}`).emit('hide giveup', true);
     }
     if (numGiveUp == 2){
       console.log("both users gave up...")
@@ -166,28 +182,9 @@ io.on('connection', function(socket){
     }
   });
 
-    //GIVING UP 
-    socket.on('give up two', function(gaveUp){
-      if (gaveUp){
-        numGiveUp2++;
-        console.log("gave up number: "+numGiveUp2);
-        if (numGiveUp2 < 2){
-          socket.broadcast.emit('giveup alert', true);
-        }
-      }
-      if (numGiveUp2 == 1){
-        io.to(`${sessionID}`).emit('hide giveup two', true);
-      }
-      if (numGiveUp2 == 2){
-        console.log("both users gave up...")
-        io.emit('give up', true);
-      }
-    });
-
   socket.on('restart giveup', function(restart){
     numGiveUp = 0;
-    numGiveUp2 = 0;
-    console.log("updated numGive up: " + numGiveUp2);
+    console.log("updated numGive up: " + numGiveUp);
   });
 
   //timer checkpoint (filtering) - round 1
