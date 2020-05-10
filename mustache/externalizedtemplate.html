@@ -1,0 +1,58 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="utf-8"> 
+        <title>Mustache Template</title>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="style.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>	
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
+    </head>
+
+	<body>
+        <!-- where the template is added -->
+        <div class = "body"></div>
+
+        <!-- the template -->
+        <script id = "template" type="text/template">
+            <!-- navigation bar -->
+            <div class = "navbar">
+                <a class="navbar-brand" id = "titleNavbar" href="#">Interactive Media</a>
+                <a class="navbar-brand" id = "navbarContent" href="#">Home</a>
+                <a class="navbar-brand" id = "navbarContent" href="#">People</a>
+                <a class="navbar-brand" id = "navbarContent" href="#">Resources</a>
+                <a class="navbar-brand"id = "navbarContent" href="#">Gallery</a>
+            </div>
+            
+            <!-- IM requirements -->
+            <h1 class = "sectionTitle"> IM Requirements Major </h1>
+            <div class = "div-container">
+            {{#requirements}}
+                <div class = "small-container">
+                    <h1>{{subtitle}}</h1>
+                    <ul class = "classes">
+                        {{#classes}}
+                            <li class = "class"> {{title}}</li>
+                        {{/classes}}
+                    </ul>
+                </div>
+            {{/requirements}}
+            </div>
+            
+            <!-- Facilities -->
+            <h1 class = "sectionTitle"> Facilities & Equipment </h1>
+            <div class = "div-container">
+                {{#facilities}}
+                    <div class = "small-container">
+                        <h1>{{name}}</h1>
+                        <p> {{description}} </p>
+                    </div>
+                {{/facilities}}
+            </div>
+
+        </script>
+        
+        <!-- referring to external .js file with our data -->
+        <script src = "external.js"></script>
+    </body>
+</html>

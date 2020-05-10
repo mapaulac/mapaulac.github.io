@@ -1,0 +1,36 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+}
+
+.navbar{
+    display:flex;
+    font-size:1em;
+}
+
+#titleNavbar{
+    flex-grow:1;
+}
+
+.navbar-brand{
+    margin:2%;
+}
+
+.div-container{
+    display:flex;
+    margin:5%;
+    align-items:center;
+    justify-content:space-around;
+    flex-direction:row;
+}
+
+.sectionTitle{
+    margin:0;
+    text-align:center;
+}
+
+
