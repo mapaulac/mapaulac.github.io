@@ -17,3 +17,9 @@ body{
   width:40%;
   margin-left:1%;
 }
+
+footer{
+  position:fixed;
+  bottom:0px;
+  right:18%;
+}
