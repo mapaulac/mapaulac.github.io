@@ -1,20 +1,19 @@
 body{
   color:black;
   font-size:1em;
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
 }
 
 .large-container{
     display:flex;
-    align-items:flex-start;
-    justify-content:space-between;
     flex-direction:row;
     height:100%;
     flex-grow:1;
-    /* background-color:blue; */
 }
 
 .text-container{
-  /* width:50%; */
   margin-left:1%;
 }
 
