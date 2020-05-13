@@ -9,7 +9,7 @@ body{
     justify-content:space-between;
     flex-direction:row;
     height:100%;
-    flex-grow:1;
+    /* flex-grow:1; */
     /* background-color:blue; */
 }
 
@@ -19,7 +19,7 @@ body{
 }
 
 footer{
-  position:fixed;
+  /* position:fixed;
   bottom:0px;
-  right:18%;
+  right:18%; */
 }
