@@ -4,7 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Handlebar Template</title>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Open+Sans:ital@0;1&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">        
+        <link rel="stylesheet" href="style.css">                
     </head>
 
     <body>        
@@ -16,32 +16,34 @@
             <!-- navbar -->
             {{>navbarPartial}}
 
-            <!-- IM requirements -->
-            <h1 class = "sectionTitle">{{sectionTitles.[1]}}</h1>
-            <p class = "sectionDescription">{{sectionDescriptions.[1]}}</p>
-            <div class = "div-container">
-            {{#each requirements}}
-                <div class = "small-container">
-                    <h1 class = "subTitle">{{subtitle}}</h1>
-                    <ul class = "classes">
-                        {{#each classes}}
-                            <li class = "class"> {{this}}</li>
-                        {{/each}}
-                    </ul>
+            <h1 class = "sectionTitle">{{sectionTitle}}</h1>
+            
+            <!-- instructors -->
+            <h1 class = "peopleSubTitle">{{subTitle.[0]}}</h1>
+            <div class = "peopleContainer">
+                <div class = "row">
+                    {{#each sections}}
+                        <div class="column">
+                            <img src = "{{image}}">
+                            <h1 class = "peopleName">{{name}}</h1>
+                        </div>
+                    {{/each}}
                 </div>
-            {{/each}}
             </div>
 
-            <!-- Facilities -->
-            <h1 class = "sectionTitle">{{sectionTitle.[2]}}</h1>
-            <div class = "div-container">
-                {{#facilities}}
-                    <div class = "small-container">
-                        <h1 class = "subTitle">{{name}}</h1>
-                        <p> {{description}} </p>
-                    </div>
-                {{/facilities}}
+            <!-- student assistants -->
+            <h1 class = "peopleSubTitle">{{subTitle.[1]}}</h1>
+            <div class = "peopleContainer">
+                <div class = "row">
+                    {{#each sections}}
+                        <div class="column">
+                            <img src = "{{image}}">
+                            <h1 class = "peopleName">{{name}}</h1>
+                        </div>
+                    {{/each}}
+                </div>
             </div>
+
         </script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -56,6 +58,6 @@
                 <a class="navbar-brand"id = "navbarContent" href="#">Gallery</a>
             </div>
         </script>
-        <script src = "script.js"></script>
+        <script src = "scriptPeople.js"></script>
     </body>
 </html>

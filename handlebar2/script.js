@@ -1,4 +1,3 @@
-//testing partials
 //1 way of using partials
 Handlebars.registerPartial(
     'navbarTemplate',
@@ -13,46 +12,33 @@ $(document).ready(function(){
     var source = $("#template").html();
 
     var context = {
-        language: "handlebars",
-        adjective: "awesome",
+        sectionTitles: ["WHAT IS IM?", "IM MAJOR", "FACILITIES & EQUIPMENT", "EVENTS"],
+        sectionDescriptions: ["What is IM: Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj", "IM Major: Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj", "Facilities and Equipment: Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj", "Events: Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj"],
         requirements: [
             {
                 subtitle: "4 FOUNDATIONS",
-                classes: [
-                {title: "Communications Lab"}, 
-                {title: "Introduction to Interactive Media"},
-                {title: "Understanding Interactive Media"},
-                {title: "Communication and Technology"},
-                ]    
+                classes: ["Introduction to Interactive Media", "Communications Lab","Communication and Technology", "Understanding Interactive Media"]
             },
             {
                 subtitle: "6 ELECTIVES",
-                classes: [
-                {title: "Elective 1"}, 
-                {title: "Elective 2"},
-                {title: "Elective 3"},
-                {title: "Elective 4"},
-                ]    
+                classes: ["Class1", "Class2","Class3"]
             },
             {
                 subtitle: "2 CAPSTONE COMPONENTS",
-                classes: [
-                {title: "Capstone Seminar"}, 
-                {title: "Capstone Project"}
-                ]    
+                classes: ["Capstone Seminar", "Capstone Project"]   
             }
         ],
         facilities: [
             {
-                name:"Fabrication Area",
+                name:"FABRICATION AREA",
                 description: "Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj"
             },        
             {
-                name:"Soldering Station",
+                name:"SOLDERING STATION",
                 description: "Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj"
             },       
             {
-                name:"Kitchen",
+                name:"KITCHEN",
                 description: "Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj"
             },
         ],     
@@ -60,8 +46,11 @@ $(document).ready(function(){
 
     var template = Handlebars.compile(source);
     var html = template(context); //adding the data
-    var destination = document.querySelector(".body"); //or:$(document.body).append(html);
-    destination.innerHTML = html; //changing the html
+    $(document.body).append(html);
+
+
+    // var destination = document.querySelector(".body"); 
+    // destination.innerHTML = html; //changing the html
 
     //obtaining partial from html and appending to index.html (doesn't work??)
     // $.ajax("./navbar-partial.html").done(function(data){
