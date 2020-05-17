@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Blue Hyacinth Stir Fry Text -- Pauline Masurel and Jim Andrews</title>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+    <META NAME="description" CONTENT="Blue Hyacinth is a JavaScript interactive poem.">
+    <META NAME="keywords" CONTENT="Stir Fry, Pauline Masurel">
+    <META NAME="AUTHOR" CONTENT="Jim Andrews, Pauline Masurel">
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div class = "large-container">
+      <div class = "text-container">
+        <div class = "text-area" id = "text1">
+          <p>Blue Hyacinth</p>
+          <p>Pauline Masurel (and Jim Andrews)</p>
+          <p>  2002</p>
+          <p>web page</p>
+        </div>
+
+        <div class = "text-area" id = "text2" style="display:none">
+          <p> One of four poems in one of four shades of blue rests on a black background. Moving the mouse over the sentences mixes and remixes them.  Hovering over any shade in the square at the bottom of the square shows each poem in full.</p>
+          <p> Drawing upon the ideas of her Blue Hyacinth notebook (2001-2002), a six-month-long challenge to write about the flower every day, Masurel uses the Stir-Fry Texts framework to bring the audience into the creative process, allowing them to create their own narrative plots and subplots. The focus is less on a cohesive story than on malleability, resulting in narratives that feel in between their first and last pages.</p>
+        </div>
+
+        <div class = "text-area" id = "text3" style="display:none">
+          <p>Pauline Masurel is a gardener and fiction writer based in the United Kingdom who focuses on short, episodic, and fragmented writing forms that manifest in out-of-the-way places. Solo and collaborative writings, in print, online, audio, and performative mediums demonstrate an enjoyment of exploring marginal and novel spaces to create and distribute writing. While Masurel is currently taking a break from writing and performing, her written works can be found through unfurling.net.</p>
+
+        </div>
+
+        <div class = "text-area" id = "text4" style="display:none">
+          <p> Jim Andrews is a writer, poet, programmer, visual and audio artist, and essayist. He publishes vispo.com, a synthesis of various interactive arts and media. In 1999, he started Stir Fry Texts, creating a new multimedia form, the stir fry, which consists of a JavaScript code engine that manipulates pieces of HTML code to reconstruct text, image, or audio. In the process, the stir fry code provides the piece with a slightly defensive, unpredictable character that defines its inevitably generative, experimental nature. </p>
+        </div>
+      </div>
+
+  <div id = "square-container">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr valign="top" width="40" height="20">
+          <!-- square 1 -->
+          <td id = "hover1" onmouseover="showThis()" width="20" height="20" bgcolor="#0033FF" align="center"> <a href="#"><span class="B">M</span></a></td>
+
+          <!-- square 2 -->
+          <td  onmouseover="showThis2()" width="20" height="20" bgcolor="#99CCFF" align="center"> <a href="#"><span class="L">M</span></a>
+          </td>
+
+        </tr>
+        <tr height="20">
+          <!-- square 3 -->
+          <td onmouseover="showThis3()" width="20" height="20" bgcolor="#6699CC" align="center">
+            <a href="#"><span class="U">M</span></a>
+          </td>
+
+          <td onmouseover="showThis4()" width="20" height="20" bgcolor="#3366CC" align="center">
+             <a href="#"><span class="E">M</span></a>
+           </td>
+         </tr>
+      </table>
+    </div>
+
+    <a class = "project-link" id = "current-project" style="display:block" href = "http://vispo.com/StirFryTexts/bluehyacinth3.html#" target="_blank">Go to project</a>
+
+    <footer>
+      <a class = "project-link" style="display:block" href = "#">Blue Hyacinth</a>
+      <a class = "project-link" style="display:block" href = "#">Keeping Up Appearances</a>
+      <a class = "project-link" style="display:block" href = "#">Howling Dogs</a>
+      <a class = "project-link" style="display:block" href = "#">My body</a>
+      <a class = "project-link" style="display:block" href = "#">Queers in Love at the End of the World</a>
+      <a class = "project-link" style="display:block" href = "#">MOUCHETTE</a>
+    </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+body{
+  color:black;
+  font-size:1em;
+}
+
+.large-container{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    flex-direction:row;
+    height:100%;
+    /* flex-grow:1; */
+    /* background-color:blue; */
+}
+
+.text-container{
+  width:50%;
+  margin-left:1%;
+}
+
+footer{
+  /* position:fixed;
+  bottom:0px;
+  right:18%; */
+}
