@@ -16,17 +16,17 @@ $(document).ready(function(){
         sectionDescriptions: ["What is IM: Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj", "IM Major: Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj", "Facilities and Equipment: Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj", "Events: Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj"],
         whatisIM: [
             {
-                name:"IM is this",
+                name:"Critical approaches to technology",
                 description: "description here",
                 photo: "http://www.nyuadim.com/media/img/people/heatherdeweyhagborg.jpg"
             },
             {
-                name: "Im is this other thing",
+                name: "Creative uses of media",
                 description: "description 2",
                 photo:"http://www.nyuadim.com/media/img/people/jonnyfarrow.jpg"
             },
             {
-                name: "Im is this third thing",
+                name: "Making, breaking, sharing, and playing",
                 description: "description 3",
                 photo:"http://www.nyuadim.com/media/img/people/jackbdu.jpg"
             }
