@@ -2,7 +2,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>People</title>
+        <title>Gallery</title>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Open+Sans:ital@0;1&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">                
     </head>
@@ -17,28 +17,11 @@
             {{>navbarPartial}}
 
             <h1 class = "sectionTitle">{{sectionTitle}}</h1>
-            
-            <!-- instructors -->
-            <h1 class = "peopleSubTitle">{{subTitle.[0]}}</h1>
             <div class = "gridContainer">
                 <div class = "row">
                     {{#each sections}}
-                        <div class="column">
+                        <div class="column" id = "galleryColumn">
                             <img src = "{{image}}">
-                            <h1 class = "peopleName">{{name}}</h1>
-                        </div>
-                    {{/each}}
-                </div>
-            </div>
-
-            <!-- student assistants -->
-            <h1 class = "peopleSubTitle">{{subTitle.[1]}}</h1>
-            <div class = "gridContainer">
-                <div class = "row">
-                    {{#each sections}}
-                        <div class="column">
-                            <img src = "{{image}}">
-                            <h1 class = "peopleName">{{name}}</h1>
                         </div>
                     {{/each}}
                 </div>
@@ -58,6 +41,6 @@
                 <a class="navbar-brand"id = "navbarContent" href="gallery.html">Gallery</a>
             </div>
         </script>
-        <script src = "scriptPeople.js"></script>
+        <script src = "scriptGallery.js"></script>
     </body>
 </html>

@@ -14,6 +14,23 @@ $(document).ready(function(){
     var context = {
         sectionTitles: ["WHAT IS IM?", "IM MAJOR", "FACILITIES & EQUIPMENT", "EVENTS"],
         sectionDescriptions: ["What is IM: Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj", "IM Major: Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj", "Facilities and Equipment: Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj", "Events: Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj"],
+        whatisIM: [
+            {
+                name:"IM is this",
+                description: "description here",
+                photo: "http://www.nyuadim.com/media/img/people/heatherdeweyhagborg.jpg"
+            },
+            {
+                name: "Im is this other thing",
+                description: "description 2",
+                photo:"http://www.nyuadim.com/media/img/people/jonnyfarrow.jpg"
+            },
+            {
+                name: "Im is this third thing",
+                description: "description 3",
+                photo:"http://www.nyuadim.com/media/img/people/jackbdu.jpg"
+            }
+        ],
         requirements: [
             {
                 subtitle: "4 FOUNDATIONS",
@@ -31,17 +48,37 @@ $(document).ready(function(){
         facilities: [
             {
                 name:"FABRICATION AREA",
-                description: "Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj"
+                description: "Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj",
+                photo:"http://www.nyuadim.com/media/img/people/heatherdeweyhagborg.jpg"
             },        
             {
                 name:"SOLDERING STATION",
-                description: "Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj"
+                description: "Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj",
+                photo:"http://www.nyuadim.com/media/img/people/jonnyfarrow.jpg"
             },       
             {
                 name:"KITCHEN",
-                description: "Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj"
+                description: "Lorem ipsum dolor sit amet alsdkfalsfjasldkfa alkdfasf adlfj",
+                photo:"http://www.nyuadim.com/media/img/people/jackbdu.jpg"
             },
-        ],     
+        ], 
+        events: [
+            {
+                name: "Interactive Media Showcase",
+                description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+                photo:"http://www.nyuadim.com/media/img/people/heatherdeweyhagborg.jpg"
+            },
+            {
+                name: "24X",
+                description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+                photo:"http://www.nyuadim.com/media/img/people/heatherdeweyhagborg.jpg"
+            },
+            {
+                name: "Student-Led Workshops",
+                description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+                photo:"http://www.nyuadim.com/media/img/people/heatherdeweyhagborg.jpg"
+            }
+        ]    
     };
 
     var template = Handlebars.compile(source);

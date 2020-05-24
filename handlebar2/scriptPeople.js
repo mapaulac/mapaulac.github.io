@@ -1,4 +1,4 @@
-//2. way of using partials
+//registering navigation bar partial
 Handlebars.registerPartial("navbarPartial",$("#navbar-partial").html());
 
 //loading the template 

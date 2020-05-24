@@ -2,9 +2,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Interactive Media at NYUAD</title>
+        <title>Resources</title>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Open+Sans:ital@0;1&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">        
+        <link rel="stylesheet" href="style.css">                
     </head>
 
     <body>        
@@ -16,62 +16,43 @@
             <!-- navbar -->
             {{>navbarPartial}}
 
-            <!-- interactive banner -->
-            <div id = "interactiveBanner">
-            </div>
-
-            <!-- what is IM? -->
-            <h1 class = "sectionTitle">{{sectionTitles.[0]}}</h1>
-            <p class = "sectionDescription">{{sectionDescriptions.[0]}}</p>
-            <div class = "div-container">
-                {{#each whatisIM}}
-                    <div class = "small-container">
-                        <h1 class = "subTitle">{{name}}</h1>
-                        <img src = "{{photo}}">                        
-                    </div>
-                {{/each}}
-            </div>
-
-            <!-- IM requirements -->
-            <h1 class = "sectionTitle">{{sectionTitles.[1]}}</h1>
+            <!-- IM Lab info -->
+            <h1 class = "sectionTitle" id = "resourcesTitle">{{sectionTitles.[1]}}</h1>
             <p class = "sectionDescription">{{sectionDescriptions.[1]}}</p>
             <div class = "div-container">
-            {{#each requirements}}
-                <div class = "small-container">
-                    <h1 class = "subTitle">{{subtitle}}</h1>
-                    <ul>
-                        {{#each classes}}
-                            <li> {{this}}</li>
-                        {{/each}}
-                    </ul>
-                </div>
-            {{/each}}
-            </div>
-
-            <!-- Facilities -->
-            <h1 class = "sectionTitle">{{sectionTitles.[2]}}</h1>
-            <p class = "sectionDescription">{{sectionDescriptions.[2]}}</p>
-            <div class = "div-container">
-                {{#facilities}}
+                {{#each labInfoSections}}
                     <div class = "small-container">
-                        <h1 class = "subTitle">{{name}}</h1>
-                        <p> {{description}} </p>
-                        <img src = "{{photo}}">
-                    </div>
-                {{/facilities}}
-            </div>
-
-            <!-- events -->
-            <h1 class = "sectionTitle">{{sectionTitles.[3]}}</h1>
-            <p class = "sectionDescription">{{sectionDescriptions.[3]}}</p>
-            <div class = "div-container">
-                {{#each events}}
-                    <div class = "small-container">
-                        <h1 class = "subTitle">{{name}}</h1>
-                        <p> {{description}} </p>
-                        <img src = "{{photo}}">
+                        <h1 class = "subTitle">{{subtitle}}</h1>
+                        {{#if links}}
+                            <ul>
+                                {{#each description}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                            </ul>
+                        {{else}}
+                            <p> {{description}} </p>
+                        {{/if}}
                     </div>
                 {{/each}}
+            </div>
+
+            <!-- events info -->
+            <h1 class = "sectionTitle" id = "resourcesTitle">{{sectionTitles.[2]}}</h1>
+            <p class = "sectionDescription">{{sectionDescriptions.[2]}}</p>
+            <div class = "div-container">
+                {{#each events}}                    
+                    <div class = "small-container">
+                        <h1 class = "subTitle">{{name}}</h1>
+                        <p> {{date}} </p>
+                        <p> {{description}} </p>
+                    </div>                    
+                {{/each}}
+            </div>
+
+            <!-- wanna receive weekly updates? -->
+            <div class = "div-container" id = "vertical">
+                <h1 class = "sectionTitle" id = "resourcesTitle">{{sectionTitles.[3]}}</h1>
+                <p id = "subscribeLink"><a href = "{{subscribeLink}}">{{subscribeTitle}}</a></p>
             </div>
 
         </script>
@@ -88,6 +69,6 @@
                 <a class="navbar-brand"id = "navbarContent" href="gallery.html">Gallery</a>
             </div>
         </script>
-        <script src = "script.js"></script>
+        <script src = "scriptResources.js"></script>
     </body>
 </html>

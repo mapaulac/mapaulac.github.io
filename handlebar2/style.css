@@ -1,10 +1,12 @@
-body{
+html, body{
     font-family: 'Open Sans', sans-serif;
+    height: 100%;
+    margin: 0px;
 }
 
 img{
-    height:23rem;
-    width:23rem;
+    height:24rem;
+    width:24rem;
 }
 
 a{
@@ -16,25 +18,40 @@ a{
 .div-container{
     display:flex;
     margin:5%;
-    align-items:center;
-    justify-content:space-around;
+    justify-content:space-evenly;
     flex-direction:row;
+}
+
+.small-container{
+    width:30%;
+    /* background-color: gray; */
+    /* text-align:center; */
+}
+
+#vertical{
+    flex-direction:column;
+}
+
+#interactiveBanner{
+    height:100%;
+    background-color:black;
 }
 
 /* text */
 .sectionTitle{
     font-family: 'Open Sans Condensed', sans-serif;
-    margin:0;
+    margin:3%;
     text-align:center;
+    font-size:3em;
 }
 
 .sectionDescription{
     text-align:center;
+    margin:0;
 }
 
 .subTitle{
     font-family: 'Open Sans Condensed', sans-serif;
-    text-align:center;
 }
 
 .peopleSubTitle{
@@ -46,6 +63,14 @@ a{
 .peopleName{
     font-size:1em;
     text-align:center;
+}
+
+#resourcesTitle{
+    margin:0;
+}
+
+#subscribeLink{
+    text-align: center;
 }
 
 /* navigation bar */
@@ -63,7 +88,7 @@ a{
 }
 
 /* FLEXBOX GRID */
-.peopleContainer{
+.gridContainer{
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -72,8 +97,6 @@ a{
 
 .row {
     display: flex;
-    /* flex-flow: row wrap; */
-    /* justify-content: flex-start; */
     justify-content: center;
     padding:0;
     margin:0;
@@ -84,17 +107,12 @@ a{
 
 .column {
     flex:1;
-    /* flex-grow:2; */
-    /* background-color:black;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-    position: relative;
-    display:flex;
-    flex-direction: column;
-    padding:3%;
-    height:14rem;
-    width:14rem; */
+    text-align:center;
+}
+
+#galleryColumn{
+    margin:0.5%;
+    /* background-color:gray; */
 }
 
 
